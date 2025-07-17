@@ -2,7 +2,7 @@
 	<footer class="footer container-fluid pl-30 pr-30">
 		<div class="row">
 			<div class="col-sm-12">
-				<p>2020 &copy; Createkuwait.com - E-Commerce System</p>
+				<p>2025 &copy; Createkuwait.com - EL3ABHA97 GAME</p>
 			</div>
 		</div>
 	</footer>
