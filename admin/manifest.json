@@ -1,0 +1,38 @@
+{
+    "name": "Classy Brand",
+    "short_name": "Classy Brand",
+    "lang": "en-US",
+    "start_url": "index.php",
+    "display": "standalone",
+    "background_color": "white",
+    "theme_color": "#2b2b2b",
+    "icons": [
+        {
+            "src": "logos/JnAw90M.png",
+            "sizes": "48x48",
+            "type": "image/webp",
+            "purpose": "maskable any"
+        },
+        {
+            "src": "logos/JnAw90M.png",
+            "sizes": "72x72",
+            "type": "image/webp",
+            "purpose": "maskable any"
+        },
+        {
+            "src": "logos/JnAw90M.png",
+            "sizes": "144x144",
+            "type": "image/webp",
+            "purpose": "maskable any"
+        },
+        {
+            "src": "logos/JnAw90M.png",
+            "sizes": "512x512",
+            "type": "image/webp",
+            "purpose": "maskable any"
+        },
+        {
+            "src": "logos/JnAw90M.png"
+        }
+    ]
+}
