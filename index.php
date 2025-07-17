@@ -6,6 +6,6 @@ require_once("admin/includes/functions.php");
 if( isset($_GET["v"]) && searchFile("views","blade{$_GET["v"]}.php") ){
 	require_once("views/".searchFile("views","blade{$_GET["v"]}.php"));
 }else{
-	require_once("views/".searchFile("views","blade{$_GET["v"]}.php"));
+	require_once("views/".searchFile("views","bladeHome.php"));
 }
 ?>
