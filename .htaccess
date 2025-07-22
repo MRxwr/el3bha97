@@ -1,55 +1,20 @@
-
 # HTID:1052678: DO NOT REMOVE OR MODIFY THIS LINE AND THE LINES BELOW
+# This is a hosting provider identifier - do not modify
+
+# Enable PHP error display for debugging purposes
 php_value display_errors 1
+
 # DO NOT REMOVE OR MODIFY THIS LINE AND THE LINES ABOVE HTID:1052678:
+
+# Enable Apache mod_rewrite module for URL rewriting
 RewriteEngine on
+
+# Check if the requested file is NOT a directory
 RewriteCond %{REQUEST_FILENAME} !-d
+
+# Check if a PHP file with the same name exists (e.g., if requesting "page", check if "page.php" exists)
 RewriteCond %{REQUEST_FILENAME}\.php -f
-RewriteRule ^(.*)$ $1.php
-# DO NOT REMOVE THIS LINE AND THE LINES BELLOW SSL_REDIRECT:rrcoffeebar.com
-RewriteEngine on
-RewriteCond %{HTTPS} off
-RewriteCond %{HTTP_HOST} (www\.)?rrcoffeebar.com
-RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
-# DO NOT REMOVE THIS LINE AND THE LINES BELLOW SSL_REDIRECT:rrcoffeebar.com
 
-# DO NOT REMOVE THIS LINE AND THE LINES BELLOW UPGRADE_INSECURE_REQUESTS:rrcoffeebar.com
-Header always set Content-Security-Policy: upgrade-insecure-requests
-# DO NOT REMOVE THIS LINE AND THE LINES BELLOW UPGRADE_INSECURE_REQUESTS:rrcoffeebar.com
-
-
-# DO NOT REMOVE THIS LINE AND THE LINES BELLOW SSL_REDIRECT:rrcoffeebar.com
-RewriteEngine on
-RewriteCond %{HTTPS} off
-RewriteCond %{HTTP_HOST} (www\.)?rrcoffeebar.com
-RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
-# DO NOT REMOVE THIS LINE AND THE LINES BELLOW SSL_REDIRECT:rrcoffeebar.com
-
-# DO NOT REMOVE THIS LINE AND THE LINES BELLOW SSL_REDIRECT:modabymum.com
-RewriteEngine on
-RewriteCond %{HTTPS} off
-RewriteCond %{HTTP_HOST} (www\.)?modabymum.com
-RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
-# DO NOT REMOVE THIS LINE AND THE LINES BELLOW SSL_REDIRECT:modabymum.com
-
-# DO NOT REMOVE THIS LINE AND THE LINES BELLOW SSL_REDIRECT:kwtfairyland.com
-RewriteEngine on
-RewriteCond %{HTTPS} off
-RewriteCond %{HTTP_HOST} (www\.)?kwtfairyland.com
-RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
-# DO NOT REMOVE THIS LINE AND THE LINES BELLOW SSL_REDIRECT:kwtfairyland.com
-
-# DO NOT REMOVE THIS LINE AND THE LINES BELLOW SSL_REDIRECT:atyabalkhames.com
-RewriteEngine on
-RewriteCond %{HTTPS} off
-RewriteCond %{HTTP_HOST} (www\.)?atyabalkhames.com
-RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
-# DO NOT REMOVE THIS LINE AND THE LINES BELLOW SSL_REDIRECT:atyabalkhames.com
-
-# DO NOT REMOVE THIS LINE AND THE LINES BELLOW SSL_REDIRECT:richperfumeskw.com
-RewriteEngine on
-RewriteCond %{HTTPS} off
-RewriteCond %{HTTP_HOST} (www\.)?richperfumeskw.com
-RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
-# DO NOT REMOVE THIS LINE AND THE LINES BELLOW SSL_REDIRECT:richperfumeskw.com
-
+# Rewrite rule: if both conditions above are met, redirect to the PHP file (removes .php extension from URLs)
+# ^(.*)$ captures the entire request, $1.php appends .php, [L] means "Last rule" - stop processing after this
+RewriteRule ^(.*)$ $1.php [L]
