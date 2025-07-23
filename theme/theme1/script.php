@@ -525,10 +525,15 @@
         const categories = Object.keys(categorizedQuestions);
         const maxCategories = Math.min(6, categories.length); // Limit to 6 categories max
         
-        // Create 6x4 grid = 24 cells
-        for (let col = 0; col < 6; col++) {
-            // Create 4 cells per column
-            for (let row = 0; row < 4; row++) {
+        // Create grid: 4 rows × 6 columns = 24 cells
+        // Layout for each column:
+        // Row 0: Question 1 (lowest points)
+        // Row 1: Category image + name  
+        // Row 2: Question 2 (medium points)
+        // Row 3: Question 3 (highest points)
+        
+        for (let row = 0; row < 4; row++) {
+            for (let col = 0; col < 6; col++) {
                 let cellContent = '';
                 
                 if (col < maxCategories) {
@@ -537,7 +542,7 @@
                     const categoryName = categoryQuestions[0].categoryName;
                     
                     if (row === 1) {
-                        // Row 1 (index 1) = Category cell
+                        // Row 1 = Category cell (middle row)
                         cellContent = `
                             <div class="question-cell category-cell" data-category-id="${categoryId}">
                                 <img src="img/logo.png" alt="${categoryName}" class="category-image" />
@@ -547,9 +552,9 @@
                     } else {
                         // Other rows = Question cells
                         let questionIndex;
-                        if (row === 0) questionIndex = 0;      // Row 0 = First question
-                        else if (row === 2) questionIndex = 1; // Row 2 = Second question  
-                        else if (row === 3) questionIndex = 2; // Row 3 = Third question
+                        if (row === 0) questionIndex = 0;      // Row 0 = First question (200 points)
+                        else if (row === 2) questionIndex = 1; // Row 2 = Second question (400 points)  
+                        else if (row === 3) questionIndex = 2; // Row 3 = Third question (600 points)
                         
                         if (questionIndex < categoryQuestions.length) {
                             const question = categoryQuestions[questionIndex];
