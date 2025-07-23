@@ -232,33 +232,35 @@ body, html {
 }
 
 .lifeline-icon.used {
-    background-color: rgba(255, 0, 0, 0.3);
-    color: rgba(255, 255, 255, 0.5);
-    cursor: not-allowed;
-    opacity: 0.5;
+    background-color: rgba(255, 0, 0, 0.7) !important;
+    color: rgba(255, 255, 255, 0.8) !important;
+    cursor: not-allowed !important;
+    opacity: 0.6 !important;
     position: relative;
+    border: 2px solid #ff0000 !important;
 }
 
 .lifeline-icon.used:hover {
-    transform: none;
-    background-color: rgba(255, 0, 0, 0.3);
+    transform: none !important;
+    background-color: rgba(255, 0, 0, 0.7) !important;
 }
 
 .lifeline-icon.used::after {
     content: '✗';
     position: absolute;
-    top: -2px;
-    right: -2px;
-    background-color: #ff4444;
+    top: -4px;
+    right: -4px;
+    background-color: #ff0000;
     color: white;
     border-radius: 50%;
-    width: 8px;
-    height: 8px;
-    font-size: 0.3rem;
+    width: 10px;
+    height: 10px;
+    font-size: 0.4rem;
     display: flex;
     align-items: center;
     justify-content: center;
     font-weight: bold;
+    border: 1px solid white;
 }
 
 /* Question Modal Styles */
@@ -688,4 +690,20 @@ function isLifelineAvailable(teamNumber, lifelineIndex) {
     }
     return false;
 }
+
+// Test function to mark lifelines - for debugging
+function testMarkLifelines() {
+    markCallFriendUsed(1);
+    setTimeout(() => markTwoAnswersUsed(2), 1000);
+    setTimeout(() => markDoublePointsUsed(1), 2000);
+}
+
+// Add test button for debugging (remove in production)
+document.addEventListener('DOMContentLoaded', function() {
+    console.log('Lifeline functions loaded. You can test with:');
+    console.log('markCallFriendUsed(1) - Mark team 1 call friend as used');
+    console.log('markTwoAnswersUsed(2) - Mark team 2 two answers as used');
+    console.log('markDoublePointsUsed(1) - Mark team 1 double points as used');
+    console.log('testMarkLifelines() - Test all lifelines');
+});
 </script>
