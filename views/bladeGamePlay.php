@@ -243,28 +243,324 @@ body, html {
     transform: none;
 }
 
-/* Question Modal Styles */
+/* Question Modal Styles - Full Screen */
 .question-modal {
     position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0,0,0,0.8);
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     display: flex;
-    justify-content: center;
-    align-items: center;
     z-index: 1000;
+    direction: rtl;
 }
 
 .question-display-container {
-    background: white;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+    box-sizing: border-box;
+    color: white;
+    overflow: hidden;
+}
+
+/* Question Header */
+.question-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 15px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    margin-bottom: 15px;
+    flex-shrink: 0;
+    min-height: 50px;
+}
+
+.question-category-badge {
+    background: linear-gradient(45deg, #4ECDC4, #44A08D);
+    color: white;
+    padding: 8px 16px;
     border-radius: 20px;
-    padding: 30px;
-    max-width: 90%;
-    max-height: 90%;
-    overflow-y: auto;
+    font-size: 0.9rem;
+    font-weight: bold;
+}
+
+.question-points {
+    background: linear-gradient(45deg, #FF6B6B, #ee5a52);
+    color: white;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+.double-points-indicator {
+    background: linear-gradient(45deg, #FFD700, #FFA500);
     color: #333;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    animation: pulse 2s infinite;
+}
+
+/* Main Content Area */
+.question-main-content {
+    display: flex;
+    gap: 20px;
+    flex: 1;
+    min-height: 0;
+}
+
+/* Left Sidebar - Lifelines */
+.question-sidebar {
+    width: 250px;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.lifelines-container {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    padding: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.lifelines-title {
+    color: white;
+    font-size: 1rem;
+    font-weight: bold;
+    margin-bottom: 12px;
+    text-align: center;
+}
+
+.lifelines-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.lifeline-btn {
+    background: rgba(255, 255, 255, 0.9);
+    color: #667eea;
+    border: none;
+    border-radius: 10px;
+    padding: 12px 15px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    justify-content: flex-start;
+}
+
+.lifeline-btn:hover:not(:disabled) {
+    background: white;
+    transform: translateY(-2px);
+}
+
+.lifeline-btn:disabled {
+    background: rgba(128, 128, 128, 0.5);
+    color: rgba(255, 255, 255, 0.6);
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+.lifeline-btn i {
+    font-size: 1rem;
+}
+
+/* Call Friend Timer */
+.call-friend-timer {
+    background: rgba(255, 107, 107, 0.9);
+    border-radius: 15px;
+    padding: 20px;
+    text-align: center;
+    color: white;
+    animation: pulse 2s infinite;
+}
+
+.timer-icon {
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.timer-text {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.timer-countdown {
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin: 15px 0;
+}
+
+.timer-bar {
+    width: 100%;
+    height: 6px;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.timer-progress {
+    height: 100%;
+    background: linear-gradient(90deg, #00f2fe 0%, #4facfe 100%);
+    border-radius: 3px;
+    transition: width 1s linear;
+}
+
+/* Center Content Area */
+.question-content-center {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0 20px;
+    min-height: 0;
+}
+
+.question-text-large {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    padding: 25px;
+    font-size: 1.4rem;
+    font-weight: bold;
+    text-align: center;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    min-height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.question-media-container {
+    max-width: 100%;
+    max-height: 300px;
+    margin-bottom: 20px;
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.question-media-container img {
+    max-width: 100%;
+    max-height: 300px;
+    object-fit: contain;
+    border-radius: 15px;
+}
+
+.answer-display {
+    background: rgba(76, 175, 80, 0.1);
+    border: 2px solid rgba(76, 175, 80, 0.3);
+    border-radius: 15px;
+    padding: 20px;
+    margin-top: 15px;
+}
+
+.answer-label {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #4CAF50;
+    margin-bottom: 10px;
+}
+
+.answer-text-large {
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-align: center;
+    line-height: 1.5;
+}
+
+/* Control Buttons */
+.question-controls {
+    flex-shrink: 0;
+    padding: 15px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.primary-controls,
+.team-scoring,
+.secondary-controls {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.quiz-btn {
+    background: linear-gradient(45deg, #667eea, #764ba2);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    padding: 12px 20px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    min-width: 140px;
+    justify-content: center;
+}
+
+.quiz-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.quiz-btn-show {
+    background: linear-gradient(45deg, #4CAF50, #45a049);
+}
+
+.quiz-btn-team1 {
+    background: linear-gradient(45deg, #2196F3, #1976D2);
+}
+
+.quiz-btn-team2 {
+    background: linear-gradient(45deg, #FF9800, #F57C00);
+}
+
+.quiz-btn-wrong {
+    background: linear-gradient(45deg, #f44336, #d32f2f);
+}
+
+.quiz-btn-back {
+    background: linear-gradient(45deg, #9E9E9E, #757575);
+}
+
+.team-scoring {
+    flex-wrap: wrap;
+}
+
+.scoring-title {
+    width: 100%;
+    text-align: center;
+    font-size: 1.1rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: white;
+}
+
+.team-buttons {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    flex-wrap: wrap;
 }
 
 /* Mobile Responsive */
@@ -330,6 +626,66 @@ body, html {
     .logo-text {
         font-size: 0.9rem;
     }
+    
+    /* Question Modal Mobile */
+    .question-display-container {
+        padding: 10px;
+    }
+    
+    .question-main-content {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .question-sidebar {
+        width: 100%;
+        order: 2;
+    }
+    
+    .question-content-center {
+        order: 1;
+        padding: 0 10px;
+    }
+    
+    .question-text-large {
+        font-size: 1.1rem;
+        padding: 20px;
+        min-height: 80px;
+    }
+    
+    .lifelines-container {
+        padding: 12px;
+    }
+    
+    .lifelines-buttons {
+        flex-direction: row;
+        gap: 6px;
+    }
+    
+    .lifeline-btn {
+        padding: 8px 10px;
+        font-size: 0.75rem;
+        flex: 1;
+    }
+    
+    .quiz-btn {
+        padding: 10px 15px;
+        font-size: 0.8rem;
+        min-width: 120px;
+    }
+    
+    .question-header {
+        padding: 8px 12px;
+        min-height: 40px;
+        flex-direction: column;
+        gap: 8px;
+    }
+    
+    .question-category-badge,
+    .question-points {
+        padding: 6px 12px;
+        font-size: 0.8rem;
+    }
 }
 
 @media (max-width: 480px) {
@@ -391,6 +747,47 @@ body, html {
         font-size: 0.4rem;
         gap: 1px;
     }
+    
+    /* Question Modal Small Mobile */
+    .question-display-container {
+        padding: 8px;
+    }
+    
+    .question-text-large {
+        font-size: 1rem;
+        padding: 15px;
+        min-height: 70px;
+    }
+    
+    .lifeline-btn {
+        padding: 6px 8px;
+        font-size: 0.7rem;
+    }
+    
+    .quiz-btn {
+        padding: 8px 12px;
+        font-size: 0.75rem;
+        min-width: 100px;
+    }
+    
+    .question-header {
+        padding: 6px 10px;
+        min-height: 35px;
+    }
+    
+    .question-category-badge,
+    .question-points {
+        padding: 4px 10px;
+        font-size: 0.75rem;
+    }
+    
+    .timer-countdown {
+        font-size: 2rem;
+    }
+    
+    .timer-icon {
+        font-size: 1.5rem;
+    }
 }
 
 /* iPhone specific optimizations */
@@ -428,6 +825,49 @@ body, html {
         width: 10px;
         height: 10px;
         font-size: 0.35rem;
+    }
+    
+    /* Question Modal iPhone */
+    .question-display-container {
+        padding: 6px;
+    }
+    
+    .question-text-large {
+        font-size: 0.9rem;
+        padding: 12px;
+        min-height: 60px;
+    }
+    
+    .lifeline-btn {
+        padding: 5px 6px;
+        font-size: 0.65rem;
+    }
+    
+    .quiz-btn {
+        padding: 6px 10px;
+        font-size: 0.7rem;
+        min-width: 90px;
+    }
+    
+    .question-controls {
+        padding: 10px 0;
+        gap: 10px;
+    }
+    
+    .timer-countdown {
+        font-size: 1.8rem;
+    }
+    
+    .timer-icon {
+        font-size: 1.3rem;
+    }
+    
+    .lifelines-container {
+        padding: 8px;
+    }
+    
+    .call-friend-timer {
+        padding: 15px;
     }
 }
 
