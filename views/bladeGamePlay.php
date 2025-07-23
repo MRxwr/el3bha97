@@ -1,55 +1,19 @@
 <style>
-/* Mobile-centric game design styles */
+/* Mobile responsive game design styles */
 body, html {
     height: 100vh;
     margin: 0;
     padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     font-family: 'Cairo', sans-serif;
     overflow: hidden;
-}
-
-.mobile-frame {
-    width: 414px;
-    height: 896px;
-    background-color: #1c1c1c;
-    border-radius: 44px;
-    padding: 15px;
-    box-shadow: 0 0 20px rgba(0,0,0,0.5);
-    position: relative;
-    box-sizing: border-box;
-}
-
-.mobile-frame::before {
-    content: '';
-    position: absolute;
-    top: 15px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 40%;
-    height: 25px;
-    background: #1c1c1c;
-    border-bottom-left-radius: 15px;
-    border-bottom-right-radius: 15px;
-    z-index: 2;
-}
-
-.inner-frame {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    height: 100%;
-    border-radius: 30px;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
+    direction: rtl;
 }
 
 .game-play-container {
     display: flex;
     flex-direction: column;
-    height: 100%;
+    height: 100vh;
     width: 100%;
     color: white;
     padding: 15px;
@@ -60,7 +24,7 @@ body, html {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 8px 15px;
+    padding: 10px 15px;
     background-color: rgba(255, 255, 255, 0.1);
     border-radius: 15px;
     margin-bottom: 15px;
@@ -84,12 +48,12 @@ body, html {
 .header-link {
     color: white;
     text-decoration: none;
-    font-size: 0.8rem;
+    font-size: 0.9rem;
     font-weight: 500;
 }
 
 .logo-text {
-    font-size: 1.2rem;
+    font-size: 1.3rem;
     font-weight: bold;
     text-align: center;
     line-height: 1.1;
@@ -109,7 +73,7 @@ body, html {
 }
 
 .game-title {
-    font-size: 1.5rem;
+    font-size: 1.8rem;
     font-weight: bold;
     text-align: center;
     margin-bottom: 5px;
@@ -118,9 +82,9 @@ body, html {
 .turn-indicator-top {
     background-color: rgba(255, 255, 255, 0.9);
     color: #667eea;
-    padding: 8px 20px;
-    border-radius: 20px;
-    font-size: 0.9rem;
+    padding: 10px 25px;
+    border-radius: 25px;
+    font-size: 1rem;
     font-weight: bold;
     text-align: center;
 }
@@ -128,50 +92,55 @@ body, html {
 .question-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 8px;
+    gap: 10px;
     width: 100%;
+    max-width: 1200px;
     flex-grow: 1;
-    padding: 10px 0;
+    padding: 15px 0;
 }
 
 .category-column {
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    gap: 10px;
 }
 
 .category-header {
     background: linear-gradient(45deg, #4ECDC4, #44A08D);
-    border-radius: 12px;
-    padding: 8px;
+    border-radius: 15px;
+    padding: 15px;
     text-align: center;
     color: white;
     font-weight: bold;
-    font-size: 0.8rem;
-    min-height: 60px;
+    font-size: 1rem;
+    min-height: 80px;
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
 }
 
 .point-value {
     background: linear-gradient(45deg, #FF6B6B, #ee5a52);
     color: white;
-    border-radius: 12px;
-    padding: 12px 8px;
+    border-radius: 15px;
+    padding: 20px 15px;
     text-align: center;
     font-weight: bold;
-    font-size: 0.9rem;
+    font-size: 1.1rem;
     cursor: pointer;
     transition: all 0.3s ease;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
     border: 2px solid rgba(255,255,255,0.2);
+    min-height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .point-value:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.3);
 }
 
 .point-value.disabled {
@@ -184,49 +153,49 @@ body, html {
 .game-play-footer {
     display: flex;
     justify-content: space-between;
-    gap: 10px;
-    padding: 10px 0;
+    gap: 15px;
+    padding: 15px 0;
     flex-shrink: 0;
 }
 
 .team-info-footer {
     background: rgba(255, 255, 255, 0.1);
-    border-radius: 15px;
-    padding: 12px;
+    border-radius: 20px;
+    padding: 15px;
     width: 48%;
     text-align: center;
     border: 1px solid rgba(255,255,255,0.2);
 }
 
 .team-name {
-    font-size: 0.9rem;
+    font-size: 1rem;
     font-weight: bold;
-    margin-bottom: 5px;
+    margin-bottom: 8px;
 }
 
 .team-score-footer {
-    font-size: 1.3rem;
+    font-size: 1.6rem;
     font-weight: bold;
-    margin-bottom: 8px;
+    margin-bottom: 10px;
     color: #FFD700;
 }
 
 .lifelines-footer span {
-    font-size: 0.7rem;
+    font-size: 0.8rem;
     opacity: 0.8;
     display: block;
-    margin-bottom: 5px;
+    margin-bottom: 8px;
 }
 
 .lifeline-icons {
     display: flex;
     justify-content: center;
-    gap: 6px;
+    gap: 8px;
 }
 
 .lifeline-icon {
-    width: 25px;
-    height: 25px;
+    width: 35px;
+    height: 35px;
     background-color: rgba(255, 255, 255, 0.8);
     color: #667eea;
     border-radius: 50%;
@@ -234,7 +203,7 @@ body, html {
     justify-content: center;
     align-items: center;
     cursor: pointer;
-    font-size: 0.7rem;
+    font-size: 0.9rem;
     transition: all 0.3s ease;
 }
 
@@ -264,27 +233,106 @@ body, html {
     max-width: 90%;
     max-height: 90%;
     overflow-y: auto;
+    color: #333;
 }
 
-/* Responsive adjustments */
-@media (max-height: 800px) {
-    .mobile-frame {
-        height: 90vh;
-        max-height: 750px;
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .game-play-container {
+        padding: 10px;
+    }
+    
+    .game-title {
+        font-size: 1.4rem;
+    }
+    
+    .turn-indicator-top {
+        padding: 8px 20px;
+        font-size: 0.9rem;
+    }
+    
+    .question-grid {
+        gap: 8px;
+        padding: 10px 0;
+    }
+    
+    .category-header {
+        padding: 10px;
+        font-size: 0.9rem;
+        min-height: 60px;
+    }
+    
+    .point-value {
+        padding: 15px 10px;
+        font-size: 1rem;
+        min-height: 50px;
+    }
+    
+    .team-info-footer {
+        padding: 12px;
+    }
+    
+    .team-score-footer {
+        font-size: 1.3rem;
+    }
+    
+    .lifeline-icon {
+        width: 30px;
+        height: 30px;
+        font-size: 0.8rem;
     }
 }
 
+@media (max-width: 480px) {
+    .game-play-container {
+        padding: 8px;
+    }
+    
+    .game-title {
+        font-size: 1.2rem;
+    }
+    
+    .question-grid {
+        gap: 6px;
+    }
+    
+    .category-header {
+        font-size: 0.8rem;
+        padding: 8px;
+        min-height: 50px;
+    }
+    
+    .point-value {
+        font-size: 0.9rem;
+        padding: 12px 8px;
+        min-height: 45px;
+    }
+    
+    .header-link {
+        font-size: 0.8rem;
+    }
+    
+    .logo-text {
+        font-size: 1.1rem;
+    }
+}
+
+/* Force portrait orientation */
 @media (orientation: landscape) and (max-width: 896px) {
     body {
         transform: rotate(90deg);
-        transform-origin: center;
+        transform-origin: left top;
+        width: 100vh;
+        height: 100vw;
+        overflow-x: hidden;
+        position: absolute;
+        top: 100%;
+        left: 0;
     }
 }
 </style>
 
-<div class="mobile-frame">
-    <div class="inner-frame">
-        <div class="game-play-container">
+<div class="game-play-container">
             <!-- Header -->
             <div class="game-play-header">
                 <div class="header-left">
