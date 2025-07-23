@@ -1,4 +1,214 @@
 <style>
+    /* New styles for the mobile-centric game design */
+    body, html {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #f0f0f0;
+        font-family: 'Cairo', sans-serif;
+        overflow: hidden; /* Prevents scrolling on the body */
+    }
+    
+    .mobile-frame {
+        width: 414px; /* iPhone 11 Pro Max width */
+        height: 896px; /* iPhone 11 Pro Max height */
+        background-color: #1c1c1c;
+        border-radius: 44px;
+        padding: 15px;
+        box-shadow: 0 0 20px rgba(0,0,0,0.5);
+        position: relative;
+        box-sizing: border-box;
+    }
+    
+    .mobile-frame::before {
+        content: '';
+        position: absolute;
+        top: 15px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 40%;
+        height: 25px;
+        background: #1c1c1c;
+        border-bottom-left-radius: 15px;
+        border-bottom-right-radius: 15px;
+        z-index: 2;
+    }
+    
+    .inner-frame {
+        background-color: #ff7e5f; /* Orange background */
+        height: 100%;
+        border-radius: 30px;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .game-play-container {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        width: 100%;
+        color: white;
+        padding: 15px;
+        box-sizing: border-box;
+    }
+    
+    .game-play-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 5px 10px;
+        background-color: #e66465;
+        border-radius: 15px;
+        margin-bottom: 10px;
+        flex-shrink: 0;
+    }
+    
+    .header-left, .header-center, .header-right {
+        display: flex;
+        align-items: center;
+    }
+    
+    .header-link {
+        color: white;
+        text-decoration: none;
+        font-size: 0.8rem;
+    }
+    
+    .logo-text {
+        font-size: 1.2rem;
+        font-weight: bold;
+        text-align: center;
+        line-height: 1;
+    }
+    
+    .game-board-container {
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+    
+    .game-title {
+        font-size: 1.5rem;
+        font-weight: bold;
+    }
+    
+    .turn-indicator-top {
+        background-color: white;
+        color: #e66465;
+        padding: 5px 20px;
+        border-radius: 20px;
+        font-size: 0.9rem;
+        font-weight: bold;
+    }
+    
+    .question-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+        width: 100%;
+        flex-grow: 1;
+    }
+    
+    .category-column {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        align-items: center;
+    }
+    
+    .category-header {
+        width: 100%;
+        height: 80px;
+        background-size: cover;
+        background-position: center;
+        border-radius: 15px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: white;
+        font-weight: bold;
+        text-align: center;
+        padding: 5px;
+        box-sizing: border-box;
+        font-size: 1rem;
+    }
+    
+    .point-value {
+        background-color: rgba(255, 255, 255, 0.8);
+        color: #e66465;
+        border-radius: 15px;
+        padding: 10px;
+        text-align: center;
+        font-weight: bold;
+        cursor: pointer;
+        transition: background-color 0.3s;
+        width: 80%;
+    }
+    
+    .point-value:hover {
+        background-color: white;
+    }
+    
+    .point-value.disabled {
+        background-color: rgba(0, 0, 0, 0.2);
+        color: rgba(255,255,255,0.5);
+        cursor: not-allowed;
+    }
+    
+    .game-play-footer {
+        display: flex;
+        justify-content: space-between;
+        padding: 10px 0;
+        flex-shrink: 0;
+    }
+    
+    .team-info-footer {
+        background-color: #e66465;
+        border-radius: 15px;
+        padding: 10px;
+        width: 48%;
+        text-align: center;
+    }
+    
+    .team-name {
+        font-size: 1rem;
+        font-weight: bold;
+    }
+    
+    .team-score-footer {
+        font-size: 1.5rem;
+        font-weight: bold;
+    }
+    
+    .lifelines-footer {
+        margin-top: 5px;
+    }
+    
+    .lifeline-icons {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        margin-top: 5px;
+    }
+    
+    .lifeline-icon {
+        width: 30px;
+        height: 30px;
+        background-color: rgba(255, 255, 255, 0.8);
+        color: #e66465;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+    }
+    
     /* Base Styles */
     body {
         font-family: 'Cairo', sans-serif;
@@ -1419,301 +1629,17 @@
         }
     }
 
-    /* Lifelines Styles */
-    .team-lifelines {
-        display: flex;
-        justify-content: center;
-        gap: 8px;
-        margin-top: 10px;
-        flex-wrap: wrap;
-    }
-
-    .lifeline-indicator {
-        width: 35px;
-        height: 35px;
-        border-radius: 50%;
-        background: linear-gradient(45deg, #74b9ff, #0984e3);
-        color: white;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 0.9rem;
-        cursor: pointer;
-        transition: all 0.3s ease;
-        box-shadow: 0 2px 8px rgba(116, 185, 255, 0.3);
-    }
-
-    .lifeline-indicator:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 4px 12px rgba(116, 185, 255, 0.4);
-    }
-
-    .lifeline-indicator.used {
-        background: linear-gradient(45deg, #ddd, #bbb);
-        color: #666;
-        cursor: not-allowed;
-        opacity: 0.6;
-    }
-
-    .lifeline-indicator.used:hover {
-        transform: none;
-        box-shadow: 0 2px 8px rgba(187, 187, 187, 0.3);
-    }
-
-    .lifelines-container {
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        border-radius: 15px;
-        padding: 20px;
-        text-align: center;
-        box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
-    }
-
-    .lifelines-title {
-        color: white;
-        font-size: 1.1rem;
-        font-weight: 600;
-        margin-bottom: 15px;
-        text-shadow: 0 1px 3px rgba(0,0,0,0.3);
-    }
-
-    .lifelines-buttons {
-        display: flex;
-        flex-direction: column;
-        gap: 12px;
-    }
-
-    .lifeline-btn {
-        background: linear-gradient(45deg, #ffffff, #f8f9ff);
-        color: #667eea;
-        border: 2px solid rgba(255,255,255,0.8);
-        border-radius: 12px;
-        padding: 15px 18px;
-        font-size: 0.95rem;
-        font-weight: 600;
-        cursor: pointer;
-        transition: all 0.3s ease;
-        box-shadow: 0 4px 15px rgba(255,255,255,0.2);
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        justify-content: flex-start;
-        width: 100%;
-    }
-
-    .lifeline-btn:hover {
-        transform: translateY(-2px);
-        background: linear-gradient(45deg, #f8f9ff, #ffffff);
-        box-shadow: 0 6px 20px rgba(255,255,255,0.3);
-        border-color: rgba(255,255,255,1);
-    }
-
-    .lifeline-btn:disabled {
-        background: linear-gradient(45deg, #e0e0e0, #d0d0d0);
-        color: #999;
-        cursor: not-allowed;
-        border-color: rgba(224,224,224,0.8);
-        opacity: 0.6;
-    }
-
-    .lifeline-btn:disabled:hover {
-        transform: none;
-        box-shadow: 0 4px 15px rgba(224,224,224,0.2);
-    }
-
-    .lifeline-btn i {
-        font-size: 1.1rem;
-    }
-
-    /* Call Friend Timer Styles */
-    .call-friend-timer {
-        background: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 100%);
-        border-radius: 20px;
-        padding: 30px;
-        margin: 20px 0;
-        text-align: center;
-        color: white;
-        box-shadow: 0 10px 30px rgba(238, 90, 36, 0.4);
-        animation: pulse-timer 2s infinite;
-    }
-
-    @keyframes pulse-timer {
-        0% { transform: scale(1); }
-        50% { transform: scale(1.02); }
-        100% { transform: scale(1); }
-    }
-
-    .timer-content {
-        position: relative;
-    }
-
-    .timer-icon {
-        font-size: 3rem;
-        margin-bottom: 15px;
-        color: #fff;
-        text-shadow: 0 2px 8px rgba(0,0,0,0.3);
-    }
-
-    .timer-text {
-        font-size: 1.3rem;
-        font-weight: 600;
-        margin-bottom: 15px;
-        text-shadow: 0 1px 3px rgba(0,0,0,0.3);
-    }
-
-    .timer-countdown {
-        font-size: 4rem;
-        font-weight: 800;
-        margin: 20px 0;
-        text-shadow: 0 3px 10px rgba(0,0,0,0.4);
-        color: #fff;
-    }
-
-    .timer-bar {
-        width: 100%;
-        height: 8px;
-        background: rgba(255,255,255,0.3);
-        border-radius: 4px;
-        overflow: hidden;
-        margin-top: 20px;
-    }
-
-    .timer-progress {
-        height: 100%;
-        background: linear-gradient(90deg, #00f2fe 0%, #4facfe 100%);
-        border-radius: 4px;
-        transition: width 1s linear;
-        box-shadow: 0 0 10px rgba(79, 172, 254, 0.5);
-    }
-
-    .double-points-indicator {
-        background: linear-gradient(45deg, #ff6b6b, #ee5a24);
-        color: white;
-        padding: 8px 16px;
-        border-radius: 25px;
-        font-size: 0.9rem;
-        font-weight: 600;
-        text-shadow: 0 1px 3px rgba(0,0,0,0.3);
-        box-shadow: 0 4px 15px rgba(238, 90, 36, 0.3);
-        display: flex;
-        align-items: center;
-        gap: 8px;
-        animation: glow-double 2s infinite;
-    }
-
-    @keyframes glow-double {
-        0%, 100% { box-shadow: 0 4px 15px rgba(238, 90, 36, 0.3); }
-        50% { box-shadow: 0 4px 25px rgba(238, 90, 36, 0.6); }
-    }
-
-    .double-points-indicator i {
-        font-size: 1.1rem;
-    }
-
-    /* Mobile Responsive for Board and Question Views */
-    @media (max-width: 768px) {
-        /* Force landscape orientation for mobile */
-        @media (orientation: portrait) {
-            .question-modal::before {
-                content: "يرجى قلب الجهاز للوضع الأفقي";
-                position: fixed;
-                top: 50%;
-                left: 50%;
-                transform: translate(-50%, -50%);
-                background: rgba(0,0,0,0.9);
-                color: white;
-                padding: 20px;
-                border-radius: 10px;
-                font-size: 1.2rem;
-                text-align: center;
-                z-index: 9999;
-            }
-            
-            .question-display-container {
-                display: none;
-            }
-        }
-        
-        /* Board styles for mobile landscape */
-        .question-board {
-            grid-template-columns: repeat(6, 1fr);
-            grid-template-rows: repeat(4, 1fr);
-            gap: 6px;
-            padding: 10px;
-            height: calc(100vh - 140px);
-            min-height: 350px;
-            max-height: 450px;
-        }
-
-        .question-cell {
-            font-size: 1.2rem;
-            border-width: 2px;
-        }
-
-        .category-image {
-            width: 40px;
-            height: 40px;
-        }
-
-        .category-title {
-            font-size: 0.7rem;
-        }
-
-        /* Question modal for mobile landscape */
-        .question-main-content {
-            grid-template-columns: 250px 1fr;
-            gap: 15px;
-            padding: 15px;
-        }
-
-        .question-text-large {
-            font-size: 1.6rem;
-            padding: 25px;
-        }
-
-        .lifeline-btn {
-            padding: 10px 12px;
-            font-size: 0.85rem;
-        }
-
-        .question-header {
-            padding: 15px 20px;
-        }
-
-        .question-category-badge,
-        .question-points {
-            font-size: 0.9rem;
-            padding: 6px 12px;
-        }
-    }
-
-    @media (max-width: 480px) {
-        .question-main-content {
-            grid-template-columns: 200px 1fr;
-            gap: 10px;
-            padding: 10px;
-        }
-
-        .question-text-large {
-            font-size: 1.4rem;
-            padding: 20px;
-        }
-
-        .lifeline-btn {
-            padding: 8px 10px;
-            font-size: 0.8rem;
-        }
-
-        .category-image {
-            width: 35px;
-            height: 35px;
-        }
-
-        .category-title {
-            font-size: 0.65rem;
-        }
-
-        .question-cell {
-            font-size: 1rem;
+    /* Lock to portrait on mobile */
+    @media (orientation: landscape) and (max-width: 896px) {
+        html {
+            transform: rotate(-90deg);
+            transform-origin: left top;
+            width: 100vh;
+            height: 100vw;
+            overflow-x: hidden;
+            position: absolute;
+            top: 100%;
+            left: 0;
         }
     }
 </style>
