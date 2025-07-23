@@ -821,23 +821,40 @@
         background: rgba(255, 255, 255, 0.1);
         border-radius: 12px;
         padding: 8px;
-        display: flex;
-        flex-direction: column;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr;
         gap: 4px;
         border: 2px solid rgba(255, 255, 255, 0.2);
     }
 
     .category-row {
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
-        gap: 4px;
-        align-items: center;
+        display: contents;
     }
 
     .category-spacer {
         background: transparent;
         border: none;
         height: 100%;
+    }
+
+    .category-spacer-tall {
+        background: transparent;
+        border: none;
+        height: 100%;
+        grid-row: span 2;
+    }
+
+    /* Category that spans multiple rows */
+    .category-tall {
+        grid-row: span 3;
+        grid-column: 2;
+    }
+
+    /* Position category in center spanning all 3 rows */
+    .category-mini.category-tall {
+        grid-row: 1 / 4;
+        grid-column: 2;
     }
 
     /* Mini question cells */

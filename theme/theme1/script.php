@@ -540,39 +540,31 @@
                     const categoryQuestions = categorizedQuestions[categoryId];
                     const categoryName = categoryQuestions[0].categoryName;
                     
-                    // Create category collection container
+                    // Create category collection container with CSS Grid
                     const categoryContainer = $(`
                         <div class="category-collection" data-category-id="${categoryId}">
-                            <div class="category-row">
-                                <button class="question-cell question-mini" data-question-id="${categoryQuestions[0] ? categoryQuestions[0].id : ''}" ${!categoryQuestions[0] ? 'disabled style="opacity:0.3"' : ''}>
-                                    ${categoryQuestions[0] ? categoryQuestions[0].points : ''}
-                                </button>
-                                <div class="question-cell category-cell category-mini">
-                                    <img src="img/logo.png" alt="${categoryName}" class="category-image-small" />
-                                    <div class="category-title-small">${categoryName}</div>
-                                </div>
-                                <button class="question-cell question-mini" data-question-id="${categoryQuestions[1] ? categoryQuestions[1].id : ''}" ${!categoryQuestions[1] ? 'disabled style="opacity:0.3"' : ''}>
-                                    ${categoryQuestions[1] ? categoryQuestions[1].points : ''}
-                                </button>
+                            <button class="question-cell question-mini" data-question-id="${categoryQuestions[0] ? categoryQuestions[0].id : ''}" ${!categoryQuestions[0] ? 'disabled style="opacity:0.3"' : ''}>
+                                ${categoryQuestions[0] ? categoryQuestions[0].points : ''}
+                            </button>
+                            <div class="question-cell category-cell category-mini category-tall">
+                                <img src="img/logo.png" alt="${categoryName}" class="category-image-small" />
+                                <div class="category-title-small">${categoryName}</div>
                             </div>
-                            <div class="category-row">
-                                <button class="question-cell question-mini" data-question-id="${categoryQuestions[2] ? categoryQuestions[2].id : ''}" ${!categoryQuestions[2] ? 'disabled style="opacity:0.3"' : ''}>
-                                    ${categoryQuestions[2] ? categoryQuestions[2].points : ''}
-                                </button>
-                                <div class="category-spacer"></div>
-                                <button class="question-cell question-mini" data-question-id="${categoryQuestions[3] ? categoryQuestions[3].id : ''}" ${!categoryQuestions[3] ? 'disabled style="opacity:0.3"' : ''}>
-                                    ${categoryQuestions[3] ? categoryQuestions[3].points : ''}
-                                </button>
-                            </div>
-                            <div class="category-row">
-                                <button class="question-cell question-mini" data-question-id="${categoryQuestions[4] ? categoryQuestions[4].id : ''}" ${!categoryQuestions[4] ? 'disabled style="opacity:0.3"' : ''}>
-                                    ${categoryQuestions[4] ? categoryQuestions[4].points : ''}
-                                </button>
-                                <div class="category-spacer"></div>
-                                <button class="question-cell question-mini" data-question-id="${categoryQuestions[5] ? categoryQuestions[5].id : ''}" ${!categoryQuestions[5] ? 'disabled style="opacity:0.3"' : ''}>
-                                    ${categoryQuestions[5] ? categoryQuestions[5].points : ''}
-                                </button>
-                            </div>
+                            <button class="question-cell question-mini" data-question-id="${categoryQuestions[1] ? categoryQuestions[1].id : ''}" ${!categoryQuestions[1] ? 'disabled style="opacity:0.3"' : ''}>
+                                ${categoryQuestions[1] ? categoryQuestions[1].points : ''}
+                            </button>
+                            <button class="question-cell question-mini" data-question-id="${categoryQuestions[2] ? categoryQuestions[2].id : ''}" ${!categoryQuestions[2] ? 'disabled style="opacity:0.3"' : ''}>
+                                ${categoryQuestions[2] ? categoryQuestions[2].points : ''}
+                            </button>
+                            <button class="question-cell question-mini" data-question-id="${categoryQuestions[3] ? categoryQuestions[3].id : ''}" ${!categoryQuestions[3] ? 'disabled style="opacity:0.3"' : ''}>
+                                ${categoryQuestions[3] ? categoryQuestions[3].points : ''}
+                            </button>
+                            <button class="question-cell question-mini" data-question-id="${categoryQuestions[4] ? categoryQuestions[4].id : ''}" ${!categoryQuestions[4] ? 'disabled style="opacity:0.3"' : ''}>
+                                ${categoryQuestions[4] ? categoryQuestions[4].points : ''}
+                            </button>
+                            <button class="question-cell question-mini" data-question-id="${categoryQuestions[5] ? categoryQuestions[5].id : ''}" ${!categoryQuestions[5] ? 'disabled style="opacity:0.3"' : ''}>
+                                ${categoryQuestions[5] ? categoryQuestions[5].points : ''}
+                            </button>
                         </div>
                     `);
                     
