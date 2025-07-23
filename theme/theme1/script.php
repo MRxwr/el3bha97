@@ -680,21 +680,21 @@
             console.log(`Double points active! Original points: ${points}`);
             points = points * 2;
             
-            // Add double points to the correct team
+            // Add double points to the correct team and subtract full double points from other team
             if (teamNumber === 1) {
                 team1Score += points;
-                // Subtract same amount from team 2
-                team2Score = Math.max(0, team2Score - (points / 2));
+                // Subtract full double points from team 2
+                team2Score = Math.max(0, team2Score - points);
                 $("#team1Points").text(team1Score);
                 $("#team2Points").text(team2Score);
-                console.log(`Team 1 got ${points} points, Team 2 lost ${points/2} points`);
+                console.log(`Team 1 got ${points} points, Team 2 lost ${points} points`);
             } else {
                 team2Score += points;
-                // Subtract same amount from team 1
-                team1Score = Math.max(0, team1Score - (points / 2));
+                // Subtract full double points from team 1
+                team1Score = Math.max(0, team1Score - points);
                 $("#team1Points").text(team1Score);
                 $("#team2Points").text(team2Score);
-                console.log(`Team 2 got ${points} points, Team 1 lost ${points/2} points`);
+                console.log(`Team 2 got ${points} points, Team 1 lost ${points} points`);
             }
             
             // Reset double points flag
