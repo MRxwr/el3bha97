@@ -194,6 +194,7 @@ if( isset($_POST["title"]) ){
 	$(document).on("click",".edit", function(){
 		var id = $(this).attr("id");
         var image = $("#image"+id).html();
+        console.log("#image"+id);
         console.log(image);
 		$("input[type=file]").prop("required",false);
 		$("input[name=title]").val($("#title"+id).html()).focus();
