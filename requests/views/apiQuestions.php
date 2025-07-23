@@ -1,24 +1,25 @@
 <?php
-// Enable error reporting for debugging
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
-
-// Include your database connection and functions
-include_once('admin/includes/config.php');
-include_once('admin/includes/functions.php');
-
-// Set content type to JSON
-header('Content-Type: application/json');
+/**
+ * Seen Jeem Game API - Questions Endpoint
+ * 
+ * Returns questions for selected categories
+ */
 
 try {
-    if (!isset($_POST['categories']) || !is_array($_POST['categories'])) {
-        throw new Exception('No categories provided');
+    // Check if categories are provided
+    $input = json_decode(file_get_contents('php://input'), true);
+    $categoryIds = $input['categories'] ?? $_POST['categories'] ?? null;
+    
+    if (!$categoryIds || !is_array($categoryIds)) {
+        throw new Exception('No categories provided. Please send categories as an array.');
     }
     
-    $categoryIds = $_POST['categories'];
     $questions = [];
     
     foreach ($categoryIds as $categoryId) {
+        // Validate category ID
+        if (!is_numeric($categoryId)) continue;
+        
         // Get category info
         $category = selectDB("qas_categories", "`id` = '{$categoryId}' AND `status` = '0'");
         if (!$category) continue;
@@ -38,10 +39,11 @@ try {
                     'categoryId' => $question['categoryId'],
                     'categoryName' => $categoryName,
                     'typeId' => $question['typeId'],
-                    'points' => $question['points'],
-                    'image' => $question['image'],
-                    'video' => $question['video'],
-                    'audio' => $question['audio']
+                    'points' => intval($question['points']),
+                    'image' => $question['image'] ?: null,
+                    'video' => $question['video'] ?: null,
+                    'audio' => $question['audio'] ?: null,
+                    'date' => $question['date']
                 ];
             }
         }
@@ -50,14 +52,22 @@ try {
     // Shuffle all questions for random order
     shuffle($questions);
     
-    echo json_encode($questions);
+    // Return success response
+    echo json_encode([
+        'status' => 'success',
+        'data' => $questions,
+        'count' => count($questions),
+        'categories_requested' => count($categoryIds),
+        'questions_per_category' => 6,
+        'timestamp' => date('Y-m-d H:i:s')
+    ]);
     
 } catch (Exception $e) {
+    // Return error response
     echo json_encode([
-        'error' => true,
+        'status' => 'error',
         'message' => $e->getMessage(),
-        'file' => $e->getFile(),
-        'line' => $e->getLine()
+        'timestamp' => date('Y-m-d H:i:s')
     ]);
 }
 ?>
