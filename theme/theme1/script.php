@@ -407,12 +407,18 @@
     }
 
     function loadGameQuestions() {
+        console.log('Loading game questions...');
+        console.log('Game data categories:', gameData.categories);
+        
         if (!gameData.categories || gameData.categories.length === 0) {
             alert("لم يتم اختيار فئات للعبة.");
             return;
         }
 
         loadQuestions(gameData.categories, function(success) {
+            console.log('LoadQuestions callback - success:', success);
+            console.log('Questions loaded:', questions);
+            
             if (success) {
                 $("#totalQuestions").text(questions.length);
                 
@@ -427,6 +433,9 @@
                 // Update team names in modal
                 $("#team1CorrectName").text(gameData.team1.name);
                 $("#team2CorrectName").text(gameData.team2.name);
+            } else {
+                console.error('Failed to load questions');
+                alert('فشل في تحميل الأسئلة');
             }
         });
     }
@@ -436,22 +445,36 @@
     let answeredQuestions = new Set();
 
     function createQuestionBoard() {
+        console.log('Creating question board...');
+        console.log('Questions array:', questions);
+        
         const board = $("#questionBoard");
         board.empty();
+        
+        if (!questions || questions.length === 0) {
+            console.error('No questions available for board creation');
+            board.html('<p class="text-center">لا توجد أسئلة متاحة</p>');
+            return;
+        }
         
         // Group questions by category
         const categorizedQuestions = {};
         questions.forEach(question => {
+            console.log('Processing question:', question);
             if (!categorizedQuestions[question.categoryId]) {
                 categorizedQuestions[question.categoryId] = [];
             }
             categorizedQuestions[question.categoryId].push(question);
         });
 
+        console.log('Categorized questions:', categorizedQuestions);
+
         // Create board structure
         for (let categoryId in categorizedQuestions) {
             const categoryQuestions = categorizedQuestions[categoryId];
             const categoryName = categoryQuestions[0].categoryName;
+            
+            console.log(`Creating column for category: ${categoryName} with ${categoryQuestions.length} questions`);
             
             // Create column for this category
             const column = $(`

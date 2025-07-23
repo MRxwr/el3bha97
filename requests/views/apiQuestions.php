@@ -36,7 +36,7 @@ try {
         
         // Get 6 random questions from this category with different point values
         $categoryQuestions = selectDB("qas_questions", 
-            "`categoryId` = '{$categoryId}' AND `status` = '0' AND `hidden` = '1' ORDER BY RAND() LIMIT 6");
+            "`categoryId` = '{$categoryId}' AND `status` = '0' AND `hidden` = '0' ORDER BY RAND() LIMIT 6");
         
         $questionCount = $categoryQuestions ? count($categoryQuestions) : 0;
         $debug_info[] = "Found $questionCount questions for category $categoryName";
