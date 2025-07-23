@@ -243,7 +243,7 @@ body, html {
     transform: none;
 }
 
-/* Question Modal Styles - TV Show Layout */
+/* Question Modal Styles - Full Screen */
 .question-modal {
     position: fixed;
     top: 0;
@@ -267,58 +267,59 @@ body, html {
     overflow: hidden;
 }
 
-/* Question Header - Compact */
+/* Question Header */
 .question-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 5px 10px;
+    padding: 10px 15px;
     background: rgba(255, 255, 255, 0.1);
-    border-radius: 8px;
+    border-radius: 15px;
     margin-bottom: 15px;
     flex-shrink: 0;
-    min-height: 35px;
+    min-height: 50px;
 }
 
 .question-category-badge {
     background: linear-gradient(45deg, #4ECDC4, #44A08D);
     color: white;
-    padding: 4px 10px;
-    border-radius: 12px;
-    font-size: 0.7rem;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 0.9rem;
     font-weight: bold;
 }
 
 .question-points {
     background: linear-gradient(45deg, #FF6B6B, #ee5a52);
     color: white;
-    padding: 4px 10px;
-    border-radius: 12px;
-    font-size: 0.7rem;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 1rem;
     font-weight: bold;
 }
 
 .double-points-indicator {
     background: linear-gradient(45deg, #FFD700, #FFA500);
     color: #333;
-    padding: 4px 10px;
-    border-radius: 12px;
-    font-size: 0.65rem;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 0.9rem;
     font-weight: bold;
     animation: pulse 2s infinite;
 }
 
-/* Main Content Area - TV Layout */
+/* Main Content Area */
 .question-main-content {
     display: flex;
     gap: 15px;
     flex: 1;
     min-height: 0;
+    align-items: stretch;
 }
 
-/* Left Sidebar - Compact Lifelines */
+/* Left Sidebar - Lifelines */
 .question-sidebar {
-    width: 140px;
+    width: 200px;
     flex-shrink: 0;
     display: flex;
     flex-direction: column;
@@ -327,38 +328,38 @@ body, html {
 
 .lifelines-container {
     background: rgba(255, 255, 255, 0.1);
-    border-radius: 8px;
-    padding: 8px;
+    border-radius: 12px;
+    padding: 12px;
     border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .lifelines-title {
     color: white;
-    font-size: 0.65rem;
+    font-size: 0.9rem;
     font-weight: bold;
-    margin-bottom: 6px;
+    margin-bottom: 8px;
     text-align: center;
 }
 
 .lifelines-buttons {
     display: flex;
     flex-direction: column;
-    gap: 4px;
+    gap: 6px;
 }
 
 .lifeline-btn {
     background: rgba(255, 255, 255, 0.9);
     color: #667eea;
     border: none;
-    border-radius: 5px;
-    padding: 4px 6px;
-    font-size: 0.55rem;
+    border-radius: 8px;
+    padding: 8px 10px;
+    font-size: 0.75rem;
     font-weight: 600;
     cursor: pointer;
     transition: all 0.3s ease;
     display: flex;
     align-items: center;
-    gap: 3px;
+    gap: 6px;
     justify-content: flex-start;
 }
 
@@ -375,39 +376,39 @@ body, html {
 }
 
 .lifeline-btn i {
-    font-size: 0.6rem;
+    font-size: 0.9rem;
 }
 
-/* Call Friend Timer - Compact */
+/* Call Friend Timer */
 .call-friend-timer {
     background: rgba(255, 107, 107, 0.9);
-    border-radius: 8px;
-    padding: 8px;
+    border-radius: 12px;
+    padding: 15px;
     text-align: center;
     color: white;
     animation: pulse 2s infinite;
 }
 
 .timer-icon {
-    font-size: 1rem;
-    margin-bottom: 4px;
+    font-size: 1.5rem;
+    margin-bottom: 8px;
 }
 
 .timer-text {
-    font-size: 0.55rem;
+    font-size: 0.8rem;
     font-weight: 600;
-    margin-bottom: 4px;
+    margin-bottom: 8px;
 }
 
 .timer-countdown {
-    font-size: 1.2rem;
+    font-size: 2rem;
     font-weight: 800;
-    margin: 6px 0;
+    margin: 10px 0;
 }
 
 .timer-bar {
     width: 100%;
-    height: 3px;
+    height: 4px;
     background: rgba(255, 255, 255, 0.3);
     border-radius: 2px;
     overflow: hidden;
@@ -420,43 +421,41 @@ body, html {
     transition: width 1s linear;
 }
 
-/* Center Content Area - TV Style */
+/* Center Content Area */
 .question-content-center {
     flex: 1;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     padding: 0 15px;
     min-height: 0;
+    overflow-y: auto;
 }
 
 .question-text-large {
-    background: rgba(255, 255, 255, 0.95);
-    color: #333;
+    background: rgba(255, 255, 255, 0.1);
     border-radius: 12px;
-    padding: 18px;
-    font-size: 1rem;
+    padding: 20px;
+    font-size: 1.1rem;
     font-weight: bold;
     text-align: center;
     line-height: 1.5;
     margin-bottom: 15px;
-    border: 2px solid rgba(255, 255, 255, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.2);
     width: 100%;
     max-width: 600px;
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
 }
 
 .question-media-container {
     width: 100%;
-    max-width: 400px;
+    max-width: 500px;
     margin-bottom: 15px;
     border-radius: 12px;
     overflow: hidden;
     display: flex;
     justify-content: center;
     align-items: center;
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
 }
 
 .question-media-container img {
@@ -466,27 +465,24 @@ body, html {
     object-fit: contain;
     border-radius: 12px;
     background: white;
-    padding: 8px;
+    padding: 5px;
 }
 
 .answer-display {
-    background: rgba(76, 175, 80, 0.95);
-    color: white;
-    border: 2px solid rgba(76, 175, 80, 0.8);
+    background: rgba(76, 175, 80, 0.1);
+    border: 2px solid rgba(76, 175, 80, 0.3);
     border-radius: 12px;
     padding: 15px;
-    margin-top: 12px;
+    margin-top: 10px;
     width: 100%;
     max-width: 600px;
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
 }
 
 .answer-label {
-    font-size: 0.8rem;
+    font-size: 0.9rem;
     font-weight: bold;
-    color: white;
+    color: #4CAF50;
     margin-bottom: 8px;
-    text-align: center;
 }
 
 .answer-text-large {
@@ -496,13 +492,13 @@ body, html {
     line-height: 1.4;
 }
 
-/* Control Buttons - TV Style */
+/* Control Buttons */
 .question-controls {
     flex-shrink: 0;
     padding: 10px 0;
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    gap: 10px;
 }
 
 .primary-controls,
@@ -510,30 +506,29 @@ body, html {
 .secondary-controls {
     display: flex;
     justify-content: center;
-    gap: 8px;
+    gap: 10px;
 }
 
 .quiz-btn {
     background: linear-gradient(45deg, #667eea, #764ba2);
     color: white;
     border: none;
-    border-radius: 6px;
-    padding: 8px 12px;
-    font-size: 0.65rem;
+    border-radius: 10px;
+    padding: 10px 16px;
+    font-size: 0.8rem;
     font-weight: bold;
     cursor: pointer;
     transition: all 0.3s ease;
     display: flex;
     align-items: center;
-    gap: 4px;
-    min-width: 90px;
+    gap: 6px;
+    min-width: 120px;
     justify-content: center;
-    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.2);
 }
 
 .quiz-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+    transform: translateY(-1px);
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
 }
 
 .quiz-btn-show {
@@ -563,7 +558,7 @@ body, html {
 .scoring-title {
     width: 100%;
     text-align: center;
-    font-size: 0.85rem;
+    font-size: 0.9rem;
     font-weight: bold;
     margin-bottom: 8px;
     color: white;
@@ -571,7 +566,7 @@ body, html {
 
 .team-buttons {
     display: flex;
-    gap: 10px;
+    gap: 8px;
     justify-content: center;
     flex-wrap: wrap;
 }
@@ -640,14 +635,14 @@ body, html {
         font-size: 0.9rem;
     }
     
-    /* Question Modal Mobile - TV Layout */
+    /* Question Modal Mobile */
     .question-display-container {
-        padding: 15px;
+        padding: 8px;
     }
     
     .question-main-content {
         flex-direction: column;
-        gap: 15px;
+        gap: 10px;
     }
     
     .question-sidebar {
@@ -657,49 +652,50 @@ body, html {
     
     .question-content-center {
         order: 1;
-        padding: 0 10px;
+        padding: 0 5px;
     }
     
     .question-text-large {
-        font-size: 1rem;
-        padding: 20px;
+        font-size: 0.95rem;
+        padding: 15px;
     }
     
     .lifelines-container {
-        padding: 8px;
+        padding: 10px;
     }
     
     .lifelines-buttons {
         flex-direction: row;
-        gap: 4px;
+        gap: 5px;
     }
     
     .lifeline-btn {
-        padding: 5px 6px;
-        font-size: 0.6rem;
+        padding: 6px 8px;
+        font-size: 0.7rem;
         flex: 1;
     }
     
     .quiz-btn {
         padding: 8px 12px;
-        font-size: 0.7rem;
+        font-size: 0.75rem;
         min-width: 100px;
     }
     
     .question-header {
-        padding: 6px 12px;
+        padding: 6px 10px;
         min-height: 35px;
+        flex-direction: row;
+        gap: 10px;
     }
     
     .question-category-badge,
     .question-points {
-        padding: 4px 10px;
-        font-size: 0.7rem;
+        padding: 5px 10px;
+        font-size: 0.75rem;
     }
     
     .question-media-container img {
         max-height: 200px;
-        padding: 8px;
     }
 }
 
@@ -763,49 +759,48 @@ body, html {
         gap: 1px;
     }
     
-    /* Question Modal Small Mobile - TV Layout */
+    /* Question Modal Small Mobile */
     .question-display-container {
-        padding: 12px;
+        padding: 6px;
     }
     
     .question-text-large {
-        font-size: 0.9rem;
-        padding: 15px;
+        font-size: 0.85rem;
+        padding: 12px;
     }
     
     .lifeline-btn {
-        padding: 4px 5px;
-        font-size: 0.55rem;
+        padding: 5px 6px;
+        font-size: 0.65rem;
     }
     
     .quiz-btn {
         padding: 6px 10px;
-        font-size: 0.65rem;
-        min-width: 85px;
+        font-size: 0.7rem;
+        min-width: 90px;
     }
     
     .question-header {
-        padding: 4px 8px;
+        padding: 5px 8px;
         min-height: 30px;
     }
     
     .question-category-badge,
     .question-points {
-        padding: 3px 8px;
-        font-size: 0.65rem;
+        padding: 4px 8px;
+        font-size: 0.7rem;
     }
     
     .timer-countdown {
-        font-size: 1.2rem;
+        font-size: 1.5rem;
     }
     
     .timer-icon {
-        font-size: 1rem;
+        font-size: 1.2rem;
     }
     
     .question-media-container img {
         max-height: 150px;
-        padding: 6px;
     }
 }
 
@@ -846,38 +841,38 @@ body, html {
         font-size: 0.35rem;
     }
     
-    /* Question Modal iPhone - TV Layout */
+    /* Question Modal iPhone */
     .question-display-container {
-        padding: 10px;
+        padding: 5px;
     }
     
     .question-text-large {
         font-size: 0.8rem;
-        padding: 12px;
+        padding: 10px;
     }
     
     .lifeline-btn {
-        padding: 3px 4px;
-        font-size: 0.5rem;
+        padding: 4px 5px;
+        font-size: 0.6rem;
     }
     
     .quiz-btn {
         padding: 5px 8px;
-        font-size: 0.6rem;
-        min-width: 75px;
+        font-size: 0.65rem;
+        min-width: 80px;
     }
     
     .question-controls {
-        padding: 10px 0;
+        padding: 8px 0;
         gap: 8px;
     }
     
     .timer-countdown {
-        font-size: 1rem;
+        font-size: 1.3rem;
     }
     
     .timer-icon {
-        font-size: 0.9rem;
+        font-size: 1rem;
     }
     
     .lifelines-container {
@@ -885,16 +880,11 @@ body, html {
     }
     
     .call-friend-timer {
-        padding: 8px;
+        padding: 10px;
     }
     
     .question-media-container img {
         max-height: 120px;
-        padding: 4px;
-    }
-    
-    .question-header {
-        margin-bottom: 15px;
     }
 }
 
