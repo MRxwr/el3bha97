@@ -317,6 +317,13 @@ if( isset($_POST["question"]) ){
 		// Remove required attributes for file inputs during edit
 		$("input[type=file]").prop("required",false);
 		
+		// Clear all previous media previews first
+		$("#mediaPreview").hide();
+		$("#imagePreview, #videoPreview, #audioPreview").hide();
+		$("#previewImg").attr("src","");
+		$("#videoSource").attr("src","");
+		$("#audioSource").attr("src","");
+		
 		// Populate form fields
 		$("textarea[name=question]").val($("#questionFull"+id).html()).focus();
 		$("textarea[name=answer]").val($("#answerFull"+id).html());
@@ -327,7 +334,7 @@ if( isset($_POST["question"]) ){
 		$("input[name=update]").val($(this).attr("id"));
 		$("input[type=submit]").val("<?php echo direction("Submit","أرسل") ?>");
 		
-		// Show media previews if files exist
+		// Show media previews if files exist for current question
 		if(image) {
 			$("#previewImg").attr("src","../logos/qas/questions/"+image);
 			$("#imagePreview").show();
