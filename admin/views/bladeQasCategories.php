@@ -171,7 +171,7 @@ if( isset($_POST["title"]) ){
 			<a href="<?php echo "?v={$_GET["v"]}&delId={$categories[$i]["id"]}" ?>" data-toggle="tooltip" data-original-title="<?php echo direction("Delete","حذف") ?>"><i class="fa fa-close text-danger"></i>
 			</a>
 			<div style="display:none"><label id="hidden<?php echo $categories[$i]["id"]?>"><?php echo $categories[$i]["hidden"] ?></label></div>
-			<div style="display:none"><label id="image<?php echo $categories[$i]["id"]?>"><?php echo $categories[$i]["image"] ?></label></div>
+			<div style="display:none"><label id="imageData<?php echo $categories[$i]["id"]?>"><?php echo $categories[$i]["image"] ?></label></div>
 			
 			</td>
 			</tr>
@@ -193,8 +193,8 @@ if( isset($_POST["title"]) ){
 <script>
 	$(document).on("click",".edit", function(){
 		var id = $(this).attr("id");
-        var image = $("#image"+id).html();
-        console.log("#image"+id);
+        var image = $("#imageData"+id).html();
+        console.log("#imageData"+id);
         console.log(image);
 		$("input[type=file]").prop("required",false);
 		$("input[name=title]").val($("#title"+id).html()).focus();
