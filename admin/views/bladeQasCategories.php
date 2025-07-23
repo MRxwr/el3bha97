@@ -143,7 +143,7 @@ if( isset($_POST["title"]) ){
 		if( $categories = selectDB("qas_categories","`status` = '0' ORDER BY `rank` ASC") ){
 			for( $i = 0; $i < sizeof($categories); $i++ ){
 				$counter = $i + 1;
-			if ( $categories[$i]["hidden"] == 2 ){
+			if ( $categories[$i]["hidden"] == 1 ){
 				$icon = "fa fa-eye";
 				$link = "?v={$_GET["v"]}&show={$categories[$i]["id"]}";
 				$hide = direction("Show","إظهار");
