@@ -69,7 +69,7 @@ if( isset($_POST["title"]) ){
 			</div>
 			
 			<div class="col-md-6">
-			<label><?php echo direction("Hide Category","أخفي القسم") ?></label>
+			<label><?php echo direction("Hide Type","أخفي النوع") ?></label>
 			<select name="hidden" class="form-control">
 				<option value="0">No</option>
 				<option value="1">Yes</option>
