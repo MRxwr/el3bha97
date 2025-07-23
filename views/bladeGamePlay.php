@@ -231,6 +231,18 @@ body, html {
     transform: scale(1.1);
 }
 
+.lifeline-icon.used {
+    background-color: rgba(128, 128, 128, 0.5);
+    color: rgba(255, 255, 255, 0.4);
+    cursor: not-allowed;
+    opacity: 0.5;
+}
+
+.lifeline-icon.used:hover {
+    background-color: rgba(128, 128, 128, 0.5);
+    transform: none;
+}
+
 /* Question Modal Styles */
 .question-modal {
     position: fixed;
@@ -462,18 +474,18 @@ body, html {
                     <div class="team-name" id="team1Name">الفريق الأول</div>
                     <div class="team-score-footer" id="team1Points">1000</div>
                     <div class="lifeline-icons" id="team1Lifelines">
-                        <div class="lifeline-icon" title="اتصل بصديق"><i class="fas fa-phone"></i></div>
-                        <div class="lifeline-icon" title="إجابتان فقط"><i class="fas fa-users"></i></div>
-                        <div class="lifeline-icon" title="ضعف النقاط">x2</div>
+                        <div class="lifeline-icon" id="team1CallFriend" title="اتصل بصديق"><i class="fas fa-phone"></i></div>
+                        <div class="lifeline-icon" id="team1TwoAnswers" title="إجابتان فقط"><i class="fas fa-users"></i></div>
+                        <div class="lifeline-icon" id="team1DoublePoints" title="ضعف النقاط">x2</div>
                     </div>
                 </div>
                 <div class="team-info-footer team-2">
                     <div class="team-name" id="team2Name">الفريق الثاني</div>
                     <div class="team-score-footer" id="team2Points">1000</div>
                     <div class="lifeline-icons" id="team2Lifelines">
-                        <div class="lifeline-icon" title="اتصل بصديق"><i class="fas fa-phone"></i></div>
-                        <div class="lifeline-icon" title="إجابتان فقط"><i class="fas fa-users"></i></div>
-                        <div class="lifeline-icon" title="ضعف النقاط">x2</div>
+                        <div class="lifeline-icon" id="team2CallFriend" title="اتصل بصديق"><i class="fas fa-phone"></i></div>
+                        <div class="lifeline-icon" id="team2TwoAnswers" title="إجابتان فقط"><i class="fas fa-users"></i></div>
+                        <div class="lifeline-icon" id="team2DoublePoints" title="ضعف النقاط">x2</div>
                     </div>
                 </div>
             </div>
