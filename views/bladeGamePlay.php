@@ -349,7 +349,7 @@ body, html {
             <!-- Game Board -->
             <div class="game-board-container">
                 <div class="game-title">شباب الدوانية</div>
-                <div class="turn-indicator-top">دور فريق الدويسان</div>
+                <div class="turn-indicator-top">دور <span id="currentTeamName">الفريق الأول</span></div>
                 <div class="question-grid" id="questionBoard">
                     <!-- Board will be populated dynamically -->
                 </div>
