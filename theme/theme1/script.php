@@ -496,11 +496,8 @@
     function createQuestionBoard() {
         console.log('=== CREATING QUESTION BOARD ===');
         console.log('Questions array:', questions);
-        console.log('Questions length:', questions.length);
         
         const board = $("#questionBoard");
-        console.log('Board element found:', board.length > 0);
-        
         board.empty();
         
         if (!questions || questions.length === 0) {
@@ -511,132 +508,82 @@
         
         // Group questions by category
         const categorizedQuestions = {};
-        questions.forEach((question, index) => {
-            console.log(`Processing question ${index}:`, question);
-            
+        questions.forEach((question) => {
             if (!categorizedQuestions[question.categoryId]) {
                 categorizedQuestions[question.categoryId] = [];
             }
             categorizedQuestions[question.categoryId].push(question);
         });
 
+        // Sort questions within each category by points
+        Object.keys(categorizedQuestions).forEach(categoryId => {
+            categorizedQuestions[categoryId].sort((a, b) => a.points - b.points);
+        });
+
         console.log('Categorized questions:', categorizedQuestions);
         
-        // Create 6x4 grid (24 cells total)
-        // Grid positions for categories: [5, 8, 11, 14, 17, 20] (middle row, 2nd row from bottom)
-        const categoryPositions = [5, 8, 11, 14, 17, 20];
         const categories = Object.keys(categorizedQuestions);
+        const maxCategories = Math.min(6, categories.length); // Limit to 6 categories max
         
-        // Create all 24 grid cells
-        for (let i = 0; i < 24; i++) {
-            const row = Math.floor(i / 6);
-            const col = i % 6;
-            
-            // Check if this position should contain a category
-            const categoryIndex = categoryPositions.indexOf(i);
-            
-            if (categoryIndex !== -1 && categoryIndex < categories.length) {
-                // This is a category position
-                const categoryId = categories[categoryIndex];
-                const categoryQuestions = categorizedQuestions[categoryId];
-                const categoryName = categoryQuestions[0].categoryName;
+        // Create 6x4 grid = 24 cells
+        for (let col = 0; col < 6; col++) {
+            // Create 4 cells per column
+            for (let row = 0; row < 4; row++) {
+                let cellContent = '';
                 
-                // Create category cell with image
-                const categoryCell = $(`
-                    <div class="question-cell category-cell" data-category-id="${categoryId}">
-                        <img src="img/logo.png" alt="${categoryName}" class="category-image" />
-                        <div class="category-title">${categoryName}</div>
-                    </div>
-                `);
-                
-                board.append(categoryCell);
-                console.log(`Added category cell for: ${categoryName}`);
-                
-            } else {
-                // This is a question position - find the appropriate question
-                const questionIndex = getQuestionIndexForPosition(i, categoryPositions, categorizedQuestions);
-                
-                if (questionIndex !== null) {
-                    const question = questionIndex.question;
+                if (col < maxCategories) {
+                    const categoryId = categories[col];
+                    const categoryQuestions = categorizedQuestions[categoryId];
+                    const categoryName = categoryQuestions[0].categoryName;
                     
-                    const questionCell = $(`
-                        <button class="question-cell" data-question-id="${question.id}">
-                            ${question.points}
-                        </button>
-                    `);
-                    
-                    questionCell.click(function() {
-                        console.log(`Question ${question.id} clicked`);
-                        selectQuestion(question.id);
-                    });
-                    
-                    board.append(questionCell);
-                    questionBoard[question.id] = question;
-                    
-                    console.log(`Added question cell: ${question.points} points`);
+                    if (row === 1) {
+                        // Row 1 (index 1) = Category cell
+                        cellContent = `
+                            <div class="question-cell category-cell" data-category-id="${categoryId}">
+                                <img src="img/logo.png" alt="${categoryName}" class="category-image" />
+                                <div class="category-title">${categoryName}</div>
+                            </div>
+                        `;
+                    } else {
+                        // Other rows = Question cells
+                        let questionIndex;
+                        if (row === 0) questionIndex = 0;      // Row 0 = First question
+                        else if (row === 2) questionIndex = 1; // Row 2 = Second question  
+                        else if (row === 3) questionIndex = 2; // Row 3 = Third question
+                        
+                        if (questionIndex < categoryQuestions.length) {
+                            const question = categoryQuestions[questionIndex];
+                            cellContent = `
+                                <button class="question-cell" data-question-id="${question.id}">
+                                    ${question.points}
+                                </button>
+                            `;
+                            
+                            // Store question reference
+                            questionBoard[question.id] = question;
+                        } else {
+                            // Empty cell if no question available
+                            cellContent = '<div class="question-cell" style="background: transparent; border: none; cursor: default;"></div>';
+                        }
+                    }
                 } else {
-                    // Empty cell
-                    const emptyCell = $('<div class="question-cell" style="background: transparent; border: none;"></div>');
-                    board.append(emptyCell);
+                    // Empty column if no more categories
+                    cellContent = '<div class="question-cell" style="background: transparent; border: none; cursor: default;"></div>';
                 }
+                
+                board.append(cellContent);
             }
         }
+        
+        // Add click handlers for question cells
+        board.find('[data-question-id]').click(function() {
+            const questionId = $(this).data('question-id');
+            console.log(`Question ${questionId} clicked`);
+            selectQuestion(questionId);
+        });
         
         console.log('=== BOARD CREATION COMPLETE ===');
         updateTurnIndicator();
-    }
-    
-    function getQuestionIndexForPosition(position, categoryPositions, categorizedQuestions) {
-        // Calculate which category this question belongs to based on grid position
-        const categories = Object.keys(categorizedQuestions);
-        
-        // Determine which category column this position belongs to
-        const col = position % 6;
-        let categoryIndex = -1;
-        
-        // Find which category this column belongs to
-        for (let i = 0; i < categoryPositions.length; i++) {
-            if (categoryPositions[i] % 6 === col) {
-                categoryIndex = i;
-                break;
-            }
-        }
-        
-        if (categoryIndex === -1 || categoryIndex >= categories.length) {
-            return null;
-        }
-        
-        const categoryId = categories[categoryIndex];
-        const categoryQuestions = categorizedQuestions[categoryId];
-        
-        if (!categoryQuestions || categoryQuestions.length === 0) {
-            return null;
-        }
-        
-        // Sort questions by points
-        categoryQuestions.sort((a, b) => a.points - b.points);
-        
-        // Calculate question index based on row position
-        const row = Math.floor(position / 6);
-        const categoryRow = Math.floor(categoryPositions[categoryIndex] / 6);
-        
-        let questionIndex;
-        if (row < categoryRow) {
-            // Above category
-            questionIndex = row;
-        } else if (row > categoryRow) {
-            // Below category
-            questionIndex = row - 1;
-        } else {
-            // Same row as category, no question here
-            return null;
-        }
-        
-        if (questionIndex >= 0 && questionIndex < categoryQuestions.length) {
-            return { question: categoryQuestions[questionIndex], categoryId: categoryId };
-        }
-        
-        return null;
     }
 
     function updateTurnIndicator() {

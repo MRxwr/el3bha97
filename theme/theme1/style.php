@@ -691,7 +691,7 @@
     }
 
     .category-column {
-        display: contents;
+        display: none; /* Hide the old column structure */
     }
 
     .category-header {
