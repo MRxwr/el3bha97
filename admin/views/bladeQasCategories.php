@@ -29,7 +29,7 @@ if( isset($_POST["arTitle"]) ){
 	unset($_POST["update"]);
 	if ( $id == 0 ){
 		if (is_uploaded_file($_FILES['image']['tmp_name'])) {
-			$_POST["image"] = uploadImageBanner($_FILES['image']['tmp_name'], "qas/categories");
+			$_POST["image"] = uploadImageBannerFreeImageHost($_FILES['image']['tmp_name'], "qas/categories");
 		} else {
 			$_POST["image"] = "";
 		}
@@ -46,7 +46,7 @@ if( isset($_POST["arTitle"]) ){
 		}
 	}else{
 		if (is_uploaded_file($_FILES['image']['tmp_name'])) {
-			$_POST["image"] = uploadImageBanner($_FILES['image']['tmp_name'], "qas/categories");
+			$_POST["image"] = uploadImageBannerFreeImageHost($_FILES['image']['tmp_name'], "qas/categories");
 		}
 		
 		if( updateDB("qas_categories", $_POST, "`id` = '{$id}'") ){
