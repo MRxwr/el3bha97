@@ -382,35 +382,58 @@
         });
 
         function loadCategories() {
-            // This would typically be an AJAX call to get categories from your database
-            // For now, I'll simulate with dummy data based on your database structure
+            console.log('Loading categories...');
+            
             $.ajax({
-                url: 'get_categories.php', // You'll need to create this
+                url: '../get_categories.php',
                 method: 'GET',
                 dataType: 'json',
                 success: function(data) {
-                    categories = data;
+                    console.log('Categories loaded:', data);
+                    
+                    // Check if it's debug info
+                    if (data.debug) {
+                        console.log('Debug info received:', data);
+                        alert('تم العثور على معلومات التشخيص في وحدة التحكم');
+                        // Show fallback data for now
+                        categories = getFallbackCategories();
+                    } else if (data.error) {
+                        console.error('Server error:', data);
+                        alert('خطأ في الخادم: ' + data.message);
+                        categories = getFallbackCategories();
+                    } else {
+                        categories = data;
+                    }
+                    
                     renderCategories();
                 },
-                error: function() {
-                    // Fallback dummy data for demonstration
-                    categories = [
-                        {id: 1, title: 'رياضة', image: 'sport.png', questionCount: 15},
-                        {id: 2, title: 'تاريخ', image: 'history.png', questionCount: 20},
-                        {id: 3, title: 'جغرافيا', image: 'geography.png', questionCount: 18},
-                        {id: 4, title: 'علوم', image: 'science.png', questionCount: 22},
-                        {id: 5, title: 'فنون', image: 'arts.png', questionCount: 12},
-                        {id: 6, title: 'أدب', image: 'literature.png', questionCount: 16},
-                        {id: 7, title: 'تكنولوجيا', image: 'tech.png', questionCount: 25},
-                        {id: 8, title: 'طبيعة', image: 'nature.png', questionCount: 14},
-                        {id: 9, title: 'مشاهير', image: 'celebrities.png', questionCount: 19},
-                        {id: 10, title: 'عام', image: 'general.png', questionCount: 30},
-                        {id: 11, title: 'دين', image: 'religion.png', questionCount: 17},
-                        {id: 12, title: 'طعام', image: 'food.png', questionCount: 13}
-                    ];
+                error: function(xhr, status, error) {
+                    console.error('AJAX Error:', {xhr, status, error});
+                    console.log('Response Text:', xhr.responseText);
+                    alert('خطأ في تحميل الفئات. سيتم استخدام البيانات التجريبية.');
+                    
+                    // Use fallback data
+                    categories = getFallbackCategories();
                     renderCategories();
                 }
             });
+        }
+        
+        function getFallbackCategories() {
+            return [
+                {id: 1, title: 'رياضة', image: 'sport.png', questionCount: 15},
+                {id: 2, title: 'تاريخ', image: 'history.png', questionCount: 20},
+                {id: 3, title: 'جغرافيا', image: 'geography.png', questionCount: 18},
+                {id: 4, title: 'علوم', image: 'science.png', questionCount: 22},
+                {id: 5, title: 'فنون', image: 'arts.png', questionCount: 12},
+                {id: 6, title: 'أدب', image: 'literature.png', questionCount: 16},
+                {id: 7, title: 'تكنولوجيا', image: 'tech.png', questionCount: 25},
+                {id: 8, title: 'طبيعة', image: 'nature.png', questionCount: 14},
+                {id: 9, title: 'مشاهير', image: 'celebrities.png', questionCount: 19},
+                {id: 10, title: 'عام', image: 'general.png', questionCount: 30},
+                {id: 11, title: 'دين', image: 'religion.png', questionCount: 17},
+                {id: 12, title: 'طعام', image: 'food.png', questionCount: 13}
+            ];
         }
 
         function renderCategories() {
