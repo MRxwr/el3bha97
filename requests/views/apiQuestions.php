@@ -55,7 +55,7 @@ try {
                     'categoryId' => $question['categoryId'],
                     'categoryName' => $categoryName,
                     'typeId' => $question['typeId'],
-                    'points' => $points, // Use assigned points instead of database points
+                    'points' => $points, // Use assigned points, not database points
                     'image' => $question['image'] ?: null,
                     'video' => $question['video'] ?: null,
                     'audio' => $question['audio'] ?: null,

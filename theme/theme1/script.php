@@ -385,22 +385,35 @@
 
     // Game Play Functions
     function initializeGamePlay() {
+        console.log('=== INITIALIZING GAME PLAY ===');
+        
         const storedData = loadGameData();
+        console.log('Loaded game data:', storedData);
+        
         if (storedData) {
             gameData = storedData;
+            console.log('Game data set:', gameData);
             
             // Update team names
             $("#team1Name").text(gameData.team1.name);
             $("#team2Name").text(gameData.team2.name);
+            console.log('Team names updated in header');
             
-            // Highlight current team
-            updateCurrentTeam();
+            // Initialize scores
+            team1Score = 0;
+            team2Score = 0;
+            currentTeam = 1;
+            $("#team1Points").text(team1Score);
+            $("#team2Points").text(team2Score);
+            console.log('Scores initialized');
             
-            console.log("Game data loaded:", gameData);
+            console.log('Game data loaded:', gameData);
             
             // Load questions
+            console.log('About to load questions...');
             loadGameQuestions();
         } else {
+            console.error('No game data found');
             alert("لم يتم العثور على بيانات اللعبة. سيتم إعادة توجيهك لإعداد لعبة جديدة.");
             goToHome();
         }
@@ -445,22 +458,31 @@
     let answeredQuestions = new Set();
 
     function createQuestionBoard() {
-        console.log('Creating question board...');
+        console.log('=== CREATING QUESTION BOARD ===');
         console.log('Questions array:', questions);
+        console.log('Questions length:', questions.length);
         
         const board = $("#questionBoard");
+        console.log('Board element found:', board.length > 0);
+        console.log('Board element:', board);
+        
         board.empty();
         
         if (!questions || questions.length === 0) {
             console.error('No questions available for board creation');
-            board.html('<p class="text-center">لا توجد أسئلة متاحة</p>');
+            board.html('<div class="col-12"><p class="text-center text-white">لا توجد أسئلة متاحة</p></div>');
             return;
         }
         
         // Group questions by category
         const categorizedQuestions = {};
-        questions.forEach(question => {
-            console.log('Processing question:', question);
+        questions.forEach((question, index) => {
+            console.log(`Processing question ${index}:`, question);
+            console.log(`  - ID: ${question.id}`);
+            console.log(`  - Category ID: ${question.categoryId}`);
+            console.log(`  - Category Name: ${question.categoryName}`);
+            console.log(`  - Points: ${question.points}`);
+            
             if (!categorizedQuestions[question.categoryId]) {
                 categorizedQuestions[question.categoryId] = [];
             }
@@ -468,13 +490,15 @@
         });
 
         console.log('Categorized questions:', categorizedQuestions);
+        console.log('Number of categories:', Object.keys(categorizedQuestions).length);
 
         // Create board structure
+        let columnsCreated = 0;
         for (let categoryId in categorizedQuestions) {
             const categoryQuestions = categorizedQuestions[categoryId];
             const categoryName = categoryQuestions[0].categoryName;
             
-            console.log(`Creating column for category: ${categoryName} with ${categoryQuestions.length} questions`);
+            console.log(`Creating column ${columnsCreated + 1} for category: ${categoryName} with ${categoryQuestions.length} questions`);
             
             // Create column for this category
             const column = $(`
@@ -485,6 +509,7 @@
             
             // Sort questions by points and add cells
             categoryQuestions.sort((a, b) => a.points - b.points);
+            console.log(`Sorted questions for ${categoryName}:`, categoryQuestions.map(q => q.points));
             
             categoryQuestions.forEach((question, index) => {
                 const cell = $(`
@@ -493,7 +518,10 @@
                     </button>
                 `);
                 
+                console.log(`Adding cell for question ${question.id} with ${question.points} points`);
+                
                 cell.click(function() {
+                    console.log(`Question ${question.id} clicked`);
                     selectQuestion(question.id);
                 });
                 
@@ -503,20 +531,39 @@
                 questionBoard[question.id] = question;
             });
             
+            console.log(`Appending column for ${categoryName} to board`);
             board.append(column);
+            columnsCreated++;
         }
         
+        console.log(`Total columns created: ${columnsCreated}`);
+        console.log('Final board HTML:', board.html());
+        
         // Update turn indicator
+        console.log('Updating turn indicator...');
         updateTurnIndicator();
+        console.log('=== BOARD CREATION COMPLETE ===');
     }
 
     function updateTurnIndicator() {
+        console.log('=== UPDATING TURN INDICATOR ===');
+        console.log('Current team:', currentTeam);
+        console.log('Game data:', gameData);
+        
+        if (!gameData || !gameData.team1 || !gameData.team2) {
+            console.error('Game data not properly loaded');
+            $("#currentTeamTurn").text("غير محدد");
+            return;
+        }
+        
         const teamName = currentTeam === 1 ? gameData.team1.name : gameData.team2.name;
+        console.log('Setting team name to:', teamName);
         $("#currentTeamTurn").text(teamName);
         
         // Update team score highlighting
         $("#team1Score, #team2Score").removeClass("active");
         $("#team" + currentTeam + "Score").addClass("active");
+        console.log('=== TURN INDICATOR UPDATED ===');
     }
 
     function selectQuestion(questionId) {
