@@ -34,15 +34,20 @@ try {
         $categoryName = $category[0]['title'];
         $debug_info[] = "Found category: $categoryName (ID: $categoryId)";
         
-        // Get 6 random questions from this category
+        // Get 6 random questions from this category with different point values
         $categoryQuestions = selectDB("qas_questions", 
-            "`categoryId` = '{$categoryId}' AND `status` = '0' AND `hidden` = '0' ORDER BY RAND() LIMIT 6");
+            "`categoryId` = '{$categoryId}' AND `status` = '0' AND `hidden` = '1' ORDER BY RAND() LIMIT 6");
         
         $questionCount = $categoryQuestions ? count($categoryQuestions) : 0;
         $debug_info[] = "Found $questionCount questions for category $categoryName";
         
         if ($categoryQuestions) {
-            foreach ($categoryQuestions as $question) {
+            // Assign point values (200, 400, 600) - 2 questions each
+            $pointValues = [200, 200, 400, 400, 600, 600];
+            
+            foreach ($categoryQuestions as $index => $question) {
+                $points = isset($pointValues[$index]) ? $pointValues[$index] : 200;
+                
                 $questions[] = [
                     'id' => $question['id'],
                     'question' => $question['question'],
@@ -50,7 +55,7 @@ try {
                     'categoryId' => $question['categoryId'],
                     'categoryName' => $categoryName,
                     'typeId' => $question['typeId'],
-                    'points' => intval($question['points']),
+                    'points' => $points, // Use assigned points instead of database points
                     'image' => $question['image'] ?: null,
                     'video' => $question['video'] ?: null,
                     'audio' => $question['audio'] ?: null,
