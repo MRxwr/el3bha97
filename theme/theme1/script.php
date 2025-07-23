@@ -306,11 +306,11 @@
         container.empty();
 
         categories.forEach(category => {
-            const imageSrc = category.image ? `logos/qas/categories/${category.image}` : 'img/logo.png';
+            const icon = categoryIcons[category.title] || "fas fa-question-circle";
             const card = `
                 <div class="col-lg-3 col-md-4 col-sm-6 col-6">
                     <div class="category-card" data-id="${category.id}" onclick="toggleCategory(${category.id})">
-                        <img src="${imageSrc}" class="category-icon" alt="${category.title}">
+                        <i class="${icon} category-icon"></i>
                         <div class="category-title">${category.title}</div>
                         <div class="category-count">${category.questionCount} سؤال</div>
                     </div>
@@ -539,9 +539,7 @@
                     const categoryId = categories[categoryIndex];
                     const categoryQuestions = categorizedQuestions[categoryId];
                     const categoryName = categoryQuestions[0].categoryName;
-                    const category = window.categories.find(c => c.id == categoryId);
-                    const categoryImage = category && category.image ? `logos/qas/categories/${category.image}` : 'img/logo.png';
-
+                    
                     // Create category collection container with CSS Grid
                     const categoryContainer = $(`
                         <div class="category-collection" data-category-id="${categoryId}">
@@ -549,7 +547,7 @@
                                 ${categoryQuestions[0] ? categoryQuestions[0].points : ''}
                             </button>
                             <div class="question-cell category-cell category-mini category-tall">
-                                <img src="${categoryImage}" alt="${categoryName}" class="category-image-small" />
+                                <img src="img/logo.png" alt="${categoryName}" class="category-image-small" />
                                 <div class="category-title-small">${categoryName}</div>
                             </div>
                             <button class="question-cell question-mini" data-question-id="${categoryQuestions[1] ? categoryQuestions[1].id : ''}" ${!categoryQuestions[1] ? 'disabled style="opacity:0.3"' : ''}>
