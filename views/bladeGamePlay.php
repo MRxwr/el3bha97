@@ -24,11 +24,12 @@ body, html {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 15px;
+    padding: 8px 15px;
     background-color: rgba(255, 255, 255, 0.1);
     border-radius: 15px;
-    margin-bottom: 15px;
+    margin-bottom: 10px;
     flex-shrink: 0;
+    min-height: 60px;
 }
 
 .header-left, .header-center, .header-right {
@@ -39,6 +40,8 @@ body, html {
 
 .header-center {
     justify-content: center;
+    flex-direction: column;
+    gap: 5px;
 }
 
 .header-right {
@@ -48,12 +51,12 @@ body, html {
 .header-link {
     color: white;
     text-decoration: none;
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     font-weight: 500;
 }
 
 .logo-text {
-    font-size: 1.3rem;
+    font-size: 1.1rem;
     font-weight: bold;
     text-align: center;
     line-height: 1.1;
@@ -68,52 +71,53 @@ body, html {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 15px;
     padding: 0 10px;
 }
 
 .game-title {
-    font-size: 1.8rem;
+    font-size: 1.3rem;
     font-weight: bold;
     text-align: center;
-    margin-bottom: 5px;
+    margin: 0;
+    line-height: 1.2;
 }
 
 .turn-indicator-top {
     background-color: rgba(255, 255, 255, 0.9);
     color: #667eea;
-    padding: 10px 25px;
-    border-radius: 25px;
-    font-size: 1rem;
+    padding: 4px 15px;
+    border-radius: 15px;
+    font-size: 0.8rem;
     font-weight: bold;
     text-align: center;
+    margin: 0;
 }
 
 .question-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 10px;
+    gap: 8px;
     width: 100%;
     max-width: 1200px;
     flex-grow: 1;
-    padding: 15px 0;
+    padding: 10px 0;
 }
 
 .category-column {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 8px;
 }
 
 .category-header {
     background: linear-gradient(45deg, #4ECDC4, #44A08D);
-    border-radius: 15px;
-    padding: 15px;
+    border-radius: 12px;
+    padding: 10px;
     text-align: center;
     color: white;
     font-weight: bold;
-    font-size: 1rem;
-    min-height: 80px;
+    font-size: 0.9rem;
+    min-height: 60px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -123,16 +127,16 @@ body, html {
 .point-value {
     background: linear-gradient(45deg, #FF6B6B, #ee5a52);
     color: white;
-    border-radius: 15px;
-    padding: 20px 15px;
+    border-radius: 12px;
+    padding: 15px 10px;
     text-align: center;
     font-weight: bold;
-    font-size: 1.1rem;
+    font-size: 1rem;
     cursor: pointer;
     transition: all 0.3s ease;
     box-shadow: 0 4px 15px rgba(0,0,0,0.2);
     border: 2px solid rgba(255,255,255,0.2);
-    min-height: 60px;
+    min-height: 50px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -153,31 +157,33 @@ body, html {
 .game-play-footer {
     display: flex;
     justify-content: space-between;
-    gap: 15px;
-    padding: 15px 0;
+    gap: 10px;
+    padding: 8px 0;
     flex-shrink: 0;
 }
 
 .team-info-footer {
     background: rgba(255, 255, 255, 0.1);
-    border-radius: 20px;
-    padding: 15px;
+    border-radius: 15px;
+    padding: 8px 12px;
     width: 48%;
     text-align: center;
     border: 1px solid rgba(255,255,255,0.2);
 }
 
 .team-name {
-    font-size: 1rem;
+    font-size: 0.8rem;
     font-weight: bold;
-    margin-bottom: 8px;
+    margin-bottom: 2px;
+    line-height: 1.2;
 }
 
 .team-score-footer {
-    font-size: 1.6rem;
+    font-size: 1.2rem;
     font-weight: bold;
-    margin-bottom: 10px;
+    margin: 0;
     color: #FFD700;
+    line-height: 1.2;
 }
 
 .lifelines-footer span {
@@ -239,81 +245,96 @@ body, html {
 /* Mobile Responsive */
 @media (max-width: 768px) {
     .game-play-container {
-        padding: 10px;
+        padding: 8px;
     }
     
     .game-title {
-        font-size: 1.4rem;
+        font-size: 1.1rem;
     }
     
     .turn-indicator-top {
-        padding: 8px 20px;
-        font-size: 0.9rem;
+        padding: 3px 12px;
+        font-size: 0.7rem;
     }
     
     .question-grid {
-        gap: 8px;
-        padding: 10px 0;
+        gap: 6px;
+        padding: 8px 0;
     }
     
     .category-header {
-        padding: 10px;
-        font-size: 0.9rem;
-        min-height: 60px;
-    }
-    
-    .point-value {
-        padding: 15px 10px;
-        font-size: 1rem;
+        padding: 8px;
+        font-size: 0.8rem;
         min-height: 50px;
     }
     
+    .point-value {
+        padding: 12px 8px;
+        font-size: 0.9rem;
+        min-height: 45px;
+    }
+    
     .team-info-footer {
-        padding: 12px;
+        padding: 6px 10px;
     }
     
     .team-score-footer {
-        font-size: 1.3rem;
+        font-size: 1rem;
     }
     
-    .lifeline-icon {
-        width: 30px;
-        height: 30px;
-        font-size: 0.8rem;
+    .team-name {
+        font-size: 0.7rem;
+    }
+    
+    .header-link {
+        font-size: 0.7rem;
+    }
+    
+    .logo-text {
+        font-size: 1rem;
     }
 }
 
 @media (max-width: 480px) {
     .game-play-container {
-        padding: 8px;
+        padding: 6px;
     }
     
     .game-title {
-        font-size: 1.2rem;
+        font-size: 1rem;
     }
     
     .question-grid {
-        gap: 6px;
+        gap: 4px;
+        padding: 6px 0;
     }
     
     .category-header {
-        font-size: 0.8rem;
-        padding: 8px;
-        min-height: 50px;
+        font-size: 0.7rem;
+        padding: 6px;
+        min-height: 40px;
     }
     
     .point-value {
-        font-size: 0.9rem;
-        padding: 12px 8px;
-        min-height: 45px;
+        font-size: 0.8rem;
+        padding: 10px 6px;
+        min-height: 40px;
     }
     
     .header-link {
-        font-size: 0.8rem;
+        font-size: 0.6rem;
     }
     
     .logo-text {
-        font-size: 1.1rem;
+        font-size: 0.9rem;
+    }
+    
+    .team-name {
+        font-size: 0.6rem;
+    }
+    
+    .team-score-footer {
+        font-size: 0.9rem;
     }
 }
 
@@ -339,17 +360,16 @@ body, html {
                     <a href="#" class="header-link"><i class="fas fa-sign-out-alt"></i> الخروج</a>
                 </div>
                 <div class="header-center">
-                    <a href="#" class="header-link">انتهاء اللعبة <i class="fas fa-arrow-left"></i> الرجوع للوحة</a>
+                    <div class="game-title">شباب الدوانية</div>
+                    <div class="turn-indicator-top">دور <span id="currentTeamName">الفريق الأول</span></div>
                 </div>
                 <div class="header-right">
-                    <div class="logo-text">سين<br>جيم</div>
+                    <div class="logo-text">صح<br>إلعبها</div>
                 </div>
             </div>
 
             <!-- Game Board -->
             <div class="game-board-container">
-                <div class="game-title">شباب الدوانية</div>
-                <div class="turn-indicator-top">دور <span id="currentTeamName">الفريق الأول</span></div>
                 <div class="question-grid" id="questionBoard">
                     <!-- Board will be populated dynamically -->
                 </div>
@@ -360,26 +380,10 @@ body, html {
                 <div class="team-info-footer team-1">
                     <div class="team-name" id="team1Name">الفريق الأول</div>
                     <div class="team-score-footer" id="team1Points">1000</div>
-                    <div class="lifelines-footer">
-                        <span>وسائل المساعدة</span>
-                        <div class="lifeline-icons" id="team1Lifelines">
-                            <div class="lifeline-icon" title="اتصل بصديق"><i class="fas fa-phone"></i></div>
-                            <div class="lifeline-icon" title="إجابتان فقط"><i class="fas fa-users"></i></div>
-                            <div class="lifeline-icon" title="ضعف النقاط">x2</div>
-                        </div>
-                    </div>
                 </div>
                 <div class="team-info-footer team-2">
                     <div class="team-name" id="team2Name">الفريق الثاني</div>
                     <div class="team-score-footer" id="team2Points">1000</div>
-                    <div class="lifelines-footer">
-                        <span>وسائل المساعدة</span>
-                        <div class="lifeline-icons" id="team2Lifelines">
-                            <div class="lifeline-icon" title="اتصل بصديق"><i class="fas fa-phone"></i></div>
-                            <div class="lifeline-icon" title="إجابتان فقط"><i class="fas fa-users"></i></div>
-                            <div class="lifeline-icon" title="ضعف النقاط">x2</div>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
