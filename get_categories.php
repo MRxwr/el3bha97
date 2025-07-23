@@ -30,7 +30,7 @@ try {
             $categoriesWithCounts[] = [
                 'id' => $category['id'],
                 'title' => $category['title'],
-                'image' => $category['image'],
+                'image' => "logos/qas/categories/{$category['image']}",
                 'questionCount' => $questionCount
             ];
         }
