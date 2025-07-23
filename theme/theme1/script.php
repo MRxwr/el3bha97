@@ -77,12 +77,16 @@
             dataType: 'json',
             success: function(response) {
                 console.log('Questions API response:', response);
+                console.log('Debug info:', response.debug_info);
+                console.log('Received categories:', response.received_categories);
+                console.log('Questions count:', response.count);
                 
                 if (response.status === 'success') {
                     questions = response.data;
                     
                     if (questions.length === 0) {
-                        alert('لا توجد أسئلة كافية للفئات المختارة.');
+                        console.error('No questions found. Debug info:', response.debug_info);
+                        alert('لا توجد أسئلة كافية للفئات المختارة.\nDebug: ' + (response.debug_info ? response.debug_info.join('\n') : 'No debug info'));
                         return;
                     }
                     

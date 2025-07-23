@@ -15,20 +15,31 @@ try {
     }
     
     $questions = [];
+    $debug_info = [];
     
     foreach ($categoryIds as $categoryId) {
         // Validate category ID
-        if (!is_numeric($categoryId)) continue;
+        if (!is_numeric($categoryId)) {
+            $debug_info[] = "Invalid category ID: $categoryId";
+            continue;
+        }
         
         // Get category info
         $category = selectDB("qas_categories", "`id` = '{$categoryId}' AND `status` = '0'");
-        if (!$category) continue;
+        if (!$category) {
+            $debug_info[] = "Category not found for ID: $categoryId";
+            continue;
+        }
         
         $categoryName = $category[0]['title'];
+        $debug_info[] = "Found category: $categoryName (ID: $categoryId)";
         
         // Get 6 random questions from this category
         $categoryQuestions = selectDB("qas_questions", 
             "`categoryId` = '{$categoryId}' AND `status` = '0' AND `hidden` = '0' ORDER BY RAND() LIMIT 6");
+        
+        $questionCount = $categoryQuestions ? count($categoryQuestions) : 0;
+        $debug_info[] = "Found $questionCount questions for category $categoryName";
         
         if ($categoryQuestions) {
             foreach ($categoryQuestions as $question) {
@@ -59,6 +70,8 @@ try {
         'count' => count($questions),
         'categories_requested' => count($categoryIds),
         'questions_per_category' => 6,
+        'debug_info' => $debug_info,
+        'received_categories' => $categoryIds,
         'timestamp' => date('Y-m-d H:i:s')
     ]);
     
