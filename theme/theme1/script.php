@@ -421,24 +421,91 @@
                     return;
                 }
                 
-                // Start the game
-                displayCurrentQuestion();
+                // Create question board
+                createQuestionBoard();
+                
+                // Update team names in modal
+                $("#team1CorrectName").text(gameData.team1.name);
+                $("#team2CorrectName").text(gameData.team2.name);
             }
         });
     }
 
-    function displayCurrentQuestion() {
-        if (currentQuestionIndex >= questions.length) {
-            endGame();
-            return;
-        }
+    // Board data structure to track questions
+    let questionBoard = {};
+    let answeredQuestions = new Set();
 
-        const question = questions[currentQuestionIndex];
+    function createQuestionBoard() {
+        const board = $("#questionBoard");
+        board.empty();
         
-        // Update question display
-        $("#currentQuestion").text(currentQuestionIndex + 1);
+        // Group questions by category
+        const categorizedQuestions = {};
+        questions.forEach(question => {
+            if (!categorizedQuestions[question.categoryId]) {
+                categorizedQuestions[question.categoryId] = [];
+            }
+            categorizedQuestions[question.categoryId].push(question);
+        });
+
+        // Create board structure
+        for (let categoryId in categorizedQuestions) {
+            const categoryQuestions = categorizedQuestions[categoryId];
+            const categoryName = categoryQuestions[0].categoryName;
+            
+            // Create column for this category
+            const column = $(`
+                <div class="category-column">
+                    <div class="category-header">${categoryName}</div>
+                </div>
+            `);
+            
+            // Sort questions by points and add cells
+            categoryQuestions.sort((a, b) => a.points - b.points);
+            
+            categoryQuestions.forEach((question, index) => {
+                const cell = $(`
+                    <button class="question-cell" data-question-id="${question.id}">
+                        ${question.points}
+                    </button>
+                `);
+                
+                cell.click(function() {
+                    selectQuestion(question.id);
+                });
+                
+                column.append(cell);
+                
+                // Store question reference
+                questionBoard[question.id] = question;
+            });
+            
+            board.append(column);
+        }
+        
+        // Update turn indicator
+        updateTurnIndicator();
+    }
+
+    function updateTurnIndicator() {
+        const teamName = currentTeam === 1 ? gameData.team1.name : gameData.team2.name;
+        $("#currentTeamTurn").text(teamName);
+        
+        // Update team score highlighting
+        $("#team1Score, #team2Score").removeClass("active");
+        $("#team" + currentTeam + "Score").addClass("active");
+    }
+
+    function selectQuestion(questionId) {
+        if (answeredQuestions.has(questionId)) {
+            return; // Question already answered
+        }
+        
+        const question = questionBoard[questionId];
+        if (!question) return;
+        
+        // Show question modal
         $("#questionCategory").text(question.categoryName);
-        $("#currentCategory").text(question.categoryName);
         $("#questionText").text(question.question);
         $("#answerText").text(question.answer);
         
@@ -466,33 +533,29 @@
             `);
         }
         
-        // Reset button states
-        $("#showAnswerBtn").show();
-        $("#correctBtn, #wrongBtn, #nextBtn").hide();
+        // Reset modal state
         $("#answerSection").hide();
-        answerShown = false;
+        $("#showAnswerBtn").show();
+        $("#teamSelection, #nextBtn").hide();
         
-        // Update current team highlight
-        updateCurrentTeam();
-    }
-
-    function updateCurrentTeam() {
-        $("#team1Score, #team2Score").removeClass("active");
-        $("#team" + currentTeam + "Score").addClass("active");
+        // Store current question
+        window.currentSelectedQuestion = question;
+        
+        // Show modal
+        $("#questionModal").fadeIn();
     }
 
     function showAnswer() {
         $("#answerSection").fadeIn();
         $("#showAnswerBtn").hide();
-        $("#correctBtn, #wrongBtn").show();
-        answerShown = true;
+        $("#teamSelection").show();
     }
 
-    function markCorrect() {
-        const question = questions[currentQuestionIndex];
+    function markTeamCorrect(teamNumber) {
+        const question = window.currentSelectedQuestion;
         const points = parseInt(question.points) || 1;
         
-        if (currentTeam === 1) {
+        if (teamNumber === 1) {
             team1Score += points;
             $("#team1Points").text(team1Score);
         } else {
@@ -500,33 +563,46 @@
             $("#team2Points").text(team2Score);
         }
         
-        showNextButton();
+        showConfetti();
+        finishQuestion();
+    }
+
+    function markNoCorrect() {
+        // No points awarded
+        finishQuestion();
+    }
+
+    function finishQuestion() {
+        const question = window.currentSelectedQuestion;
         
-        // Add visual feedback
-        $("#team" + currentTeam + "Score").addClass("animate__animated animate__pulse");
-        setTimeout(() => {
-            $("#team" + currentTeam + "Score").removeClass("animate__animated animate__pulse");
-        }, 1000);
-    }
-
-    function markWrong() {
-        // Switch to other team for next question
-        currentTeam = currentTeam === 1 ? 2 : 1;
-        showNextButton();
-    }
-
-    function showNextButton() {
-        $("#correctBtn, #wrongBtn").hide();
+        // Mark question as answered
+        answeredQuestions.add(question.id);
+        $(`[data-question-id="${question.id}"]`).addClass('answered');
+        
+        $("#teamSelection").hide();
         $("#nextBtn").show();
+        
+        // Switch to next team
+        currentTeam = currentTeam === 1 ? 2 : 1;
+        updateTurnIndicator();
+        
+        // Check if game is finished
+        if (answeredQuestions.size >= questions.length) {
+            setTimeout(() => {
+                closeQuestion();
+                endGame();
+            }, 2000);
+        }
     }
 
-    function nextQuestion() {
-        currentQuestionIndex++;
-        displayCurrentQuestion();
+    function closeQuestion() {
+        $("#questionModal").fadeOut();
+        window.currentSelectedQuestion = null;
     }
 
     function endGame() {
-        $("#questionCard").hide();
+        $("#questionBoard").hide();
+        $("#turnIndicator").hide();
         $("#gameEndScreen").show();
         
         // Determine winner

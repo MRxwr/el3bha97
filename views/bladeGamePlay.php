@@ -11,11 +11,9 @@
             
             <div class="col-md-4">
                 <div class="game-info">
-                    <div class="question-counter">
-                        السؤال <span id="currentQuestion">1</span> من <span id="totalQuestions">36</span>
-                    </div>
-                    <div class="text-muted">
-                        <small id="currentCategory">الفئة الحالية</small>
+                    <div class="text-center">
+                        <h4>سين جيم</h4>
+                        <small class="text-muted">لعبة الأسئلة والأجوبة</small>
                     </div>
                 </div>
             </div>
@@ -33,45 +31,68 @@
 <!-- Main Content -->
 <div class="main-content">
     <div class="container">
-        <!-- Question Display -->
-        <div class="question-card" id="questionCard">
-            <div class="category-badge" id="questionCategory">فئة السؤال</div>
-            
-            <div class="question-text" id="questionText">
-                جاري تحميل السؤال...
+        <!-- Current Turn Indicator -->
+        <div class="turn-indicator" id="turnIndicator">
+            <div class="turn-text">
+                دور <span id="currentTeamTurn">الفريق الأول</span>
             </div>
-            
-            <div class="question-media" id="questionMedia">
-                <!-- Media content will be inserted here -->
-            </div>
-            
-            <div class="answer-section" id="answerSection">
-                <div class="text-success mb-2">
-                    <i class="fas fa-check-circle"></i> الإجابة الصحيحة:
+            <div class="turn-instruction">اختر سؤالاً من اللوحة</div>
+        </div>
+
+        <!-- Question Board -->
+        <div class="question-board" id="questionBoard">
+            <!-- Board will be populated dynamically -->
+        </div>
+
+        <!-- Question Display Modal -->
+        <div class="question-modal" id="questionModal" style="display: none;">
+            <div class="question-modal-content">
+                <div class="category-badge" id="questionCategory">فئة السؤال</div>
+                
+                <div class="question-text" id="questionText">
+                    جاري تحميل السؤال...
                 </div>
-                <div class="answer-text" id="answerText"></div>
-            </div>
-            
-            <div class="game-controls">
-                <button class="control-btn btn-show-answer" id="showAnswerBtn" onclick="showAnswer()">
-                    <i class="fas fa-eye me-2"></i>
-                    إظهار الإجابة
-                </button>
                 
-                <button class="control-btn btn-correct" id="correctBtn" onclick="markCorrect()" style="display: none;">
-                    <i class="fas fa-check me-2"></i>
-                    إجابة صحيحة
-                </button>
+                <div class="question-media" id="questionMedia">
+                    <!-- Media content will be inserted here -->
+                </div>
                 
-                <button class="control-btn btn-wrong" id="wrongBtn" onclick="markWrong()" style="display: none;">
-                    <i class="fas fa-times me-2"></i>
-                    إجابة خاطئة
-                </button>
+                <div class="answer-section" id="answerSection" style="display: none;">
+                    <div class="text-success mb-2">
+                        <i class="fas fa-check-circle"></i> الإجابة الصحيحة:
+                    </div>
+                    <div class="answer-text" id="answerText"></div>
+                </div>
                 
-                <button class="control-btn btn-next" id="nextBtn" onclick="nextQuestion()" style="display: none;">
-                    <i class="fas fa-arrow-left me-2"></i>
-                    السؤال التالي
-                </button>
+                <div class="game-controls">
+                    <button class="control-btn btn-show-answer" id="showAnswerBtn" onclick="showAnswer()">
+                        <i class="fas fa-eye me-2"></i>
+                        إظهار الإجابة
+                    </button>
+                    
+                    <div class="team-selection" id="teamSelection" style="display: none;">
+                        <p class="mb-3">أي فريق أجاب بشكل صحيح؟</p>
+                        <button class="control-btn btn-team1" id="team1CorrectBtn" onclick="markTeamCorrect(1)">
+                            <i class="fas fa-check me-2"></i>
+                            <span id="team1CorrectName">الفريق الأول</span>
+                        </button>
+                        
+                        <button class="control-btn btn-team2" id="team2CorrectBtn" onclick="markTeamCorrect(2)">
+                            <i class="fas fa-check me-2"></i>
+                            <span id="team2CorrectName">الفريق الثاني</span>
+                        </button>
+                        
+                        <button class="control-btn btn-wrong" id="noCorrectBtn" onclick="markNoCorrect()">
+                            <i class="fas fa-times me-2"></i>
+                            لا أحد أجاب صحيح
+                        </button>
+                    </div>
+                    
+                    <button class="control-btn btn-next" id="nextBtn" onclick="closeQuestion()" style="display: none;">
+                        <i class="fas fa-arrow-left me-2"></i>
+                        العودة للوحة
+                    </button>
+                </div>
             </div>
         </div>
         
