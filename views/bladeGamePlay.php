@@ -1,3 +1,287 @@
+<style>
+/* Mobile-centric game design styles */
+body, html {
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    font-family: 'Cairo', sans-serif;
+    overflow: hidden;
+}
+
+.mobile-frame {
+    width: 414px;
+    height: 896px;
+    background-color: #1c1c1c;
+    border-radius: 44px;
+    padding: 15px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.5);
+    position: relative;
+    box-sizing: border-box;
+}
+
+.mobile-frame::before {
+    content: '';
+    position: absolute;
+    top: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40%;
+    height: 25px;
+    background: #1c1c1c;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    z-index: 2;
+}
+
+.inner-frame {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    height: 100%;
+    border-radius: 30px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.game-play-container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    color: white;
+    padding: 15px;
+    box-sizing: border-box;
+}
+
+.game-play-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 15px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    margin-bottom: 15px;
+    flex-shrink: 0;
+}
+
+.header-left, .header-center, .header-right {
+    display: flex;
+    align-items: center;
+    flex: 1;
+}
+
+.header-center {
+    justify-content: center;
+}
+
+.header-right {
+    justify-content: flex-end;
+}
+
+.header-link {
+    color: white;
+    text-decoration: none;
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+.logo-text {
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-align: center;
+    line-height: 1.1;
+    background: linear-gradient(45deg, #FFD700, #FFA500);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.game-board-container {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    padding: 0 10px;
+}
+
+.game-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 5px;
+}
+
+.turn-indicator-top {
+    background-color: rgba(255, 255, 255, 0.9);
+    color: #667eea;
+    padding: 8px 20px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    text-align: center;
+}
+
+.question-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+    width: 100%;
+    flex-grow: 1;
+    padding: 10px 0;
+}
+
+.category-column {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.category-header {
+    background: linear-gradient(45deg, #4ECDC4, #44A08D);
+    border-radius: 12px;
+    padding: 8px;
+    text-align: center;
+    color: white;
+    font-weight: bold;
+    font-size: 0.8rem;
+    min-height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.point-value {
+    background: linear-gradient(45deg, #FF6B6B, #ee5a52);
+    color: white;
+    border-radius: 12px;
+    padding: 12px 8px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    border: 2px solid rgba(255,255,255,0.2);
+}
+
+.point-value:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+}
+
+.point-value.disabled {
+    background: rgba(0, 0, 0, 0.3);
+    color: rgba(255,255,255,0.5);
+    cursor: not-allowed;
+    transform: none;
+}
+
+.game-play-footer {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 10px 0;
+    flex-shrink: 0;
+}
+
+.team-info-footer {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    padding: 12px;
+    width: 48%;
+    text-align: center;
+    border: 1px solid rgba(255,255,255,0.2);
+}
+
+.team-name {
+    font-size: 0.9rem;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.team-score-footer {
+    font-size: 1.3rem;
+    font-weight: bold;
+    margin-bottom: 8px;
+    color: #FFD700;
+}
+
+.lifelines-footer span {
+    font-size: 0.7rem;
+    opacity: 0.8;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.lifeline-icons {
+    display: flex;
+    justify-content: center;
+    gap: 6px;
+}
+
+.lifeline-icon {
+    width: 25px;
+    height: 25px;
+    background-color: rgba(255, 255, 255, 0.8);
+    color: #667eea;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    font-size: 0.7rem;
+    transition: all 0.3s ease;
+}
+
+.lifeline-icon:hover {
+    background-color: white;
+    transform: scale(1.1);
+}
+
+/* Question Modal Styles */
+.question-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.question-display-container {
+    background: white;
+    border-radius: 20px;
+    padding: 30px;
+    max-width: 90%;
+    max-height: 90%;
+    overflow-y: auto;
+}
+
+/* Responsive adjustments */
+@media (max-height: 800px) {
+    .mobile-frame {
+        height: 90vh;
+        max-height: 750px;
+    }
+}
+
+@media (orientation: landscape) and (max-width: 896px) {
+    body {
+        transform: rotate(90deg);
+        transform-origin: center;
+    }
+}
+</style>
+
 <div class="mobile-frame">
     <div class="inner-frame">
         <div class="game-play-container">
