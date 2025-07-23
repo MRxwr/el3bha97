@@ -232,35 +232,41 @@ body, html {
 }
 
 .lifeline-icon.used {
-    background-color: rgba(255, 0, 0, 0.7) !important;
-    color: rgba(255, 255, 255, 0.8) !important;
+    background-color: rgba(0, 0, 0, 0.6) !important;
+    color: rgba(255, 255, 255, 0.4) !important;
     cursor: not-allowed !important;
-    opacity: 0.6 !important;
+    opacity: 0.7 !important;
     position: relative;
-    border: 2px solid #ff0000 !important;
+    border: 1px solid rgba(255, 255, 255, 0.3) !important;
 }
 
 .lifeline-icon.used:hover {
     transform: none !important;
-    background-color: rgba(255, 0, 0, 0.7) !important;
+    background-color: rgba(0, 0, 0, 0.6) !important;
+}
+
+.lifeline-icon.used::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 10%;
+    right: 10%;
+    height: 2px;
+    background-color: #ff0000;
+    transform: translateY(-50%) rotate(-45deg);
+    z-index: 1;
 }
 
 .lifeline-icon.used::after {
-    content: '✗';
+    content: '';
     position: absolute;
-    top: -4px;
-    right: -4px;
+    top: 50%;
+    left: 10%;
+    right: 10%;
+    height: 2px;
     background-color: #ff0000;
-    color: white;
-    border-radius: 50%;
-    width: 10px;
-    height: 10px;
-    font-size: 0.4rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: bold;
-    border: 1px solid white;
+    transform: translateY(-50%) rotate(45deg);
+    z-index: 1;
 }
 
 /* Question Modal Styles */
