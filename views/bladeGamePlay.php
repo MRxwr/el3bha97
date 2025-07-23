@@ -165,21 +165,24 @@ body, html {
 .team-info-footer {
     background: rgba(255, 255, 255, 0.1);
     border-radius: 15px;
-    padding: 8px 12px;
+    padding: 6px 8px;
     width: 48%;
     text-align: center;
     border: 1px solid rgba(255,255,255,0.2);
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
 }
 
 .team-name {
-    font-size: 0.8rem;
+    font-size: 0.7rem;
     font-weight: bold;
-    margin-bottom: 2px;
+    margin: 0;
     line-height: 1.2;
 }
 
 .team-score-footer {
-    font-size: 1.2rem;
+    font-size: 1rem;
     font-weight: bold;
     margin: 0;
     color: #FFD700;
@@ -196,12 +199,13 @@ body, html {
 .lifeline-icons {
     display: flex;
     justify-content: center;
-    gap: 8px;
+    gap: 4px;
+    margin-top: 2px;
 }
 
 .lifeline-icon {
-    width: 35px;
-    height: 35px;
+    width: 20px;
+    height: 20px;
     background-color: rgba(255, 255, 255, 0.8);
     color: #667eea;
     border-radius: 50%;
@@ -209,8 +213,9 @@ body, html {
     justify-content: center;
     align-items: center;
     cursor: pointer;
-    font-size: 0.9rem;
+    font-size: 0.6rem;
     transition: all 0.3s ease;
+    font-weight: bold;
 }
 
 .lifeline-icon:hover {
@@ -245,80 +250,103 @@ body, html {
 /* Mobile Responsive */
 @media (max-width: 768px) {
     .game-play-container {
-        padding: 8px;
+        padding: 6px;
     }
     
-    .game-title {
-        font-size: 1.1rem;
-    }
-    
-    .turn-indicator-top {
-        padding: 3px 12px;
-        font-size: 0.7rem;
-    }
-    
-    .question-grid {
-        gap: 6px;
-        padding: 8px 0;
-    }
-    
-    .category-header {
-        padding: 8px;
-        font-size: 0.8rem;
+    .game-play-header {
+        padding: 6px 12px;
+        margin-bottom: 8px;
         min-height: 50px;
     }
     
-    .point-value {
-        padding: 12px 8px;
-        font-size: 0.9rem;
+    .game-title {
+        font-size: 1rem;
+    }
+    
+    .turn-indicator-top {
+        padding: 3px 10px;
+        font-size: 0.65rem;
+    }
+    
+    .question-grid {
+        gap: 5px;
+        padding: 6px 0;
+    }
+    
+    .category-header {
+        padding: 6px;
+        font-size: 0.7rem;
         min-height: 45px;
     }
     
+    .point-value {
+        padding: 10px 6px;
+        font-size: 0.8rem;
+        min-height: 40px;
+    }
+    
     .team-info-footer {
-        padding: 6px 10px;
+        padding: 4px 6px;
     }
     
     .team-score-footer {
-        font-size: 1rem;
+        font-size: 0.9rem;
     }
     
     .team-name {
-        font-size: 0.7rem;
+        font-size: 0.6rem;
+    }
+    
+    .lifeline-icon {
+        width: 18px;
+        height: 18px;
+        font-size: 0.5rem;
     }
     
     .header-link {
-        font-size: 0.7rem;
+        font-size: 0.65rem;
     }
     
     .logo-text {
-        font-size: 1rem;
+        font-size: 0.9rem;
     }
 }
 
 @media (max-width: 480px) {
     .game-play-container {
-        padding: 6px;
+        padding: 4px;
+    }
+    
+    .game-play-header {
+        padding: 4px 8px;
+        margin-bottom: 6px;
+        min-height: 45px;
     }
     
     .game-title {
-        font-size: 1rem;
+        font-size: 0.9rem;
+    }
+    
+    .turn-indicator-top {
+        padding: 2px 8px;
+        font-size: 0.6rem;
     }
     
     .question-grid {
-        gap: 4px;
-        padding: 6px 0;
+        gap: 3px;
+        padding: 4px 0;
     }
     
     .category-header {
-        font-size: 0.7rem;
-        padding: 6px;
-        min-height: 40px;
+        font-size: 0.65rem;
+        padding: 4px;
+        min-height: 35px;
     }
     
     .point-value {
-        font-size: 0.8rem;
-        padding: 10px 6px;
-        min-height: 40px;
+        font-size: 0.7rem;
+        padding: 8px 4px;
+        min-height: 35px;
     }
     
     .header-link {
@@ -326,15 +354,60 @@ body, html {
     }
     
     .logo-text {
-        font-size: 0.9rem;
+        font-size: 0.8rem;
     }
     
     .team-name {
-        font-size: 0.6rem;
+        font-size: 0.55rem;
     }
     
     .team-score-footer {
-        font-size: 0.9rem;
+        font-size: 0.8rem;
+    }
+    
+    .lifeline-icon {
+        width: 16px;
+        height: 16px;
+        font-size: 0.45rem;
+        gap: 2px;
+    }
+}
+
+/* iPhone specific optimizations */
+@media (max-width: 414px) and (max-height: 896px) {
+    .game-play-container {
+        padding: 3px;
+    }
+    
+    .game-play-header {
+        min-height: 40px;
+        padding: 3px 6px;
+    }
+    
+    .question-grid {
+        gap: 2px;
+        padding: 3px 0;
+    }
+    
+    .category-header {
+        min-height: 30px;
+        font-size: 0.6rem;
+    }
+    
+    .point-value {
+        min-height: 30px;
+        font-size: 0.65rem;
+        padding: 6px 3px;
+    }
+    
+    .team-info-footer {
+        padding: 3px 4px;
+    }
+    
+    .lifeline-icon {
+        width: 14px;
+        height: 14px;
+        font-size: 0.4rem;
     }
 }
 
@@ -380,10 +453,20 @@ body, html {
                 <div class="team-info-footer team-1">
                     <div class="team-name" id="team1Name">الفريق الأول</div>
                     <div class="team-score-footer" id="team1Points">1000</div>
+                    <div class="lifeline-icons" id="team1Lifelines">
+                        <div class="lifeline-icon" title="اتصل بصديق"><i class="fas fa-phone"></i></div>
+                        <div class="lifeline-icon" title="إجابتان فقط"><i class="fas fa-users"></i></div>
+                        <div class="lifeline-icon" title="ضعف النقاط">x2</div>
+                    </div>
                 </div>
                 <div class="team-info-footer team-2">
                     <div class="team-name" id="team2Name">الفريق الثاني</div>
                     <div class="team-score-footer" id="team2Points">1000</div>
+                    <div class="lifeline-icons" id="team2Lifelines">
+                        <div class="lifeline-icon" title="اتصل بصديق"><i class="fas fa-phone"></i></div>
+                        <div class="lifeline-icon" title="إجابتان فقط"><i class="fas fa-users"></i></div>
+                        <div class="lifeline-icon" title="ضعف النقاط">x2</div>
+                    </div>
                 </div>
             </div>
         </div>
