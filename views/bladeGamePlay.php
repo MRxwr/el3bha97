@@ -78,56 +78,62 @@
                     </div>
                 </div>
                 
-                <!-- Lifelines Section -->
-                <div class="lifelines-container" id="lifelinesContainer">
-                    <div class="lifelines-title">وسائل المساعدة المتاحة:</div>
-                    <div class="lifelines-buttons">
-                        <button class="lifeline-btn" id="callFriendBtn" onclick="useCallFriend()">
-                            <i class="fas fa-phone"></i>
-                            <span>اتصل بصديق</span>
-                        </button>
-                        
-                        <button class="lifeline-btn" id="twoAnswersBtn" onclick="useTwoAnswers()">
-                            <i class="fas fa-hand-point-right"></i>
-                            <span>إجابتان فقط</span>
-                        </button>
-                        
-                        <button class="lifeline-btn" id="doublePointsBtn" onclick="useDoublePoints()">
-                            <i class="fas fa-times-circle"></i>
-                            <span>ضعف النقاط</span>
-                        </button>
-                    </div>
-                </div>
-                
-                <!-- Call Friend Timer -->
-                <div class="call-friend-timer" id="callFriendTimer" style="display: none;">
-                    <div class="timer-content">
-                        <div class="timer-icon">
-                            <i class="fas fa-phone-alt fa-beat"></i>
+                <!-- Main Content Area -->
+                <div class="question-main-content">
+                    <!-- Left Side - Lifelines -->
+                    <div class="question-sidebar">
+                        <!-- Lifelines Section -->
+                        <div class="lifelines-container" id="lifelinesContainer">
+                            <div class="lifelines-title">وسائل المساعدة</div>
+                            <div class="lifelines-buttons">
+                                <button class="lifeline-btn" id="callFriendBtn" onclick="useCallFriend()">
+                                    <i class="fas fa-phone"></i>
+                                    <span>اتصل بصديق</span>
+                                </button>
+                                
+                                <button class="lifeline-btn" id="twoAnswersBtn" onclick="useTwoAnswers()">
+                                    <i class="fas fa-hand-point-right"></i>
+                                    <span>إجابتان فقط</span>
+                                </button>
+                                
+                                <button class="lifeline-btn" id="doublePointsBtn" onclick="useDoublePoints()">
+                                    <i class="fas fa-times-circle"></i>
+                                    <span>ضعف النقاط</span>
+                                </button>
+                            </div>
                         </div>
-                        <div class="timer-text">جاري الاتصال بصديق...</div>
-                        <div class="timer-countdown" id="timerCountdown">60</div>
-                        <div class="timer-bar">
-                            <div class="timer-progress" id="timerProgress"></div>
+                        
+                        <!-- Call Friend Timer -->
+                        <div class="call-friend-timer" id="callFriendTimer" style="display: none;">
+                            <div class="timer-content">
+                                <div class="timer-icon">
+                                    <i class="fas fa-phone-alt fa-beat"></i>
+                                </div>
+                                <div class="timer-text">جاري الاتصال بصديق...</div>
+                                <div class="timer-countdown" id="timerCountdown">60</div>
+                                <div class="timer-bar">
+                                    <div class="timer-progress" id="timerProgress"></div>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                </div>
-                
-                <!-- Question Content -->
-                <div class="question-content">
-                    <div class="question-text-large" id="questionText">
-                        جاري تحميل السؤال...
                     </div>
                     
-                    <div class="question-media-container" id="questionMedia">
-                        <!-- Media content will be inserted here -->
+                    <!-- Center - Question Content -->
+                    <div class="question-content-center">
+                        <div class="question-text-large" id="questionText">
+                            جاري تحميل السؤال...
+                        </div>
+                        
+                        <div class="question-media-container" id="questionMedia">
+                            <!-- Media content will be inserted here -->
+                        </div>
+                        
+                        <!-- Answer Section -->
+                        <div class="answer-display" id="answerSection" style="display: none;">
+                            <div class="answer-label">الإجابة الصحيحة:</div>
+                            <div class="answer-text-large" id="answerText"></div>
+                        </div>
                     </div>
-                </div>
-                
-                <!-- Answer Section -->
-                <div class="answer-display" id="answerSection" style="display: none;">
-                    <div class="answer-label">الإجابة الصحيحة:</div>
-                    <div class="answer-text-large" id="answerText"></div>
                 </div>
                 
                 <!-- Control Buttons -->
