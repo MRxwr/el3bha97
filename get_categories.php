@@ -8,7 +8,7 @@ header('Content-Type: application/json');
 
 try {
     // Get active and visible categories with question counts
-    $categories = selectDB("qas_categories", "`status` = '0' AND `hidden` = '1' ORDER BY `rank` ASC");
+    $categories = selectDB("qas_categories", "`status` = '0' AND `hidden` = '0' ORDER BY `rank` ASC");
     
     $categoriesWithCounts = [];
     
