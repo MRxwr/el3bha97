@@ -709,8 +709,14 @@
 
     // Page-specific initialization
     $(document).ready(function() {
+        console.log('=== PAGE INITIALIZATION ===');
+        console.log('Current URL:', window.location.href);
+        console.log('Categories container found:', $("#categoriesContainer").length);
+        console.log('Question board found:', $("#questionBoard").length);
+        
         // Check which page we're on and initialize accordingly
         if ($("#categoriesContainer").length) {
+            console.log('Home page detected - loading categories...');
             // Home page
             loadCategories(function(success) {
                 if (success) {
@@ -722,9 +728,14 @@
             });
         }
         
-        if ($("#questionCard").length) {
+        if ($("#questionBoard").length) {
             // Game play page
+            console.log('Game play page detected - initializing...');
             initializeGamePlay();
+        }
+        
+        if ($("#categoriesContainer").length === 0 && $("#questionBoard").length === 0) {
+            console.log('No specific page elements found');
         }
     });
 </script>
