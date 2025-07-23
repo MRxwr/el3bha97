@@ -32,7 +32,15 @@
     }
     
     .game-header {
-        display: none;
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(10px);
+        padding: 15px 0;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 1000;
+        box-shadow: 0 2px 20px rgba(0,0,0,0.1);
     }
     
     /* Section Title Styles */
@@ -645,7 +653,13 @@
 
     /* Question Board Styles */
     .turn-indicator {
-        display: none;
+        background: linear-gradient(45deg, #667eea, #764ba2);
+        color: white;
+        padding: 20px;
+        border-radius: 15px;
+        text-align: center;
+        margin-bottom: 30px;
+        margin-top: 100px;
     }
 
     .turn-text {
@@ -663,12 +677,14 @@
         display: grid;
         grid-template-columns: repeat(3, 1fr);
         grid-template-rows: repeat(2, 1fr);
-        gap: 15px;
-        padding: 10px;
+        gap: 20px;
+        padding: 15px;
         background: linear-gradient(135deg, #ff6b6b 0%, #ff8e53 100%);
         border-radius: 15px;
         box-shadow: 0 8px 25px rgba(255, 107, 107, 0.3);
-        height: 100vh;
+        height: calc(100vh - 180px);
+        min-height: 480px;
+        max-height: 580px;
         width: 100%;
         margin: 0 auto;
         position: relative;
@@ -843,17 +859,14 @@
 
     /* Mini question cells */
     .question-cell.question-mini {
-        font-size: 1rem;
-        font-weight: 700;
-        min-height: 45px;
+        font-size: 0.9rem;
+        font-weight: 600;
+        min-height: 35px;
         background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
         color: white;
-        border: 2px solid rgba(255, 255, 255, 0.4);
+        border: 2px solid rgba(255, 255, 255, 0.3);
         border-radius: 8px;
-        padding: 6px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
+        padding: 4px;
     }
 
     .question-cell.question-mini:hover {
@@ -886,29 +899,29 @@
         justify-content: center;
         text-align: center;
         font-weight: 600;
-        font-size: 0.8rem;
+        font-size: 0.7rem;
         cursor: default;
         position: relative;
         overflow: hidden;
-        min-height: 60px;
-        padding: 6px;
+        min-height: 45px;
+        padding: 4px;
     }
 
     .category-image-small {
-        width: 40px;
-        height: 40px;
-        border-radius: 8px;
+        width: 25px;
+        height: 25px;
+        border-radius: 6px;
         object-fit: cover;
-        margin-bottom: 4px;
-        border: 2px solid rgba(255, 255, 255, 0.9);
+        margin-bottom: 2px;
+        border: 1px solid rgba(255, 255, 255, 0.8);
     }
 
     .category-title-small {
-        font-size: 0.75rem;
-        font-weight: 700;
+        font-size: 0.65rem;
+        font-weight: 600;
         color: white;
-        text-shadow: 0 1px 3px rgba(0,0,0,0.7);
-        line-height: 1.1;
+        text-shadow: 0 1px 2px rgba(0,0,0,0.5);
+        line-height: 1;
         text-align: center;
     }
 
