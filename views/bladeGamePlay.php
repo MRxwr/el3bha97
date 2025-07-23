@@ -182,7 +182,8 @@ body, html {
     margin: 0;
     line-height: 1.2;
     flex: 1;
-    text-align: left;
+    text-align: right;
+    order: 3;
 }
 
 .team-score-footer {
@@ -192,6 +193,8 @@ body, html {
     color: #FFD700;
     line-height: 1.2;
     flex-shrink: 0;
+    order: 2;
+    text-align: center;
 }
 
 .lifelines-footer span {
@@ -206,6 +209,7 @@ body, html {
     justify-content: center;
     gap: 2px;
     flex-shrink: 0;
+    order: 1;
 }
 
 .lifeline-icon {
@@ -226,6 +230,18 @@ body, html {
 .lifeline-icon:hover {
     background-color: white;
     transform: scale(1.1);
+}
+
+.lifeline-icon.used {
+    background-color: rgba(255, 0, 0, 0.3);
+    color: rgba(255, 255, 255, 0.5);
+    cursor: not-allowed;
+    opacity: 0.5;
+}
+
+.lifeline-icon.used:hover {
+    transform: none;
+    background-color: rgba(255, 0, 0, 0.3);
 }
 
 /* Question Modal Styles */
