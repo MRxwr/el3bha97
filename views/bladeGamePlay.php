@@ -100,7 +100,7 @@ body, html {
     width: 100%;
     max-width: 1200px;
     flex-grow: 1;
-    padding: 10px 0;
+    padding: 0px 0;
 }
 
 .category-column {
@@ -170,23 +170,28 @@ body, html {
     text-align: center;
     border: 1px solid rgba(255,255,255,0.2);
     display: flex;
-    flex-direction: column;
-    gap: 2px;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 4px;
 }
 
 .team-name {
-    font-size: 0.7rem;
+    font-size: 0.6rem;
     font-weight: bold;
     margin: 0;
     line-height: 1.2;
+    flex: 1;
+    text-align: left;
 }
 
 .team-score-footer {
-    font-size: 1rem;
+    font-size: 0.9rem;
     font-weight: bold;
     margin: 0;
     color: #FFD700;
     line-height: 1.2;
+    flex-shrink: 0;
 }
 
 .lifelines-footer span {
@@ -199,13 +204,13 @@ body, html {
 .lifeline-icons {
     display: flex;
     justify-content: center;
-    gap: 4px;
-    margin-top: 2px;
+    gap: 2px;
+    flex-shrink: 0;
 }
 
 .lifeline-icon {
-    width: 20px;
-    height: 20px;
+    width: 16px;
+    height: 16px;
     background-color: rgba(255, 255, 255, 0.8);
     color: #667eea;
     border-radius: 50%;
@@ -213,7 +218,7 @@ body, html {
     justify-content: center;
     align-items: center;
     cursor: pointer;
-    font-size: 0.6rem;
+    font-size: 0.5rem;
     transition: all 0.3s ease;
     font-weight: bold;
 }
@@ -290,17 +295,17 @@ body, html {
     }
     
     .team-score-footer {
-        font-size: 0.9rem;
+        font-size: 0.8rem;
     }
     
     .team-name {
-        font-size: 0.6rem;
+        font-size: 0.55rem;
     }
     
     .lifeline-icon {
-        width: 18px;
-        height: 18px;
-        font-size: 0.5rem;
+        width: 14px;
+        height: 14px;
+        font-size: 0.45rem;
     }
     
     .header-link {
@@ -358,18 +363,18 @@ body, html {
     }
     
     .team-name {
-        font-size: 0.55rem;
+        font-size: 0.5rem;
     }
     
     .team-score-footer {
-        font-size: 0.8rem;
+        font-size: 0.7rem;
     }
     
     .lifeline-icon {
-        width: 16px;
-        height: 16px;
-        font-size: 0.45rem;
-        gap: 2px;
+        width: 12px;
+        height: 12px;
+        font-size: 0.4rem;
+        gap: 1px;
     }
 }
 
@@ -405,9 +410,9 @@ body, html {
     }
     
     .lifeline-icon {
-        width: 14px;
-        height: 14px;
-        font-size: 0.4rem;
+        width: 10px;
+        height: 10px;
+        font-size: 0.35rem;
     }
 }
 
