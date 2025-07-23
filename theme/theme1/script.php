@@ -12,6 +12,24 @@
     let team1Players = 1;
     let team2Players = 1;
     let answerShown = false;
+    
+    // Lifelines tracking
+    let lifelines = {
+        team1: {
+            callFriend: true,
+            twoAnswers: true,
+            doublePoints: true
+        },
+        team2: {
+            callFriend: true,
+            twoAnswers: true,
+            doublePoints: true
+        }
+    };
+    
+    let currentQuestionDoublePoints = false;
+    let callFriendTimer = null;
+    let callFriendTimeLeft = 60;
 
     // Category icons mapping
     const categoryIcons = {
@@ -407,6 +425,24 @@
             $("#team2Points").text(team2Score);
             console.log('Scores initialized');
             
+            // Initialize lifelines
+            lifelines = {
+                team1: {
+                    callFriend: true,
+                    twoAnswers: true,
+                    doublePoints: true
+                },
+                team2: {
+                    callFriend: true,
+                    twoAnswers: true,
+                    doublePoints: true
+                }
+            };
+            
+            // Update lifeline display
+            updateLifelineDisplay();
+            console.log('Lifelines initialized');
+            
             console.log('Game data loaded:', gameData);
             
             // Load questions
@@ -609,6 +645,19 @@
         $("#showAnswerBtn").show();
         $("#teamSelection, #nextBtn").hide();
         
+        // Reset lifeline states for new question
+        currentQuestionDoublePoints = false;
+        $('#doublePointsIndicator').hide();
+        $('#callFriendTimer').hide();
+        if (callFriendTimer) {
+            clearInterval(callFriendTimer);
+            callFriendTimer = null;
+        }
+        
+        // Show lifelines container and update display
+        $('#lifelinesContainer').show();
+        updateLifelineDisplay();
+        
         // Store current question
         window.currentSelectedQuestion = question;
         
@@ -624,14 +673,43 @@
 
     function markTeamCorrect(teamNumber) {
         const question = window.currentSelectedQuestion;
-        const points = parseInt(question.points) || 1;
+        let points = parseInt(question.points) || 1;
         
-        if (teamNumber === 1) {
-            team1Score += points;
-            $("#team1Points").text(team1Score);
+        // Handle double points lifeline
+        if (currentQuestionDoublePoints) {
+            console.log(`Double points active! Original points: ${points}`);
+            points = points * 2;
+            
+            // Add double points to the correct team
+            if (teamNumber === 1) {
+                team1Score += points;
+                // Subtract same amount from team 2
+                team2Score = Math.max(0, team2Score - (points / 2));
+                $("#team1Points").text(team1Score);
+                $("#team2Points").text(team2Score);
+                console.log(`Team 1 got ${points} points, Team 2 lost ${points/2} points`);
+            } else {
+                team2Score += points;
+                // Subtract same amount from team 1
+                team1Score = Math.max(0, team1Score - (points / 2));
+                $("#team1Points").text(team1Score);
+                $("#team2Points").text(team2Score);
+                console.log(`Team 2 got ${points} points, Team 1 lost ${points/2} points`);
+            }
+            
+            // Reset double points flag
+            currentQuestionDoublePoints = false;
+            $('#doublePointsIndicator').hide();
+            
         } else {
-            team2Score += points;
-            $("#team2Points").text(team2Score);
+            // Normal scoring
+            if (teamNumber === 1) {
+                team1Score += points;
+                $("#team1Points").text(team1Score);
+            } else {
+                team2Score += points;
+                $("#team2Points").text(team2Score);
+            }
         }
         
         showConfetti();
@@ -649,6 +727,14 @@
         // Mark question as answered
         answeredQuestions.add(question.id);
         $(`[data-question-id="${question.id}"]`).addClass('answered');
+        
+        // Hide lifelines and reset states
+        $("#lifelinesContainer").hide();
+        $("#callFriendTimer").hide();
+        if (callFriendTimer) {
+            clearInterval(callFriendTimer);
+            callFriendTimer = null;
+        }
         
         $("#teamSelection").hide();
         $("#nextBtn").show();
@@ -706,6 +792,119 @@
         if (team1Score !== team2Score) {
             showConfetti();
         }
+    }
+
+    // ===== LIFELINE FUNCTIONS =====
+    
+    function updateLifelineDisplay() {
+        console.log('Updating lifeline display...');
+        
+        // Update Team 1 lifelines
+        $('#team1CallFriend').toggleClass('used', !lifelines.team1.callFriend);
+        $('#team1TwoAnswers').toggleClass('used', !lifelines.team1.twoAnswers);
+        $('#team1DoublePoints').toggleClass('used', !lifelines.team1.doublePoints);
+        
+        // Update Team 2 lifelines
+        $('#team2CallFriend').toggleClass('used', !lifelines.team2.callFriend);
+        $('#team2TwoAnswers').toggleClass('used', !lifelines.team2.twoAnswers);
+        $('#team2DoublePoints').toggleClass('used', !lifelines.team2.doublePoints);
+        
+        // Update lifeline buttons in modal based on current team
+        const currentTeamKey = `team${currentTeam}`;
+        $('#callFriendBtn').prop('disabled', !lifelines[currentTeamKey].callFriend);
+        $('#twoAnswersBtn').prop('disabled', !lifelines[currentTeamKey].twoAnswers);
+        $('#doublePointsBtn').prop('disabled', !lifelines[currentTeamKey].doublePoints);
+    }
+    
+    function useCallFriend() {
+        const currentTeamKey = `team${currentTeam}`;
+        
+        if (!lifelines[currentTeamKey].callFriend) {
+            alert('هذا الفريق استخدم "اتصل بصديق" من قبل!');
+            return;
+        }
+        
+        console.log(`Team ${currentTeam} using Call Friend lifeline`);
+        
+        // Mark lifeline as used
+        lifelines[currentTeamKey].callFriend = false;
+        
+        // Hide lifeline buttons and show timer
+        $('#lifelinesContainer').hide();
+        $('#callFriendTimer').show();
+        
+        // Start 60-second countdown
+        callFriendTimeLeft = 60;
+        $('#timerCountdown').text(callFriendTimeLeft);
+        $('#timerProgress').css('width', '100%');
+        
+        callFriendTimer = setInterval(function() {
+            callFriendTimeLeft--;
+            $('#timerCountdown').text(callFriendTimeLeft);
+            
+            // Update progress bar
+            const progressPercent = (callFriendTimeLeft / 60) * 100;
+            $('#timerProgress').css('width', progressPercent + '%');
+            
+            if (callFriendTimeLeft <= 0) {
+                clearInterval(callFriendTimer);
+                $('#callFriendTimer').hide();
+                $('#lifelinesContainer').show();
+                updateLifelineDisplay();
+            }
+        }, 1000);
+        
+        updateLifelineDisplay();
+    }
+    
+    function useTwoAnswers() {
+        const currentTeamKey = `team${currentTeam}`;
+        
+        if (!lifelines[currentTeamKey].twoAnswers) {
+            alert('هذا الفريق استخدم "إجابتان فقط" من قبل!');
+            return;
+        }
+        
+        console.log(`Team ${currentTeam} using Two Answers lifeline`);
+        
+        // Mark lifeline as used
+        lifelines[currentTeamKey].twoAnswers = false;
+        
+        // This lifeline is for multiple choice questions only
+        // For now, we'll just show a message since we don't have multiple choice structure
+        alert('تم تفعيل "إجابتان فقط" - سيتم عرض خيارين فقط في الأسئلة متعددة الخيارات');
+        
+        updateLifelineDisplay();
+    }
+    
+    function useDoublePoints() {
+        const currentTeamKey = `team${currentTeam}`;
+        
+        if (!lifelines[currentTeamKey].doublePoints) {
+            alert('هذا الفريق استخدم "ضعف النقاط" من قبل!');
+            return;
+        }
+        
+        console.log(`Team ${currentTeam} using Double Points lifeline`);
+        
+        // Mark lifeline as used
+        lifelines[currentTeamKey].doublePoints = false;
+        
+        // Mark current question for double points
+        currentQuestionDoublePoints = true;
+        
+        // Update UI to show double points is active
+        $('#doublePointsIndicator').show();
+        $('#lifelinesContainer').hide();
+        
+        // Update point display
+        const currentPoints = parseInt($('#questionPoints').text().replace(/[^\d]/g, ''));
+        const doublePoints = currentPoints * 2;
+        $('#questionPoints').html(`<span style="text-decoration: line-through;">${currentPoints}</span> ${doublePoints} نقطة`);
+        
+        alert('تم تفعيل "ضعف النقاط"! إذا أجبت بشكل صحيح ستحصل على ضعف النقاط وسيتم خصم نفس المقدار من الفريق الآخر.');
+        
+        updateLifelineDisplay();
     }
 
     // Page-specific initialization

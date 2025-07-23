@@ -1186,4 +1186,253 @@
             font-size: 0.85rem;
         }
     }
+
+    /* Lifelines Styles */
+    .team-lifelines {
+        display: flex;
+        justify-content: center;
+        gap: 8px;
+        margin-top: 10px;
+        flex-wrap: wrap;
+    }
+
+    .lifeline-indicator {
+        width: 35px;
+        height: 35px;
+        border-radius: 50%;
+        background: linear-gradient(45deg, #74b9ff, #0984e3);
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.9rem;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        box-shadow: 0 2px 8px rgba(116, 185, 255, 0.3);
+    }
+
+    .lifeline-indicator:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(116, 185, 255, 0.4);
+    }
+
+    .lifeline-indicator.used {
+        background: linear-gradient(45deg, #ddd, #bbb);
+        color: #666;
+        cursor: not-allowed;
+        opacity: 0.6;
+    }
+
+    .lifeline-indicator.used:hover {
+        transform: none;
+        box-shadow: 0 2px 8px rgba(187, 187, 187, 0.3);
+    }
+
+    .lifelines-container {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        border-radius: 15px;
+        padding: 20px;
+        margin: 20px 0;
+        text-align: center;
+        box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
+    }
+
+    .lifelines-title {
+        color: white;
+        font-size: 1.1rem;
+        font-weight: 600;
+        margin-bottom: 15px;
+        text-shadow: 0 1px 3px rgba(0,0,0,0.3);
+    }
+
+    .lifelines-buttons {
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+        flex-wrap: wrap;
+    }
+
+    .lifeline-btn {
+        background: linear-gradient(45deg, #ffffff, #f8f9ff);
+        color: #667eea;
+        border: 2px solid rgba(255,255,255,0.8);
+        border-radius: 12px;
+        padding: 12px 18px;
+        font-size: 0.95rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 15px rgba(255,255,255,0.2);
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        min-width: 140px;
+        justify-content: center;
+    }
+
+    .lifeline-btn:hover {
+        transform: translateY(-2px);
+        background: linear-gradient(45deg, #f8f9ff, #ffffff);
+        box-shadow: 0 6px 20px rgba(255,255,255,0.3);
+        border-color: rgba(255,255,255,1);
+    }
+
+    .lifeline-btn:disabled {
+        background: linear-gradient(45deg, #e0e0e0, #d0d0d0);
+        color: #999;
+        cursor: not-allowed;
+        border-color: rgba(224,224,224,0.8);
+        opacity: 0.6;
+    }
+
+    .lifeline-btn:disabled:hover {
+        transform: none;
+        box-shadow: 0 4px 15px rgba(224,224,224,0.2);
+    }
+
+    .lifeline-btn i {
+        font-size: 1.1rem;
+    }
+
+    /* Call Friend Timer Styles */
+    .call-friend-timer {
+        background: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 100%);
+        border-radius: 20px;
+        padding: 30px;
+        margin: 20px 0;
+        text-align: center;
+        color: white;
+        box-shadow: 0 10px 30px rgba(238, 90, 36, 0.4);
+        animation: pulse-timer 2s infinite;
+    }
+
+    @keyframes pulse-timer {
+        0% { transform: scale(1); }
+        50% { transform: scale(1.02); }
+        100% { transform: scale(1); }
+    }
+
+    .timer-content {
+        position: relative;
+    }
+
+    .timer-icon {
+        font-size: 3rem;
+        margin-bottom: 15px;
+        color: #fff;
+        text-shadow: 0 2px 8px rgba(0,0,0,0.3);
+    }
+
+    .timer-text {
+        font-size: 1.3rem;
+        font-weight: 600;
+        margin-bottom: 15px;
+        text-shadow: 0 1px 3px rgba(0,0,0,0.3);
+    }
+
+    .timer-countdown {
+        font-size: 4rem;
+        font-weight: 800;
+        margin: 20px 0;
+        text-shadow: 0 3px 10px rgba(0,0,0,0.4);
+        color: #fff;
+    }
+
+    .timer-bar {
+        width: 100%;
+        height: 8px;
+        background: rgba(255,255,255,0.3);
+        border-radius: 4px;
+        overflow: hidden;
+        margin-top: 20px;
+    }
+
+    .timer-progress {
+        height: 100%;
+        background: linear-gradient(90deg, #00f2fe 0%, #4facfe 100%);
+        border-radius: 4px;
+        transition: width 1s linear;
+        box-shadow: 0 0 10px rgba(79, 172, 254, 0.5);
+    }
+
+    .double-points-indicator {
+        background: linear-gradient(45deg, #ff6b6b, #ee5a24);
+        color: white;
+        padding: 8px 16px;
+        border-radius: 25px;
+        font-size: 0.9rem;
+        font-weight: 600;
+        text-shadow: 0 1px 3px rgba(0,0,0,0.3);
+        box-shadow: 0 4px 15px rgba(238, 90, 36, 0.3);
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        animation: glow-double 2s infinite;
+    }
+
+    @keyframes glow-double {
+        0%, 100% { box-shadow: 0 4px 15px rgba(238, 90, 36, 0.3); }
+        50% { box-shadow: 0 4px 25px rgba(238, 90, 36, 0.6); }
+    }
+
+    .double-points-indicator i {
+        font-size: 1.1rem;
+    }
+
+    /* Mobile Responsive for Lifelines */
+    @media (max-width: 768px) {
+        .team-lifelines {
+            gap: 5px;
+        }
+
+        .lifeline-indicator {
+            width: 30px;
+            height: 30px;
+            font-size: 0.8rem;
+        }
+
+        .lifelines-buttons {
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .lifeline-btn {
+            min-width: auto;
+            padding: 10px 15px;
+            font-size: 0.9rem;
+        }
+
+        .timer-countdown {
+            font-size: 3rem;
+        }
+
+        .timer-text {
+            font-size: 1.1rem;
+        }
+
+        .timer-icon {
+            font-size: 2.5rem;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .lifeline-indicator {
+            width: 25px;
+            height: 25px;
+            font-size: 0.7rem;
+        }
+
+        .lifelines-container {
+            padding: 15px;
+        }
+
+        .lifeline-btn {
+            padding: 8px 12px;
+            font-size: 0.85rem;
+        }
+
+        .timer-countdown {
+            font-size: 2.5rem;
+        }
+    }
 </style>

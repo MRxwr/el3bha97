@@ -6,6 +6,17 @@
                 <div class="team-score" id="team1Score">
                     <h5 id="team1Name">الفريق الأول</h5>
                     <div class="score-number" id="team1Points">0</div>
+                    <div class="team-lifelines" id="team1Lifelines">
+                        <div class="lifeline-indicator" id="team1CallFriend" title="اتصل بصديق">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="lifeline-indicator" id="team1TwoAnswers" title="إجابتان فقط">
+                            <i class="fas fa-hand-point-right"></i>
+                        </div>
+                        <div class="lifeline-indicator" id="team1DoublePoints" title="ضعف النقاط">
+                            <i class="fas fa-times-circle"></i>
+                        </div>
+                    </div>
                 </div>
             </div>
             
@@ -22,6 +33,17 @@
                 <div class="team-score" id="team2Score">
                     <h5 id="team2Name">الفريق الثاني</h5>
                     <div class="score-number" id="team2Points">0</div>
+                    <div class="team-lifelines" id="team2Lifelines">
+                        <div class="lifeline-indicator" id="team2CallFriend" title="اتصل بصديق">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="lifeline-indicator" id="team2TwoAnswers" title="إجابتان فقط">
+                            <i class="fas fa-hand-point-right"></i>
+                        </div>
+                        <div class="lifeline-indicator" id="team2DoublePoints" title="ضعف النقاط">
+                            <i class="fas fa-times-circle"></i>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -51,6 +73,44 @@
                 <div class="question-header">
                     <div class="question-category-badge" id="questionCategory">فئة السؤال</div>
                     <div class="question-points" id="questionPoints">200 نقطة</div>
+                    <div class="double-points-indicator" id="doublePointsIndicator" style="display: none;">
+                        <i class="fas fa-times-circle"></i> ضعف النقاط!
+                    </div>
+                </div>
+                
+                <!-- Lifelines Section -->
+                <div class="lifelines-container" id="lifelinesContainer">
+                    <div class="lifelines-title">وسائل المساعدة المتاحة:</div>
+                    <div class="lifelines-buttons">
+                        <button class="lifeline-btn" id="callFriendBtn" onclick="useCallFriend()">
+                            <i class="fas fa-phone"></i>
+                            <span>اتصل بصديق</span>
+                        </button>
+                        
+                        <button class="lifeline-btn" id="twoAnswersBtn" onclick="useTwoAnswers()">
+                            <i class="fas fa-hand-point-right"></i>
+                            <span>إجابتان فقط</span>
+                        </button>
+                        
+                        <button class="lifeline-btn" id="doublePointsBtn" onclick="useDoublePoints()">
+                            <i class="fas fa-times-circle"></i>
+                            <span>ضعف النقاط</span>
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Call Friend Timer -->
+                <div class="call-friend-timer" id="callFriendTimer" style="display: none;">
+                    <div class="timer-content">
+                        <div class="timer-icon">
+                            <i class="fas fa-phone-alt fa-beat"></i>
+                        </div>
+                        <div class="timer-text">جاري الاتصال بصديق...</div>
+                        <div class="timer-countdown" id="timerCountdown">60</div>
+                        <div class="timer-bar">
+                            <div class="timer-progress" id="timerProgress"></div>
+                        </div>
+                    </div>
                 </div>
                 
                 <!-- Question Content -->
