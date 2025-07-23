@@ -236,11 +236,29 @@ body, html {
     color: rgba(255, 255, 255, 0.5);
     cursor: not-allowed;
     opacity: 0.5;
+    position: relative;
 }
 
 .lifeline-icon.used:hover {
     transform: none;
     background-color: rgba(255, 0, 0, 0.3);
+}
+
+.lifeline-icon.used::after {
+    content: '✗';
+    position: absolute;
+    top: -2px;
+    right: -2px;
+    background-color: #ff4444;
+    color: white;
+    border-radius: 50%;
+    width: 8px;
+    height: 8px;
+    font-size: 0.3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
 }
 
 /* Question Modal Styles */
@@ -622,3 +640,76 @@ body, html {
 
 <!-- Confetti Container -->
 <div class="confetti" id="confetti"></div>
+
+<script>
+// Function to mark a lifeline as used
+function markLifelineUsed(teamNumber, lifelineIndex) {
+    const teamLifelines = document.getElementById(`team${teamNumber}Lifelines`);
+    const lifelines = teamLifelines.querySelectorAll('.lifeline-icon');
+    
+    if (lifelines[lifelineIndex]) {
+        lifelines[lifelineIndex].classList.add('used');
+        lifelines[lifelineIndex].style.pointerEvents = 'none';
+    }
+}
+
+// Function to reset all lifelines (for new game)
+function resetAllLifelines() {
+    const allLifelines = document.querySelectorAll('.lifeline-icon');
+    allLifelines.forEach(lifeline => {
+        lifeline.classList.remove('used');
+        lifeline.style.pointerEvents = 'auto';
+    });
+}
+
+// Example usage functions for each lifeline type
+function useCallFriend(teamNumber = 1) {
+    markLifelineUsed(teamNumber, 0); // First lifeline (phone)
+    console.log(`Team ${teamNumber} used Call Friend lifeline`);
+}
+
+function useTwoAnswers(teamNumber = 1) {
+    markLifelineUsed(teamNumber, 1); // Second lifeline (users)
+    console.log(`Team ${teamNumber} used Two Answers lifeline`);
+}
+
+function useDoublePoints(teamNumber = 1) {
+    markLifelineUsed(teamNumber, 2); // Third lifeline (x2)
+    console.log(`Team ${teamNumber} used Double Points lifeline`);
+}
+
+// Add click event listeners to lifeline icons
+document.addEventListener('DOMContentLoaded', function() {
+    // Team 1 lifelines
+    const team1Lifelines = document.querySelectorAll('#team1Lifelines .lifeline-icon');
+    team1Lifelines.forEach((lifeline, index) => {
+        lifeline.addEventListener('click', function() {
+            if (!this.classList.contains('used')) {
+                markLifelineUsed(1, index);
+                // You can add specific logic for each lifeline type here
+                switch(index) {
+                    case 0: console.log('Team 1 used Call Friend'); break;
+                    case 1: console.log('Team 1 used Two Answers'); break;
+                    case 2: console.log('Team 1 used Double Points'); break;
+                }
+            }
+        });
+    });
+    
+    // Team 2 lifelines
+    const team2Lifelines = document.querySelectorAll('#team2Lifelines .lifeline-icon');
+    team2Lifelines.forEach((lifeline, index) => {
+        lifeline.addEventListener('click', function() {
+            if (!this.classList.contains('used')) {
+                markLifelineUsed(2, index);
+                // You can add specific logic for each lifeline type here
+                switch(index) {
+                    case 0: console.log('Team 2 used Call Friend'); break;
+                    case 1: console.log('Team 2 used Two Answers'); break;
+                    case 2: console.log('Team 2 used Double Points'); break;
+                }
+            }
+        });
+    });
+});
+</script>
