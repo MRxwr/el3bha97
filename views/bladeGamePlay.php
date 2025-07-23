@@ -662,54 +662,30 @@ function resetAllLifelines() {
     });
 }
 
-// Example usage functions for each lifeline type
-function useCallFriend(teamNumber = 1) {
+// Functions to mark specific lifelines as used for each team
+function markCallFriendUsed(teamNumber) {
     markLifelineUsed(teamNumber, 0); // First lifeline (phone)
-    console.log(`Team ${teamNumber} used Call Friend lifeline`);
+    console.log(`Team ${teamNumber} Call Friend lifeline marked as used`);
 }
 
-function useTwoAnswers(teamNumber = 1) {
+function markTwoAnswersUsed(teamNumber) {
     markLifelineUsed(teamNumber, 1); // Second lifeline (users)
-    console.log(`Team ${teamNumber} used Two Answers lifeline`);
+    console.log(`Team ${teamNumber} Two Answers lifeline marked as used`);
 }
 
-function useDoublePoints(teamNumber = 1) {
+function markDoublePointsUsed(teamNumber) {
     markLifelineUsed(teamNumber, 2); // Third lifeline (x2)
-    console.log(`Team ${teamNumber} used Double Points lifeline`);
+    console.log(`Team ${teamNumber} Double Points lifeline marked as used`);
 }
 
-// Add click event listeners to lifeline icons
-document.addEventListener('DOMContentLoaded', function() {
-    // Team 1 lifelines
-    const team1Lifelines = document.querySelectorAll('#team1Lifelines .lifeline-icon');
-    team1Lifelines.forEach((lifeline, index) => {
-        lifeline.addEventListener('click', function() {
-            if (!this.classList.contains('used')) {
-                markLifelineUsed(1, index);
-                // You can add specific logic for each lifeline type here
-                switch(index) {
-                    case 0: console.log('Team 1 used Call Friend'); break;
-                    case 1: console.log('Team 1 used Two Answers'); break;
-                    case 2: console.log('Team 1 used Double Points'); break;
-                }
-            }
-        });
-    });
+// Check if a specific lifeline is available for a team
+function isLifelineAvailable(teamNumber, lifelineIndex) {
+    const teamLifelines = document.getElementById(`team${teamNumber}Lifelines`);
+    const lifelines = teamLifelines.querySelectorAll('.lifeline-icon');
     
-    // Team 2 lifelines
-    const team2Lifelines = document.querySelectorAll('#team2Lifelines .lifeline-icon');
-    team2Lifelines.forEach((lifeline, index) => {
-        lifeline.addEventListener('click', function() {
-            if (!this.classList.contains('used')) {
-                markLifelineUsed(2, index);
-                // You can add specific logic for each lifeline type here
-                switch(index) {
-                    case 0: console.log('Team 2 used Call Friend'); break;
-                    case 1: console.log('Team 2 used Two Answers'); break;
-                    case 2: console.log('Team 2 used Double Points'); break;
-                }
-            }
-        });
-    });
-});
+    if (lifelines[lifelineIndex]) {
+        return !lifelines[lifelineIndex].classList.contains('used');
+    }
+    return false;
+}
 </script>
