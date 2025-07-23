@@ -1,12 +1,12 @@
 <?php 
 if( isset($_GET["hide"]) && !empty($_GET["hide"]) ){
-	if( updateDB('qas_categories',array('hidden'=> '2'),"`id` = '{$_GET["hide"]}'") ){
+	if( updateDB('qas_categories',array('hidden'=> '1'),"`id` = '{$_GET["hide"]}'") ){
 		header("LOCATION: ?v=QasCategories");
 	}
 }
 
 if( isset($_GET["show"]) && !empty($_GET["show"]) ){
-	if( updateDB('qas_categories',array('hidden'=> '1'),"`id` = '{$_GET["show"]}'") ){
+	if( updateDB('qas_categories',array('hidden'=> '0'),"`id` = '{$_GET["show"]}'") ){
 		header("LOCATION: ?v=QasCategories");
 	}
 }
