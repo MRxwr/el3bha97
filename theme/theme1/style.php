@@ -32,15 +32,7 @@
     }
     
     .game-header {
-        background: rgba(255, 255, 255, 0.95);
-        backdrop-filter: blur(10px);
-        padding: 15px 0;
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        z-index: 1000;
-        box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+        display: none;
     }
     
     /* Section Title Styles */
@@ -653,13 +645,7 @@
 
     /* Question Board Styles */
     .turn-indicator {
-        background: linear-gradient(45deg, #667eea, #764ba2);
-        color: white;
-        padding: 20px;
-        border-radius: 15px;
-        text-align: center;
-        margin-bottom: 30px;
-        margin-top: 100px;
+        display: none;
     }
 
     .turn-text {
@@ -677,14 +663,12 @@
         display: grid;
         grid-template-columns: repeat(3, 1fr);
         grid-template-rows: repeat(2, 1fr);
-        gap: 20px;
-        padding: 15px;
+        gap: 10px;
+        padding: 10px;
         background: linear-gradient(135deg, #ff6b6b 0%, #ff8e53 100%);
         border-radius: 15px;
         box-shadow: 0 8px 25px rgba(255, 107, 107, 0.3);
-        height: calc(100vh - 180px);
-        min-height: 480px;
-        max-height: 580px;
+        height: 100vh;
         width: 100%;
         margin: 0 auto;
         position: relative;
@@ -819,12 +803,12 @@
     /* Category Collection Layout */
     .category-collection {
         background: rgba(255, 255, 255, 0.1);
-        border-radius: 12px;
-        padding: 8px;
+        border-radius: 8px;
+        padding: 4px;
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
         grid-template-rows: 1fr 1fr 1fr;
-        gap: 4px;
+        gap: 2px;
         border: 2px solid rgba(255, 255, 255, 0.2);
     }
 
@@ -859,14 +843,17 @@
 
     /* Mini question cells */
     .question-cell.question-mini {
-        font-size: 0.9rem;
+        font-size: 0.7rem;
         font-weight: 600;
-        min-height: 35px;
+        min-height: 25px;
         background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
         color: white;
-        border: 2px solid rgba(255, 255, 255, 0.3);
-        border-radius: 8px;
-        padding: 4px;
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        border-radius: 6px;
+        padding: 2px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 
     .question-cell.question-mini:hover {
@@ -891,33 +878,33 @@
     /* Mini category cells */
     .category-cell.category-mini {
         background: linear-gradient(135deg, #74b9ff 0%, #0984e3 100%);
-        border: 2px solid rgba(255, 255, 255, 0.8);
-        border-radius: 10px;
+        border: 1px solid rgba(255, 255, 255, 0.8);
+        border-radius: 8px;
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
         text-align: center;
         font-weight: 600;
-        font-size: 0.7rem;
+        font-size: 0.5rem;
         cursor: default;
         position: relative;
         overflow: hidden;
-        min-height: 45px;
-        padding: 4px;
+        min-height: 35px;
+        padding: 2px;
     }
 
     .category-image-small {
-        width: 25px;
-        height: 25px;
-        border-radius: 6px;
+        width: 15px;
+        height: 15px;
+        border-radius: 4px;
         object-fit: cover;
-        margin-bottom: 2px;
+        margin-bottom: 1px;
         border: 1px solid rgba(255, 255, 255, 0.8);
     }
 
     .category-title-small {
-        font-size: 0.65rem;
+        font-size: 0.45rem;
         font-weight: 600;
         color: white;
         text-shadow: 0 1px 2px rgba(0,0,0,0.5);
