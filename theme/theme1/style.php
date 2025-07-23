@@ -6,6 +6,11 @@
         min-height: 100vh;
         direction: rtl;
         overflow-x: hidden;
+        /* Mobile optimizations */
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        -webkit-tap-highlight-color: transparent;
+        touch-action: manipulation;
     }
     
     /* Common Container Styles */
@@ -70,6 +75,18 @@
         text-align: center;
         position: relative;
         overflow: hidden;
+        /* Mobile touch optimization */
+        user-select: none;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        -webkit-tap-highlight-color: transparent;
+        touch-action: manipulation;
+        min-height: 140px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
     }
     
     .category-card:hover {
@@ -220,6 +237,14 @@
         font-weight: 600;
         transition: all 0.3s ease;
         min-width: 150px;
+        /* Mobile touch optimization */
+        cursor: pointer;
+        user-select: none;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        -webkit-tap-highlight-color: transparent;
+        touch-action: manipulation;
     }
     
     .btn-show-answer {
@@ -463,56 +488,166 @@
     
     /* Responsive Design */
     @media (max-width: 768px) {
-        .game-container {
-            margin: 10px;
-            border-radius: 15px;
+        body {
+            overflow-x: hidden;
         }
         
+        /* Container adjustments */
+        .game-container {
+            margin: 5px;
+            border-radius: 15px;
+            max-width: 100%;
+        }
+        
+        /* Header adjustments */
         .header-section {
-            padding: 20px;
+            padding: 15px;
             border-radius: 15px 15px 0 0;
         }
         
-        .question-card {
-            margin: 10px;
-            padding: 20px;
-            min-height: 400px;
+        .header-section h1 {
+            font-size: 1.8rem;
         }
         
-        .question-text {
-            font-size: 1.4rem;
+        .header-section p {
+            font-size: 0.9rem;
         }
         
-        .category-card {
-            margin: 5px;
-            padding: 15px;
+        /* Game header for gameplay page */
+        .game-header {
+            padding: 10px 0;
         }
         
-        .category-icon {
-            font-size: 2rem;
+        .game-header .container {
+            padding: 0 10px;
         }
         
-        .selection-counter {
-            top: 10px;
-            left: 10px;
-            padding: 10px 15px;
+        .game-header .row {
+            margin: 0;
         }
         
-        .game-controls {
-            flex-direction: column;
-            align-items: center;
+        .game-header .col-md-4 {
+            padding: 5px;
         }
         
-        .control-btn {
-            min-width: 200px;
-        }
-        
+        /* Team score adjustments */
         .team-score {
             padding: 10px 15px;
+            margin: 5px;
+        }
+        
+        .team-score h5 {
+            font-size: 0.9rem;
+            margin-bottom: 5px;
         }
         
         .score-number {
             font-size: 1.5rem;
+        }
+        
+        /* Category cards for home page */
+        .category-card {
+            margin: 5px;
+            padding: 15px;
+            min-height: 120px;
+        }
+        
+        .category-icon {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+        
+        .category-title {
+            font-size: 0.9rem;
+        }
+        
+        .category-count {
+            font-size: 0.8rem;
+        }
+        
+        /* Selection counter */
+        .selection-counter {
+            top: 10px;
+            left: 10px;
+            padding: 8px 12px;
+            font-size: 0.9rem;
+        }
+        
+        /* Progress bar */
+        .progress-section {
+            margin: 15px 0;
+        }
+        
+        /* Team setup section */
+        .team-section {
+            padding: 15px;
+            margin: 10px 0;
+        }
+        
+        .team-header {
+            padding: 10px 15px;
+            font-size: 1rem;
+        }
+        
+        .form-control {
+            font-size: 0.9rem;
+            padding: 8px 12px;
+        }
+        
+        .player-counter {
+            gap: 10px;
+            margin: 15px 0;
+        }
+        
+        .counter-btn {
+            width: 35px;
+            height: 35px;
+            font-size: 1rem;
+        }
+        
+        .player-count {
+            font-size: 1.2rem;
+            min-width: 30px;
+        }
+        
+        /* Buttons */
+        .start-game-btn {
+            padding: 12px 30px;
+            font-size: 1rem;
+            width: 100%;
+            margin-top: 15px;
+        }
+        
+        .control-btn {
+            min-width: 120px;
+            padding: 12px 20px;
+            font-size: 0.9rem;
+            margin: 5px;
+        }
+        
+        /* Game controls layout */
+        .game-controls {
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .team-selection {
+            padding: 15px;
+            margin: 15px 0;
+        }
+        
+        .team-selection p {
+            font-size: 1rem;
+        }
+        
+        /* Main content adjustments */
+        .main-content {
+            padding: 0 5px;
+        }
+        
+        .main-content .container {
+            padding: 0 10px;
         }
     }
 
@@ -580,6 +715,13 @@
         align-items: center;
         justify-content: center;
         border: none;
+        /* Mobile touch optimization */
+        user-select: none;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        -webkit-tap-highlight-color: transparent;
+        touch-action: manipulation;
     }
 
     .question-cell:hover {
@@ -611,6 +753,8 @@
         align-items: center;
         justify-content: center;
         backdrop-filter: blur(5px);
+        padding: 20px;
+        box-sizing: border-box;
     }
 
     .question-modal-content {
@@ -623,6 +767,10 @@
         overflow-y: auto;
         text-align: center;
         position: relative;
+        width: 100%;
+        box-sizing: border-box;
+        /* Smooth scrolling */
+        -webkit-overflow-scrolling: touch;
     }
 
     .team-selection {
@@ -652,35 +800,189 @@
 
     /* Responsive Design for Board */
     @media (max-width: 768px) {
+        /* Turn indicator mobile */
+        .turn-indicator {
+            margin-top: 80px;
+            margin-bottom: 20px;
+            padding: 12px;
+            border-radius: 10px;
+        }
+
+        .turn-text {
+            font-size: 1.1rem;
+        }
+
+        .turn-instruction {
+            font-size: 0.9rem;
+        }
+
+        /* Question board mobile */
         .question-board {
-            grid-template-columns: repeat(3, 1fr);
-            gap: 10px;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+
+        .category-column {
+            gap: 8px;
+        }
+
+        .category-header {
+            font-size: 0.7rem;
+            padding: 8px 5px;
+            min-height: 50px;
+            line-height: 1.2;
+        }
+
+        .question-cell {
+            font-size: 1rem;
+            padding: 12px 5px;
+            min-height: 50px;
+        }
+
+        /* Question modal mobile */
+        .question-modal-content {
+            margin: 5px;
+            padding: 15px;
+            max-height: 95vh;
+            border-radius: 15px;
+        }
+
+        .category-badge {
+            font-size: 0.8rem;
+            padding: 6px 15px;
+            margin-bottom: 15px;
+        }
+
+        .question-text {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            line-height: 1.5;
+        }
+
+        .answer-text {
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+        }
+
+        /* Question media mobile */
+        .question-media {
+            margin: 15px 0;
+        }
+
+        .question-media img {
+            max-height: 200px;
+        }
+
+        /* Team selection mobile */
+        .team-selection {
+            margin: 15px 0;
+            padding: 15px;
+        }
+
+        .team-selection p {
+            font-size: 1rem;
+            margin-bottom: 15px;
+        }
+
+        .btn-team1,
+        .btn-team2 {
+            margin: 5px;
+            min-width: 100px;
+            font-size: 0.9rem;
+        }
+
+        /* Game end screen mobile */
+        .game-end {
+            padding: 20px;
+        }
+
+        .winner-announcement {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+
+        .final-scores {
+            margin: 15px 0;
+        }
+
+        .final-score-card {
+            margin: 10px 0;
+            padding: 15px;
+        }
+    }
+
+    /* Extra small screens */
+    @media (max-width: 480px) {
+        /* Very small screens adjustments */
+        .game-header {
+            padding: 8px 0;
+        }
+
+        .team-score {
+            padding: 8px 10px;
+        }
+
+        .team-score h5 {
+            font-size: 0.8rem;
+        }
+
+        .score-number {
+            font-size: 1.3rem;
+        }
+
+        .turn-indicator {
+            margin-top: 70px;
+            padding: 10px;
+        }
+
+        .turn-text {
+            font-size: 1rem;
+        }
+
+        .question-board {
+            grid-template-columns: 1fr;
+            gap: 6px;
         }
 
         .category-header {
             font-size: 0.8rem;
-            padding: 10px 5px;
-            min-height: 60px;
+            padding: 10px;
+            min-height: 40px;
         }
 
         .question-cell {
-            font-size: 1.2rem;
-            padding: 15px 5px;
-            min-height: 60px;
-        }
-
-        .turn-indicator {
-            margin-top: 120px;
+            font-size: 1.1rem;
             padding: 15px;
-        }
-
-        .turn-text {
-            font-size: 1.2rem;
+            min-height: 45px;
         }
 
         .question-modal-content {
-            margin: 10px;
-            padding: 20px;
+            margin: 2px;
+            padding: 12px;
+        }
+
+        .question-text {
+            font-size: 1.1rem;
+        }
+
+        .control-btn {
+            min-width: 100px;
+            padding: 10px 15px;
+            font-size: 0.85rem;
+        }
+
+        .category-card {
+            padding: 12px;
+            min-height: 100px;
+        }
+
+        .category-icon {
+            font-size: 1.5rem;
+        }
+
+        .category-title {
+            font-size: 0.85rem;
         }
     }
 </style>
