@@ -1,41 +1,35 @@
 <?php 
 if( isset($_GET["hide"]) && !empty($_GET["hide"]) ){
-	if( updateDB('qas_categories',array('hidden'=> '1'),"`id` = '{$_GET["hide"]}'") ){
-		header("LOCATION: ?v=QasCategories");
+	if( updateDB('qas_types',array('hidden'=> '1'),"`id` = '{$_GET["hide"]}'") ){
+		header("LOCATION: ?v=QasTypes");
 	}
 }
 
 if( isset($_GET["show"]) && !empty($_GET["show"]) ){
-	if( updateDB('qas_categories',array('hidden'=> '0'),"`id` = '{$_GET["show"]}'") ){
-		header("LOCATION: ?v=QasCategories");
+	if( updateDB('qas_types',array('hidden'=> '0'),"`id` = '{$_GET["show"]}'") ){
+		header("LOCATION: ?v=QasTypes");
 	}
 }
 
 if( isset($_GET["delId"]) && !empty($_GET["delId"]) ){
-	if( updateDB('qas_categories',array('status'=> '1'),"`id` = '{$_GET["delId"]}'") ){
-		header("LOCATION: ?v=QasCategories");
+	if( updateDB('qas_types',array('status'=> '1'),"`id` = '{$_GET["delId"]}'") ){
+		header("LOCATION: ?v=QasTypes");
 	}
 }
 
 if( isset($_POST["updateRank"]) ){
 	for( $i = 0; $i < sizeof($_POST["rank"]); $i++){
-		updateDB("qas_categories",array("rank"=>$_POST["rank"][$i]),"`id` = '{$_POST["id"][$i]}'");
+		updateDB("qas_types",array("rank"=>$_POST["rank"][$i]),"`id` = '{$_POST["id"][$i]}'");
 	}
-	header("LOCATION: ?v=QasCategories");
+	header("LOCATION: ?v=QasTypes");
 }
 
 if( isset($_POST["title"]) ){
 	$id = $_POST["update"];
 	unset($_POST["update"]);
 	if ( $id == 0 ){
-		if (is_uploaded_file($_FILES['image']['tmp_name'])) {
-			$_POST["image"] = uploadImageBannerFreeImageHost($_FILES['image']['tmp_name'], "qas/categories");
-		} else {
-			$_POST["image"] = "";
-		}
-		
-		if( insertDB("qas_categories", $_POST) ){
-			header("LOCATION: ?v=QasCategories");
+		if( insertDB("qas_types", $_POST) ){
+			header("LOCATION: ?v=QasTypes");
 		}else{
 		?>
 		<script>
@@ -44,12 +38,8 @@ if( isset($_POST["title"]) ){
 		<?php
 		}
 	}else{
-		if (is_uploaded_file($_FILES['image']['tmp_name'])) {
-			$_POST["image"] = uploadImageBannerFreeImageHost($_FILES['image']['tmp_name'], "qas/categories");
-		}
-		
-		if( updateDB("qas_categories", $_POST, "`id` = '{$id}'") ){
-			header("LOCATION: ?v=QasCategories");
+		if( updateDB("qas_types", $_POST, "`id` = '{$id}'") ){
+			header("LOCATION: ?v=QasTypes");
 		}else{
 		?>
 		<script>
@@ -65,7 +55,7 @@ if( isset($_POST["title"]) ){
 <div class="panel panel-default card-view">
 <div class="panel-heading">
 <div class="pull-left">
-	<h6 class="panel-title txt-dark"><?php echo direction("Qas Category Details","تفاصيل قسم الاسئلة ") ?></h6>
+	<h6 class="panel-title txt-dark"><?php echo direction("Qas Type Details","تفاصيل نوع الاسئلة") ?></h6>
 </div>
 	<div class="clearfix"></div>
 </div>
@@ -73,30 +63,17 @@ if( isset($_POST["title"]) ){
 <div class="panel-body">
 	<form class="" method="POST" action="" enctype="multipart/form-data">
 		<div class="row m-0">
-			<div class="col-md-4">
+			<div class="col-md-6">
 			<label><?php echo direction("Title","العنوان") ?></label>
 			<input type="text" name="title" class="form-control" required>
 			</div>
 			
-			<div class="col-md-4">
+			<div class="col-md-6">
 			<label><?php echo direction("Hide Category","أخفي القسم") ?></label>
 			<select name="hidden" class="form-control">
 				<option value="1">No</option>
 				<option value="2">Yes</option>
 			</select>
-			</div>
-			
-			<div class="col-md-4">
-			<label><?php echo direction("Logo","الشعار") ?></label>
-			<input type="file" name="image" class="form-control" required>
-			</div>
-			
-			<div id="images" style="margin-top: 10px; display:none">
-				<div class="col-md-4"></div>
-				<div class="col-md-4"></div>
-				<div class="col-md-4">
-				<img id="logoImg" src="" style="width:250px;height:250px">
-				</div>
 			</div>
 
 			<div class="col-md-12" style="margin-top:10px">
@@ -117,7 +94,7 @@ if( isset($_POST["title"]) ){
 <div class="panel panel-default card-view">
 <div class="panel-heading">
 <div class="pull-left">
-<h6 class="panel-title txt-dark"><?php echo direction("Qas Category List","قائمة قسم الاسئلة") ?></h6>
+<h6 class="panel-title txt-dark"><?php echo direction("Qas Types List","قائمة انواع الاسئلة") ?></h6>
 </div>
 <div class="clearfix"></div>
 </div>
@@ -133,14 +110,13 @@ if( isset($_POST["title"]) ){
 		<tr>
 		<th>#</th>
 		<th><?php echo direction("Title","العنوان") ?></th>
-        <th><?php echo direction("Logo","الشعار") ?></th>
 		<th class="text-nowrap"><?php echo direction("Action","الخيارات") ?></th>
 		</tr>
 		</thead>
 		
 		<tbody>
 		<?php 
-		if( $categories = selectDB("qas_categories","`status` = '0' ORDER BY `rank` ASC") ){
+		if( $categories = selectDB("qas_types","`status` = '0' ORDER BY `rank` ASC") ){
 			for( $i = 0; $i < sizeof($categories); $i++ ){
 				$counter = $i + 1;
 			if ( $categories[$i]["hidden"] == 1 ){
@@ -159,9 +135,6 @@ if( isset($_POST["title"]) ){
 			<input name="id[]" class="form-control" type="hidden" value="<?php echo $categories[$i]["id"] ?>">
 			</td>
 			<td id="title<?php echo $categories[$i]["id"]?>" ><?php echo $categories[$i]["title"] ?></td>
-            <td>
-            <img id="image<?php echo $categories[$i]["id"]?>" src="../logos/qas/categories/<?php echo $categories[$i]["image"] ?>" style="width:50px;height:50px">
-            </td>
 			<td class="text-nowrap">
 			
 			<a id="<?php echo $categories[$i]["id"] ?>" class="mr-25 edit" data-toggle="tooltip" data-original-title="<?php echo direction("Edit","تعديل") ?>"> <i class="fa fa-pencil text-inverse m-r-10"></i>
@@ -171,8 +144,6 @@ if( isset($_POST["title"]) ){
 			<a href="<?php echo "?v={$_GET["v"]}&delId={$categories[$i]["id"]}" ?>" data-toggle="tooltip" data-original-title="<?php echo direction("Delete","حذف") ?>"><i class="fa fa-close text-danger"></i>
 			</a>
 			<div style="display:none"><label id="hidden<?php echo $categories[$i]["id"]?>"><?php echo $categories[$i]["hidden"] ?></label></div>
-			<div style="display:none"><label id="imageData<?php echo $categories[$i]["id"]?>"><?php echo $categories[$i]["image"] ?></label></div>
-			
 			</td>
 			</tr>
 			<?php
@@ -193,13 +164,9 @@ if( isset($_POST["title"]) ){
 <script>
 	$(document).on("click",".edit", function(){
 		var id = $(this).attr("id");
-        var image = $("#imageData"+id).html();
-		$("input[type=file]").prop("required",false);
 		$("input[name=title]").val($("#title"+id).html()).focus();
 		$("input[name=update]").val($(this).attr("id"));
 		$("select[name=hidden]").val($("#hidden"+id).html());
 		$("input[type=submit]").val("<?php echo direction("Submit","أرسل") ?>");
-		$("#logoImg").attr("src","../logos/qas/categories/"+image);
-		$("#images").attr("style","margin-top:10px;display:block");
 	})
 </script>
