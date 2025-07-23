@@ -173,7 +173,7 @@ body, html {
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    gap: 4px;
+    gap: 8px;
 }
 
 .team-name {
@@ -181,9 +181,9 @@ body, html {
     font-weight: bold;
     margin: 0;
     line-height: 1.2;
-    flex: 1;
+    flex: 0 0 auto;
     text-align: right;
-    order: 3;
+    min-width: 60px;
 }
 
 .team-score-footer {
@@ -192,8 +192,7 @@ body, html {
     margin: 0;
     color: #FFD700;
     line-height: 1.2;
-    flex-shrink: 0;
-    order: 2;
+    flex: 1;
     text-align: center;
 }
 
@@ -206,10 +205,10 @@ body, html {
 
 .lifeline-icons {
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     gap: 2px;
-    flex-shrink: 0;
-    order: 1;
+    flex: 0 0 auto;
+    min-width: 60px;
 }
 
 .lifeline-icon {
