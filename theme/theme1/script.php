@@ -576,6 +576,7 @@
         
         // Show question modal
         $("#questionCategory").text(question.categoryName);
+        $("#questionPoints").text(`${question.points} نقطة`);
         $("#questionText").text(question.question);
         $("#answerText").text(question.answer);
         
