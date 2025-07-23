@@ -782,6 +782,35 @@
         box-shadow: none;
     }
 
+    /* Small question cells around category */
+    .question-cell.question-small {
+        font-size: 1.2rem;
+        font-weight: 600;
+        min-height: 50px;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        border: 2px solid rgba(255, 255, 255, 0.3);
+    }
+
+    .question-cell.question-small:hover {
+        transform: scale(1.1);
+        background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+        border-color: rgba(255, 255, 255, 0.8);
+        box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+    }
+
+    .question-cell.question-small.answered {
+        background: linear-gradient(135deg, #95a5a6 0%, #7f8c8d 100%);
+        color: #bdc3c7;
+        cursor: not-allowed;
+        border-color: rgba(255, 255, 255, 0.2);
+    }
+
+    .question-cell.question-small.answered:hover {
+        transform: none;
+        box-shadow: none;
+    }
+
     /* Quiz Show Style Question Modal */
     .question-modal {
         position: fixed;

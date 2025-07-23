@@ -523,47 +523,58 @@
         console.log('Categorized questions:', categorizedQuestions);
         
         const categories = Object.keys(categorizedQuestions);
-        const maxCategories = Math.min(3, categories.length); // Limit to 3 categories for this layout
+        const maxCategories = Math.min(2, categories.length); // Show 2 categories max for proper spacing
         
         // Create grid: 4 rows × 6 columns = 24 cells
-        // Layout pattern (for each category taking 2 columns):
-        // Col1: 200 | Col2: Cat1 | Col3: 200 | Col4: Cat2 | Col5: 200 | Col6: Cat3
-        // Col1: 400 | Col2:      | Col3: 400 | Col4:      | Col5: 400 | Col6:
-        // Col1: 600 | Col2:      | Col3: 600 | Col4:      | Col5: 600 | Col6:
+        // Layout pattern for each category (3x3 grid per category):
+        // [Q1] [Q2] [Q3] | [Q1] [Q2] [Q3]
+        // [Q4] [Cat] [Q5] | [Q4] [Cat] [Q5]  
+        // [Q6] [Q7] [Q8] | [Q6] [Q7] [Q8]
+        // [Q9] [Q10][Q11]| [Q9] [Q10][Q11]
         
         for (let row = 0; row < 4; row++) {
             for (let col = 0; col < 6; col++) {
                 let cellContent = '';
                 
-                // Determine which category this column belongs to (each category takes 2 columns)
-                const categoryIndex = Math.floor(col / 2);
-                const columnInCategory = col % 2; // 0 = left column, 1 = right column (category)
+                // Determine which category this column belongs to (each category takes 3 columns)
+                const categoryIndex = Math.floor(col / 3);
+                const columnInCategory = col % 3; // 0, 1, 2 within the category
                 
                 if (categoryIndex < maxCategories) {
                     const categoryId = categories[categoryIndex];
                     const categoryQuestions = categorizedQuestions[categoryId];
                     const categoryName = categoryQuestions[0].categoryName;
                     
-                    if (columnInCategory === 1 && row === 1) {
-                        // Category position: right column of pair, middle row
+                    // Check if this is the center position for category
+                    if (row === 1 && columnInCategory === 1) {
+                        // Center position: Category image
                         cellContent = `
                             <div class="question-cell category-cell" data-category-id="${categoryId}">
                                 <img src="img/logo.png" alt="${categoryName}" class="category-image" />
                                 <div class="category-title">${categoryName}</div>
                             </div>
                         `;
-                    } else if (columnInCategory === 0) {
-                        // Left column: questions
-                        let questionIndex;
-                        if (row === 0) questionIndex = 0;      // Row 0 = First question (200 points)
-                        else if (row === 1) questionIndex = 1; // Row 1 = Second question (400 points)  
-                        else if (row === 2) questionIndex = 2; // Row 2 = Third question (600 points)
-                        else if (row === 3) questionIndex = 3; // Row 3 = Fourth question (if available)
+                    } else {
+                        // Surrounding positions: Questions
+                        let questionIndex = -1;
                         
-                        if (questionIndex < categoryQuestions.length) {
+                        // Map grid positions to question indexes (surrounding the center)
+                        if (row === 0 && columnInCategory === 0) questionIndex = 0; // Top-left
+                        else if (row === 0 && columnInCategory === 1) questionIndex = 1; // Top-center
+                        else if (row === 0 && columnInCategory === 2) questionIndex = 2; // Top-right
+                        else if (row === 1 && columnInCategory === 0) questionIndex = 3; // Middle-left
+                        else if (row === 1 && columnInCategory === 2) questionIndex = 4; // Middle-right
+                        else if (row === 2 && columnInCategory === 0) questionIndex = 5; // Bottom-left
+                        else if (row === 2 && columnInCategory === 1) questionIndex = 6; // Bottom-center
+                        else if (row === 2 && columnInCategory === 2) questionIndex = 7; // Bottom-right
+                        else if (row === 3 && columnInCategory === 0) questionIndex = 8; // Extra-bottom-left
+                        else if (row === 3 && columnInCategory === 1) questionIndex = 9; // Extra-bottom-center
+                        else if (row === 3 && columnInCategory === 2) questionIndex = 10; // Extra-bottom-right
+                        
+                        if (questionIndex >= 0 && questionIndex < categoryQuestions.length) {
                             const question = categoryQuestions[questionIndex];
                             cellContent = `
-                                <button class="question-cell" data-question-id="${question.id}">
+                                <button class="question-cell question-small" data-question-id="${question.id}">
                                     ${question.points}
                                 </button>
                             `;
@@ -574,9 +585,6 @@
                             // Empty cell if no question available
                             cellContent = '<div class="question-cell" style="background: transparent; border: none; cursor: default;"></div>';
                         }
-                    } else {
-                        // Right column but not category row - empty
-                        cellContent = '<div class="question-cell" style="background: transparent; border: none; cursor: default;"></div>';
                     }
                 } else {
                     // Empty column if no more categories
