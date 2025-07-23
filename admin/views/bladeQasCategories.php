@@ -34,7 +34,6 @@ if( isset($_POST["arTitle"]) ){
 			$_POST["image"] = "";
 		}
 		
-		
 		if( insertDB("qas_categories", $_POST) ){
 			header("LOCATION: ?v=QasCategories");
 		}else{
