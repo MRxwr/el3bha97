@@ -250,7 +250,7 @@ body, html {
     left: 0;
     width: 100vw;
     height: 100vh;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, #FF5F5F 0%, #FF3131 100%); /* Red gradient background */
     display: flex;
     z-index: 1000;
     direction: rtl;
@@ -272,12 +272,11 @@ body, html {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 15px;
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 15px;
-    margin-bottom: 15px;
+    padding: 8px 15px;
+    background: transparent;
+    margin-bottom: 5px;
     flex-shrink: 0;
-    min-height: 50px;
+    min-height: 40px;
 }
 
 .question-category-badge {
@@ -526,6 +525,207 @@ body, html {
     justify-content: center;
 }
 
+/* New Question Modal Styles */
+.timer-container {
+    background-color: #1f1f1f;
+    border-radius: 20px;
+    padding: 5px 15px;
+    margin: 8px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.timer-bar-container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.timer-controls {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.timer-count {
+    background-color: #fff;
+    color: #222;
+    font-size: 0.7rem;
+    font-weight: bold;
+    padding: 2px 6px;
+    border-radius: 10px;
+}
+
+.timer-pause-btn {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.timer-progress-bar {
+    flex: 1;
+    height: 6px;
+    background-color: rgba(255,255,255,0.2);
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.timer-progress-fill {
+    height: 100%;
+    background-color: #FF5F5F;
+    transition: width 0.3s linear;
+}
+
+.timer-display {
+    font-weight: bold;
+    color: white;
+    font-size: 0.9rem;
+}
+
+.question-content-wrapper {
+    background-color: white;
+    border-radius: 20px;
+    padding: 15px;
+    margin: 10px 0;
+    position: relative;
+    color: #333;
+    flex: 1;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.question-category-tag {
+    position: absolute;
+    top: -12px;
+    right: 15px;
+    background-color: #ff5f5f;
+    color: white;
+    padding: 4px 12px;
+    border-radius: 15px;
+    font-size: 0.7rem;
+    font-weight: bold;
+}
+
+.question-text-container {
+    width: 100%;
+    margin-top: 10px;
+    margin-bottom: 15px;
+}
+
+.question-text-large {
+    background: none;
+    border: none;
+    padding: 0;
+    font-size: 1.1rem;
+    font-weight: bold;
+    text-align: center;
+    color: #333;
+    margin-bottom: 15px;
+    width: 100%;
+}
+
+.question-media-container {
+    width: 90%;
+    margin: 0 auto;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.game-round-info {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    margin: 10px 0;
+}
+
+.round-card {
+    background-color: #ff5f5f;
+    color: white;
+    border-radius: 15px;
+    padding: 10px;
+    width: 48%;
+    text-align: center;
+}
+
+.round-title {
+    font-size: 0.8rem;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.round-score {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.round-actions {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.action-icon {
+    width: 24px;
+    height: 24px;
+    background-color: rgba(255,255,255,0.9);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ff5f5f;
+    font-size: 0.7rem;
+}
+
+.team-badge {
+    background-color: #FF8C00;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 15px;
+    font-size: 0.7rem;
+    font-weight: bold;
+}
+
+.bottom-nav-bar {
+    display: flex;
+    justify-content: space-evenly;
+    background-color: rgba(255,255,255,0.1);
+    border-radius: 20px;
+    padding: 8px;
+    margin-top: 10px;
+}
+
+.nav-button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: rgba(255,255,255,0.7);
+    font-size: 0.7rem;
+    padding: 5px 10px;
+    border-radius: 15px;
+    transition: all 0.3s ease;
+}
+
+.nav-button.active {
+    background-color: rgba(255,255,255,0.2);
+    color: white;
+}
+
+.nav-button i {
+    font-size: 1rem;
+    margin-bottom: 2px;
+}
+
 .quiz-btn:hover {
     transform: translateY(-1px);
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
@@ -640,39 +840,8 @@ body, html {
         padding: 8px;
     }
     
-    .question-main-content {
-        flex-direction: column;
-        gap: 10px;
-    }
-    
-    .question-sidebar {
-        width: 100%;
-        order: 2;
-    }
-    
-    .question-content-center {
-        order: 1;
-        padding: 0 5px;
-    }
-    
     .question-text-large {
-        font-size: 0.95rem;
-        padding: 15px;
-    }
-    
-    .lifelines-container {
-        padding: 10px;
-    }
-    
-    .lifelines-buttons {
-        flex-direction: row;
-        gap: 5px;
-    }
-    
-    .lifeline-btn {
-        padding: 6px 8px;
-        font-size: 0.7rem;
-        flex: 1;
+        font-size: 0.9rem;
     }
     
     .quiz-btn {
@@ -684,18 +853,53 @@ body, html {
     .question-header {
         padding: 6px 10px;
         min-height: 35px;
-        flex-direction: row;
-        gap: 10px;
     }
     
-    .question-category-badge,
-    .question-points {
-        padding: 5px 10px;
-        font-size: 0.75rem;
+    .timer-container {
+        padding: 3px 10px;
+    }
+    
+    .timer-display {
+        font-size: 0.8rem;
+    }
+    
+    .question-content-wrapper {
+        padding: 12px;
+    }
+    
+    .question-category-tag {
+        font-size: 0.65rem;
+        padding: 3px 10px;
+    }
+    
+    .round-card {
+        padding: 8px;
+    }
+    
+    .round-title {
+        font-size: 0.7rem;
+    }
+    
+    .round-score {
+        font-size: 1rem;
+    }
+    
+    .action-icon {
+        width: 20px;
+        height: 20px;
+        font-size: 0.65rem;
+    }
+    
+    .bottom-nav-bar {
+        padding: 6px;
+    }
+    
+    .nav-button {
+        font-size: 0.65rem;
     }
     
     .question-media-container img {
-        max-height: 200px;
+        max-height: 180px;
     }
 }
 
@@ -848,12 +1052,6 @@ body, html {
     
     .question-text-large {
         font-size: 0.8rem;
-        padding: 10px;
-    }
-    
-    .lifeline-btn {
-        padding: 4px 5px;
-        font-size: 0.6rem;
     }
     
     .quiz-btn {
@@ -867,24 +1065,89 @@ body, html {
         gap: 8px;
     }
     
-    .timer-countdown {
-        font-size: 1.3rem;
+    /* New design mobile optimizations */
+    .timer-container {
+        padding: 2px 8px;
     }
     
-    .timer-icon {
-        font-size: 1rem;
+    .timer-bar-container {
+        gap: 8px;
     }
     
-    .lifelines-container {
+    .timer-count {
+        font-size: 0.6rem;
+        padding: 1px 4px;
+    }
+    
+    .timer-display {
+        font-size: 0.7rem;
+    }
+    
+    .timer-pause-btn {
+        font-size: 0.8rem;
+    }
+    
+    .question-content-wrapper {
+        padding: 10px;
+        margin: 5px 0;
+    }
+    
+    .question-category-tag {
+        top: -10px;
+        font-size: 0.6rem;
+        padding: 2px 8px;
+    }
+    
+    .round-card {
         padding: 6px;
     }
     
-    .call-friend-timer {
-        padding: 10px;
+    .round-title {
+        font-size: 0.65rem;
+        margin-bottom: 3px;
+    }
+    
+    .round-score {
+        font-size: 0.9rem;
+        margin-bottom: 3px;
+    }
+    
+    .action-icon {
+        width: 18px;
+        height: 18px;
+        font-size: 0.6rem;
+        gap: 5px;
+    }
+    
+    .bottom-nav-bar {
+        padding: 5px;
+        margin-top: 5px;
+    }
+    
+    .nav-button {
+        font-size: 0.6rem;
+    }
+    
+    .nav-button i {
+        font-size: 0.9rem;
+    }
+    
+    .team-badge {
+        padding: 3px 8px;
+        font-size: 0.65rem;
     }
     
     .question-media-container img {
         max-height: 120px;
+    }
+    
+    .team-scoring {
+        gap: 5px;
+    }
+    
+    .scoring-title {
+        font-size: 0.7rem;
+        margin-bottom: 5px;
     }
 }
 
@@ -950,77 +1213,86 @@ body, html {
     </div>
 </div>
 
-<!-- Question Display Modal (kept for functionality, might need style adjustments) -->
+<!-- Question Display Modal (new mobile-friendly design) -->
 <div class="question-modal" id="questionModal" style="display: none;">
     <div class="question-display-container">
-        <!-- Question Header -->
+        <!-- New Header Design -->
         <div class="question-header">
-            <div class="question-category-badge" id="questionCategory">فئة السؤال</div>
-            <div class="question-points" id="questionPoints">200 نقطة</div>
-            <div class="double-points-indicator" id="doublePointsIndicator" style="display: none;">
-                <i class="fas fa-times-circle"></i> ضعف النقاط!
+            <div class="header-left">
+                <a href="#" class="header-link"><i class="fas fa-arrow-right"></i></a>
+            </div>
+            <div class="header-center">
+                <div class="game-title">سين جيم</div>
+            </div>
+            <div class="header-right">
+                <div class="team-badge" id="currentTeamBadge">
+                    <span id="teamNumber">TEAM 1</span>
+                </div>
             </div>
         </div>
         
-        <!-- Main Content Area -->
-        <div class="question-main-content">
-            <!-- Left Side - Lifelines -->
-            <div class="question-sidebar">
-                <!-- Lifelines Section -->
-                <div class="lifelines-container" id="lifelinesContainer">
-                    <div class="lifelines-title">وسائل المساعدة</div>
-                    <div class="lifelines-buttons">
-                        <button class="lifeline-btn" id="callFriendBtn" onclick="useCallFriend()">
-                            <i class="fas fa-phone"></i>
-                            <span>اتصل بصديق</span>
-                        </button>
-                        
-                        <button class="lifeline-btn" id="twoAnswersBtn" onclick="useTwoAnswers()">
-                            <i class="fas fa-hand-point-right"></i>
-                            <span>إجابتان فقط</span>
-                        </button>
-                        
-                        <button class="lifeline-btn" id="doublePointsBtn" onclick="useDoublePoints()">
-                            <i class="fas fa-times-circle"></i>
-                            <span>ضعف النقاط</span>
-                        </button>
-                    </div>
+        <!-- Timer Bar -->
+        <div class="timer-container">
+            <div class="timer-bar-container">
+                <div class="timer-controls">
+                    <span class="timer-count">200</span>
+                    <button class="timer-pause-btn"><i class="fas fa-pause"></i></button>
                 </div>
-                
-                <!-- Call Friend Timer -->
-                <div class="call-friend-timer" id="callFriendTimer" style="display: none;">
-                    <div class="timer-content">
-                        <div class="timer-icon">
-                            <i class="fas fa-phone-alt fa-beat"></i>
-                        </div>
-                        <div class="timer-text">جاري الاتصال بصديق...</div>
-                        <div class="timer-countdown" id="timerCountdown">60</div>
-                        <div class="timer-bar">
-                            <div class="timer-progress" id="timerProgress"></div>
-                        </div>
-                    </div>
+                <div class="timer-progress-bar">
+                    <div class="timer-progress-fill" id="questionTimer" style="width: 80%;"></div>
+                </div>
+                <div class="timer-display">
+                    <span id="timerCountdownDisplay">00:05</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Question Content Area -->
+        <div class="question-content-wrapper">
+            <div class="question-category-tag">
+                <span id="questionCategoryTag">5 مستويات</span>
+            </div>
+            
+            <div class="question-text-container">
+                <div class="question-text-large" id="questionText">
+                    في أي عام تم إنتاج مسلسل درب الزلق؟
                 </div>
             </div>
             
-            <!-- Center - Question Content -->
-            <div class="question-content-center">
-                <div class="question-text-large" id="questionText">
-                    جاري تحميل السؤال...
+            <div class="question-media-container" id="questionMedia">
+                <!-- Media content will be inserted here -->
+            </div>
+            
+            <!-- Answer Section -->
+            <div class="answer-display" id="answerSection" style="display: none;">
+                <div class="answer-label">الإجابة الصحيحة:</div>
+                <div class="answer-text-large" id="answerText"></div>
+            </div>
+        </div>
+        
+        <!-- Game Round Info -->
+        <div class="game-round-info">
+            <div class="round-card">
+                <div class="round-title">الفترة الأولى</div>
+                <div class="round-score">5400</div>
+                <div class="round-actions">
+                    <div class="action-icon"><i class="fas fa-users"></i></div>
+                    <div class="action-icon"><i class="far fa-clock"></i></div>
+                    <div class="action-icon"><i class="fas fa-phone"></i></div>
                 </div>
-                
-                <div class="question-media-container" id="questionMedia">
-                    <!-- Media content will be inserted here -->
-                </div>
-                
-                <!-- Answer Section -->
-                <div class="answer-display" id="answerSection" style="display: none;">
-                    <div class="answer-label">الإجابة الصحيحة:</div>
-                    <div class="answer-text-large" id="answerText"></div>
+            </div>
+            <div class="round-card">
+                <div class="round-title">الفترة الثاني</div>
+                <div class="round-score">5400</div>
+                <div class="round-actions">
+                    <div class="action-icon"><i class="fas fa-users"></i></div>
+                    <div class="action-icon"><i class="far fa-clock"></i></div>
+                    <div class="action-icon"><i class="fas fa-phone"></i></div>
                 </div>
             </div>
         </div>
         
-        <!-- Control Buttons -->
+        <!-- Control Buttons (preserving functionality) -->
         <div class="question-controls">
             <div class="primary-controls">
                 <button class="quiz-btn quiz-btn-show" id="showAnswerBtn" onclick="showAnswer()">
@@ -1029,6 +1301,7 @@ body, html {
                 </button>
             </div>
             
+            <!-- Preserve functionality for team selection -->
             <div class="team-scoring" id="teamSelection" style="display: none;">
                 <div class="scoring-title">أي فريق أجاب بشكل صحيح؟</div>
                 <div class="team-buttons">
@@ -1054,6 +1327,33 @@ body, html {
                     <i class="fas fa-arrow-right"></i>
                     <span>العودة للوحة</span>
                 </button>
+            </div>
+            
+            <!-- Hidden but preserved functionality for lifelines -->
+            <div style="display: none;">
+                <button id="callFriendBtn" onclick="useCallFriend()"></button>
+                <button id="twoAnswersBtn" onclick="useTwoAnswers()"></button>
+                <button id="doublePointsBtn" onclick="useDoublePoints()"></button>
+                <div id="doublePointsIndicator"></div>
+                <div id="lifelinesContainer"></div>
+                <div id="callFriendTimer">
+                    <div id="timerCountdown"></div>
+                    <div id="timerProgress"></div>
+                </div>
+                <div id="questionCategory"></div>
+                <div id="questionPoints"></div>
+            </div>
+        </div>
+        
+        <!-- Bottom Navigation Bar -->
+        <div class="bottom-nav-bar">
+            <div class="nav-button">
+                <i class="fas fa-home"></i>
+                <span>الرئيسية</span>
+            </div>
+            <div class="nav-button active">
+                <i class="fas fa-play"></i>
+                <span>الإجابة</span>
             </div>
         </div>
     </div>
