@@ -193,12 +193,14 @@ if( isset($_POST["title"]) ){
 <script>
 	$(document).on("click",".edit", function(){
 		var id = $(this).attr("id");
+        var image = $("#image"+id).html();
+        console.log(image);
 		$("input[type=file]").prop("required",false);
 		$("input[name=title]").val($("#title"+id).html()).focus();
 		$("input[name=update]").val($(this).attr("id"));
 		$("select[name=hidden]").val($("#hidden"+id).html());
 		$("input[type=submit]").val("<?php echo direction("Submit","أرسل") ?>");
-		$("#logoImg").attr("src","../logos/qas/categories/"+$("#image"+id).html());
+		$("#logoImg").attr("src","../logos/qas/categories/"+image);
 		$("#images").attr("style","margin-top:10px;display:block");
 	})
 </script>
