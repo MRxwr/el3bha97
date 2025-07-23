@@ -261,7 +261,7 @@ body, html {
     height: 100%;
     display: flex;
     flex-direction: column;
-    padding: 20px;
+    padding: 15px;
     box-sizing: border-box;
     color: white;
     overflow: hidden;
@@ -272,38 +272,38 @@ body, html {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 8px 15px;
+    padding: 5px 10px;
     background: rgba(255, 255, 255, 0.1);
-    border-radius: 10px;
-    margin-bottom: 20px;
+    border-radius: 8px;
+    margin-bottom: 15px;
     flex-shrink: 0;
-    min-height: 40px;
+    min-height: 35px;
 }
 
 .question-category-badge {
     background: linear-gradient(45deg, #4ECDC4, #44A08D);
     color: white;
-    padding: 6px 12px;
-    border-radius: 15px;
-    font-size: 0.8rem;
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-size: 0.7rem;
     font-weight: bold;
 }
 
 .question-points {
     background: linear-gradient(45deg, #FF6B6B, #ee5a52);
     color: white;
-    padding: 6px 12px;
-    border-radius: 15px;
-    font-size: 0.8rem;
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-size: 0.7rem;
     font-weight: bold;
 }
 
 .double-points-indicator {
     background: linear-gradient(45deg, #FFD700, #FFA500);
     color: #333;
-    padding: 6px 12px;
-    border-radius: 15px;
-    font-size: 0.75rem;
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-size: 0.65rem;
     font-weight: bold;
     animation: pulse 2s infinite;
 }
@@ -311,54 +311,54 @@ body, html {
 /* Main Content Area - TV Layout */
 .question-main-content {
     display: flex;
-    gap: 20px;
+    gap: 15px;
     flex: 1;
     min-height: 0;
 }
 
 /* Left Sidebar - Compact Lifelines */
 .question-sidebar {
-    width: 180px;
+    width: 140px;
     flex-shrink: 0;
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 10px;
 }
 
 .lifelines-container {
     background: rgba(255, 255, 255, 0.1);
-    border-radius: 10px;
-    padding: 10px;
+    border-radius: 8px;
+    padding: 8px;
     border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .lifelines-title {
     color: white;
-    font-size: 0.75rem;
+    font-size: 0.65rem;
     font-weight: bold;
-    margin-bottom: 8px;
+    margin-bottom: 6px;
     text-align: center;
 }
 
 .lifelines-buttons {
     display: flex;
     flex-direction: column;
-    gap: 5px;
+    gap: 4px;
 }
 
 .lifeline-btn {
     background: rgba(255, 255, 255, 0.9);
     color: #667eea;
     border: none;
-    border-radius: 6px;
-    padding: 6px 8px;
-    font-size: 0.65rem;
+    border-radius: 5px;
+    padding: 4px 6px;
+    font-size: 0.55rem;
     font-weight: 600;
     cursor: pointer;
     transition: all 0.3s ease;
     display: flex;
     align-items: center;
-    gap: 5px;
+    gap: 3px;
     justify-content: flex-start;
 }
 
@@ -375,34 +375,34 @@ body, html {
 }
 
 .lifeline-btn i {
-    font-size: 0.7rem;
+    font-size: 0.6rem;
 }
 
 /* Call Friend Timer - Compact */
 .call-friend-timer {
     background: rgba(255, 107, 107, 0.9);
-    border-radius: 10px;
-    padding: 12px;
+    border-radius: 8px;
+    padding: 8px;
     text-align: center;
     color: white;
     animation: pulse 2s infinite;
 }
 
 .timer-icon {
-    font-size: 1.2rem;
-    margin-bottom: 6px;
+    font-size: 1rem;
+    margin-bottom: 4px;
 }
 
 .timer-text {
-    font-size: 0.65rem;
+    font-size: 0.55rem;
     font-weight: 600;
-    margin-bottom: 6px;
+    margin-bottom: 4px;
 }
 
 .timer-countdown {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     font-weight: 800;
-    margin: 8px 0;
+    margin: 6px 0;
 }
 
 .timer-bar {
@@ -427,82 +427,82 @@ body, html {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 0 20px;
+    padding: 0 15px;
     min-height: 0;
 }
 
 .question-text-large {
     background: rgba(255, 255, 255, 0.95);
     color: #333;
-    border-radius: 15px;
-    padding: 25px;
-    font-size: 1.3rem;
+    border-radius: 12px;
+    padding: 18px;
+    font-size: 1rem;
     font-weight: bold;
     text-align: center;
-    line-height: 1.6;
-    margin-bottom: 20px;
-    border: 3px solid rgba(255, 255, 255, 0.8);
+    line-height: 1.5;
+    margin-bottom: 15px;
+    border: 2px solid rgba(255, 255, 255, 0.8);
     width: 100%;
-    max-width: 700px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    max-width: 600px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
 }
 
 .question-media-container {
     width: 100%;
-    max-width: 500px;
-    margin-bottom: 20px;
-    border-radius: 15px;
+    max-width: 400px;
+    margin-bottom: 15px;
+    border-radius: 12px;
     overflow: hidden;
     display: flex;
     justify-content: center;
     align-items: center;
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
 }
 
 .question-media-container img {
     width: 100%;
     max-width: 100%;
-    max-height: 300px;
+    max-height: 250px;
     object-fit: contain;
-    border-radius: 15px;
+    border-radius: 12px;
     background: white;
-    padding: 10px;
+    padding: 8px;
 }
 
 .answer-display {
     background: rgba(76, 175, 80, 0.95);
     color: white;
-    border: 3px solid rgba(76, 175, 80, 0.8);
-    border-radius: 15px;
-    padding: 20px;
-    margin-top: 15px;
+    border: 2px solid rgba(76, 175, 80, 0.8);
+    border-radius: 12px;
+    padding: 15px;
+    margin-top: 12px;
     width: 100%;
-    max-width: 700px;
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+    max-width: 600px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
 }
 
 .answer-label {
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     font-weight: bold;
     color: white;
-    margin-bottom: 10px;
+    margin-bottom: 8px;
     text-align: center;
 }
 
 .answer-text-large {
-    font-size: 1.2rem;
+    font-size: 1rem;
     font-weight: bold;
     text-align: center;
-    line-height: 1.5;
+    line-height: 1.4;
 }
 
 /* Control Buttons - TV Style */
 .question-controls {
     flex-shrink: 0;
-    padding: 15px 0;
+    padding: 10px 0;
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 8px;
 }
 
 .primary-controls,
@@ -510,25 +510,25 @@ body, html {
 .secondary-controls {
     display: flex;
     justify-content: center;
-    gap: 12px;
+    gap: 8px;
 }
 
 .quiz-btn {
     background: linear-gradient(45deg, #667eea, #764ba2);
     color: white;
     border: none;
-    border-radius: 8px;
-    padding: 10px 16px;
-    font-size: 0.75rem;
+    border-radius: 6px;
+    padding: 8px 12px;
+    font-size: 0.65rem;
     font-weight: bold;
     cursor: pointer;
     transition: all 0.3s ease;
     display: flex;
     align-items: center;
-    gap: 6px;
-    min-width: 110px;
+    gap: 4px;
+    min-width: 90px;
     justify-content: center;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.2);
 }
 
 .quiz-btn:hover {
