@@ -676,7 +676,8 @@
     .question-board {
         display: grid;
         grid-template-columns: repeat(6, 1fr);
-        grid-template-rows: repeat(4, 1fr);
+        grid-template-rows: repeat(3, 1fr);
+        grid-auto-flow: column;
         gap: 8px;
         padding: 15px;
         background: linear-gradient(135deg, #ff6b6b 0%, #ff8e53 100%);
@@ -809,6 +810,11 @@
     .question-cell.question-small.answered:hover {
         transform: none;
         box-shadow: none;
+    }
+
+    /* Category cell that spans multiple rows */
+    .category-spanning {
+        grid-row: span 3;
     }
 
     /* Quiz Show Style Question Modal */

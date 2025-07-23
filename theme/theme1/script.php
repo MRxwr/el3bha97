@@ -525,75 +525,68 @@
         const categories = Object.keys(categorizedQuestions);
         const maxCategories = Math.min(2, categories.length); // Show 2 categories max for proper spacing
         
-        // Create grid: 4 rows × 6 columns = 24 cells
-        // Layout pattern for each category (3x3 grid per category):
-        // [Q1] [Q2] [Q3] | [Q1] [Q2] [Q3]
-        // [Q4] [Cat] [Q5] | [Q4] [Cat] [Q5]  
-        // [Q6] [Q7] [Q8] | [Q6] [Q7] [Q8]
-        // [Q9] [Q10][Q11]| [Q9] [Q10][Q11]
+        // Create grid cells manually to handle spanning
+        // Table-like layout for each category (3 columns per category):
+        // [Q1] [Cat] [Q4] | [Q1] [Cat] [Q4]  
+        // [Q2] [---] [Q5] | [Q2] [---] [Q5]  (Category spans 3 rows)
+        // [Q3] [---] [Q6] | [Q3] [---] [Q6]
         
-        for (let row = 0; row < 4; row++) {
-            for (let col = 0; col < 6; col++) {
-                let cellContent = '';
-                
-                // Determine which category this column belongs to (each category takes 3 columns)
-                const categoryIndex = Math.floor(col / 3);
-                const columnInCategory = col % 3; // 0, 1, 2 within the category
-                
-                if (categoryIndex < maxCategories) {
-                    const categoryId = categories[categoryIndex];
-                    const categoryQuestions = categorizedQuestions[categoryId];
-                    const categoryName = categoryQuestions[0].categoryName;
-                    
-                    // Check if this is the center position for category
-                    if (row === 1 && columnInCategory === 1) {
-                        // Center position: Category image
-                        cellContent = `
-                            <div class="question-cell category-cell" data-category-id="${categoryId}">
-                                <img src="img/logo.png" alt="${categoryName}" class="category-image" />
-                                <div class="category-title">${categoryName}</div>
-                            </div>
-                        `;
-                    } else {
-                        // Surrounding positions: Questions
-                        let questionIndex = -1;
-                        
-                        // Map grid positions to question indexes (surrounding the center)
-                        if (row === 0 && columnInCategory === 0) questionIndex = 0; // Top-left
-                        else if (row === 0 && columnInCategory === 1) questionIndex = 1; // Top-center
-                        else if (row === 0 && columnInCategory === 2) questionIndex = 2; // Top-right
-                        else if (row === 1 && columnInCategory === 0) questionIndex = 3; // Middle-left
-                        else if (row === 1 && columnInCategory === 2) questionIndex = 4; // Middle-right
-                        else if (row === 2 && columnInCategory === 0) questionIndex = 5; // Bottom-left
-                        else if (row === 2 && columnInCategory === 1) questionIndex = 6; // Bottom-center
-                        else if (row === 2 && columnInCategory === 2) questionIndex = 7; // Bottom-right
-                        else if (row === 3 && columnInCategory === 0) questionIndex = 8; // Extra-bottom-left
-                        else if (row === 3 && columnInCategory === 1) questionIndex = 9; // Extra-bottom-center
-                        else if (row === 3 && columnInCategory === 2) questionIndex = 10; // Extra-bottom-right
-                        
-                        if (questionIndex >= 0 && questionIndex < categoryQuestions.length) {
-                            const question = categoryQuestions[questionIndex];
-                            cellContent = `
-                                <button class="question-cell question-small" data-question-id="${question.id}">
-                                    ${question.points}
-                                </button>
-                            `;
-                            
-                            // Store question reference
-                            questionBoard[question.id] = question;
-                        } else {
-                            // Empty cell if no question available
-                            cellContent = '<div class="question-cell" style="background: transparent; border: none; cursor: default;"></div>';
-                        }
-                    }
+        // Build all cells first, then append them
+        const gridCells = [];
+        
+        for (let categoryIndex = 0; categoryIndex < maxCategories; categoryIndex++) {
+            const categoryId = categories[categoryIndex];
+            const categoryQuestions = categorizedQuestions[categoryId];
+            const categoryName = categoryQuestions[0].categoryName;
+            
+            // Add left column questions (Q1, Q2, Q3)
+            for (let row = 0; row < 3; row++) {
+                const questionIndex = row;
+                if (questionIndex < categoryQuestions.length) {
+                    const question = categoryQuestions[questionIndex];
+                    gridCells.push(`
+                        <button class="question-cell question-small" data-question-id="${question.id}">
+                            ${question.points}
+                        </button>
+                    `);
+                    questionBoard[question.id] = question;
                 } else {
-                    // Empty column if no more categories
-                    cellContent = '<div class="question-cell" style="background: transparent; border: none; cursor: default;"></div>';
+                    gridCells.push('<div class="question-cell" style="background: transparent; border: none; cursor: default;"></div>');
                 }
-                
-                board.append(cellContent);
+            }
+            
+            // Add category cell (spans 3 rows) - only add once for first row
+            gridCells.push(`
+                <div class="question-cell category-cell category-spanning" data-category-id="${categoryId}">
+                    <img src="img/logo.png" alt="${categoryName}" class="category-image" />
+                    <div class="category-title">${categoryName}</div>
+                </div>
+            `);
+            
+            // Add right column questions (Q4, Q5, Q6)
+            for (let row = 0; row < 3; row++) {
+                const questionIndex = row + 3;
+                if (questionIndex < categoryQuestions.length) {
+                    const question = categoryQuestions[questionIndex];
+                    gridCells.push(`
+                        <button class="question-cell question-small" data-question-id="${question.id}">
+                            ${question.points}
+                        </button>
+                    `);
+                    questionBoard[question.id] = question;
+                } else {
+                    gridCells.push('<div class="question-cell" style="background: transparent; border: none; cursor: default;"></div>');
+                }
             }
         }
+        
+        // Fill empty columns if less than 2 categories
+        while (gridCells.length < 14) { // 2 categories × 7 cells each = 14 total
+            gridCells.push('<div class="question-cell" style="background: transparent; border: none; cursor: default;"></div>');
+        }
+        
+        // Append all cells to board
+        gridCells.forEach(cell => board.append(cell));
         
         // Add click handlers for question cells
         board.find('[data-question-id]').click(function() {
