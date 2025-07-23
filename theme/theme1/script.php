@@ -523,76 +523,78 @@
         console.log('Categorized questions:', categorizedQuestions);
         
         const categories = Object.keys(categorizedQuestions);
-        const maxCategories = Math.min(2, categories.length); // Show 2 categories max for proper spacing
+        const maxCategories = Math.min(6, categories.length); // Show up to 6 categories
         
-        // Create grid cells manually to handle spanning
-        // Table-like layout for each category (3 columns per category):
-        // [Q1] [Cat] [Q4] | [Q1] [Cat] [Q4]  
-        // [Q2] [---] [Q5] | [Q2] [---] [Q5]  (Category spans 3 rows)
-        // [Q3] [---] [Q6] | [Q3] [---] [Q6]
+        // Create board with spacing between category collections
+        // Layout: 3 categories per row, 2 rows total for 6 categories
+        // Each category: Q-Cat-Q format (3 columns per category + 1 spacing = 4 slots per category)
+        // Row 1: [Q Cat Q] [Q Cat Q] [Q Cat Q]
+        // Row 2: [Q Cat Q] [Q Cat Q] [Q Cat Q]
         
-        // Build all cells first, then append them
-        const gridCells = [];
-        
-        for (let categoryIndex = 0; categoryIndex < maxCategories; categoryIndex++) {
-            const categoryId = categories[categoryIndex];
-            const categoryQuestions = categorizedQuestions[categoryId];
-            const categoryName = categoryQuestions[0].categoryName;
-            
-            // Add left column questions (Q1, Q2, Q3)
-            for (let row = 0; row < 3; row++) {
-                const questionIndex = row;
-                if (questionIndex < categoryQuestions.length) {
-                    const question = categoryQuestions[questionIndex];
-                    gridCells.push(`
-                        <button class="question-cell question-small" data-question-id="${question.id}">
-                            ${question.points}
-                        </button>
+        for (let row = 0; row < 2; row++) { // 2 rows
+            for (let categoryInRow = 0; categoryInRow < 3; categoryInRow++) { // 3 categories per row
+                const categoryIndex = row * 3 + categoryInRow; // 0,1,2 then 3,4,5
+                
+                if (categoryIndex < maxCategories) {
+                    const categoryId = categories[categoryIndex];
+                    const categoryQuestions = categorizedQuestions[categoryId];
+                    const categoryName = categoryQuestions[0].categoryName;
+                    
+                    // Create category collection container
+                    const categoryContainer = $(`
+                        <div class="category-collection" data-category-id="${categoryId}">
+                            <div class="category-row">
+                                <button class="question-cell question-mini" data-question-id="${categoryQuestions[0] ? categoryQuestions[0].id : ''}" ${!categoryQuestions[0] ? 'disabled style="opacity:0.3"' : ''}>
+                                    ${categoryQuestions[0] ? categoryQuestions[0].points : ''}
+                                </button>
+                                <div class="question-cell category-cell category-mini">
+                                    <img src="img/logo.png" alt="${categoryName}" class="category-image-small" />
+                                    <div class="category-title-small">${categoryName}</div>
+                                </div>
+                                <button class="question-cell question-mini" data-question-id="${categoryQuestions[1] ? categoryQuestions[1].id : ''}" ${!categoryQuestions[1] ? 'disabled style="opacity:0.3"' : ''}>
+                                    ${categoryQuestions[1] ? categoryQuestions[1].points : ''}
+                                </button>
+                            </div>
+                            <div class="category-row">
+                                <button class="question-cell question-mini" data-question-id="${categoryQuestions[2] ? categoryQuestions[2].id : ''}" ${!categoryQuestions[2] ? 'disabled style="opacity:0.3"' : ''}>
+                                    ${categoryQuestions[2] ? categoryQuestions[2].points : ''}
+                                </button>
+                                <div class="category-spacer"></div>
+                                <button class="question-cell question-mini" data-question-id="${categoryQuestions[3] ? categoryQuestions[3].id : ''}" ${!categoryQuestions[3] ? 'disabled style="opacity:0.3"' : ''}>
+                                    ${categoryQuestions[3] ? categoryQuestions[3].points : ''}
+                                </button>
+                            </div>
+                            <div class="category-row">
+                                <button class="question-cell question-mini" data-question-id="${categoryQuestions[4] ? categoryQuestions[4].id : ''}" ${!categoryQuestions[4] ? 'disabled style="opacity:0.3"' : ''}>
+                                    ${categoryQuestions[4] ? categoryQuestions[4].points : ''}
+                                </button>
+                                <div class="category-spacer"></div>
+                                <button class="question-cell question-mini" data-question-id="${categoryQuestions[5] ? categoryQuestions[5].id : ''}" ${!categoryQuestions[5] ? 'disabled style="opacity:0.3"' : ''}>
+                                    ${categoryQuestions[5] ? categoryQuestions[5].points : ''}
+                                </button>
+                            </div>
+                        </div>
                     `);
-                    questionBoard[question.id] = question;
-                } else {
-                    gridCells.push('<div class="question-cell" style="background: transparent; border: none; cursor: default;"></div>');
-                }
-            }
-            
-            // Add category cell (spans 3 rows) - only add once for first row
-            gridCells.push(`
-                <div class="question-cell category-cell category-spanning" data-category-id="${categoryId}">
-                    <img src="img/logo.png" alt="${categoryName}" class="category-image" />
-                    <div class="category-title">${categoryName}</div>
-                </div>
-            `);
-            
-            // Add right column questions (Q4, Q5, Q6)
-            for (let row = 0; row < 3; row++) {
-                const questionIndex = row + 3;
-                if (questionIndex < categoryQuestions.length) {
-                    const question = categoryQuestions[questionIndex];
-                    gridCells.push(`
-                        <button class="question-cell question-small" data-question-id="${question.id}">
-                            ${question.points}
-                        </button>
-                    `);
-                    questionBoard[question.id] = question;
-                } else {
-                    gridCells.push('<div class="question-cell" style="background: transparent; border: none; cursor: default;"></div>');
+                    
+                    board.append(categoryContainer);
+                    
+                    // Store question references
+                    categoryQuestions.forEach(question => {
+                        if (question) {
+                            questionBoard[question.id] = question;
+                        }
+                    });
                 }
             }
         }
-        
-        // Fill empty columns if less than 2 categories
-        while (gridCells.length < 14) { // 2 categories × 7 cells each = 14 total
-            gridCells.push('<div class="question-cell" style="background: transparent; border: none; cursor: default;"></div>');
-        }
-        
-        // Append all cells to board
-        gridCells.forEach(cell => board.append(cell));
         
         // Add click handlers for question cells
         board.find('[data-question-id]').click(function() {
             const questionId = $(this).data('question-id');
-            console.log(`Question ${questionId} clicked`);
-            selectQuestion(questionId);
+            if (questionId && !$(this).prop('disabled')) {
+                console.log(`Question ${questionId} clicked`);
+                selectQuestion(questionId);
+            }
         });
         
         console.log('=== BOARD CREATION COMPLETE ===');
