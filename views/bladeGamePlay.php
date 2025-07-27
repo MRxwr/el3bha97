@@ -523,7 +523,14 @@ body, html {
     justify-content: left;
     gap: 15px;
     margin-top: auto;
-    margin-bottom: 50px;
+    margin-bottom: 0;
+    background: rgba(102, 126, 234, 0.7); /* Semi-transparent background */
+    backdrop-filter: blur(5px); /* Blur effect for modern browsers */
+    -webkit-backdrop-filter: blur(5px); /* For Safari */
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    position: sticky;
+    bottom: 0;
+    z-index: 10;
 }
 
 .team-scoring {
@@ -1004,10 +1011,13 @@ body, html {
     .question-main-content {
         margin: 0 5px;
         gap: 8px;
+        flex-direction: column; /* Stack sidebar and content on mobile */
     }
     
     .question-content-center {
         flex: 1;
+        width: 100%;
+        max-height: 60vh; /* Limit height on mobile to ensure controls visibility */
     }
     
     .question-text-large {
@@ -1025,9 +1035,11 @@ body, html {
     }
     
     .question-sidebar {
-        width: 160px;
-        margin-right: 5px;
+        width: 100%;
+        margin-right: 0;
         gap: 8px;
+        position: relative; /* Remove stickiness on mobile */
+        max-height: none; /* Remove height limit on mobile */
     }
     
     .sidebar-title {
