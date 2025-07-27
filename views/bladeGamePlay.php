@@ -510,6 +510,7 @@ body, html {
     justify-content: left;
     gap: 15px;
     margin-top: auto;
+    margin-bottom: 25px;
 }
 
 .team-scoring {
