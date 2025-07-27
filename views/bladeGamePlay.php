@@ -6,7 +6,7 @@ body, html {
     padding: 0;
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     font-family: 'Cairo', sans-serif;
-    overflow: hidden;
+    /*overflow: hidden;*/
     direction: rtl;
 }
 
