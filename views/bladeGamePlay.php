@@ -264,7 +264,7 @@ body, html {
     padding: 15px;
     box-sizing: border-box;
     color: white;
-    overflow: hidden; /* Keep this to prevent outer container from scrolling */
+    overflow: hidden;
 }
 
 /* Question Header */
@@ -310,14 +310,10 @@ body, html {
 .question-main-content {
     display: flex;
     gap: 20px;
-    flex: 1;
+    flex: 1 1 auto; /* Changed to flex: 1 1 auto to properly expand and shrink */
     min-height: 0;
     align-items: flex-start;
     margin: 0 15px;
-    overflow-y: auto; /* Enable vertical scrolling when needed */
-    overflow-x: hidden; /* Prevent horizontal scrolling */
-    -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
-    max-height: 100%; /* Ensure it doesn't exceed the container */
 }
 
 /* Right Sidebar - Lifelines */
@@ -328,10 +324,6 @@ body, html {
     flex-direction: column;
     gap: 15px;
     margin-right: 15px;
-    position: sticky;
-    top: 0; /* Stick to the top when scrolling */
-    max-height: 100%; /* Limit height to container */
-    overflow-y: auto; /* Allow sidebar to scroll if needed */
 }
 
 .sidebar-title {
@@ -436,8 +428,7 @@ body, html {
     align-items: center;
     padding: 0;
     min-height: 0;
-    width: 100%; /* Ensure it takes full width */
-    overflow-y: auto; /* Enable vertical scrolling when content overflows */
+    overflow: hidden;
 }
 
 .question-text-large {
@@ -474,13 +465,7 @@ body, html {
 
 .content-container {
     width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding-right: 5px; /* Add padding for scrollbar space */
-    padding-bottom: 20px; /* Add bottom padding for scrolling room */
-    flex-shrink: 0; /* Prevent shrinking in flex container */
+    max-width: 600px;
 }
 
 .answer-text-large {
@@ -523,14 +508,7 @@ body, html {
     justify-content: left;
     gap: 15px;
     margin-top: auto;
-    margin-bottom: 0;
-    background: rgba(102, 126, 234, 0.7); /* Semi-transparent background */
-    backdrop-filter: blur(5px); /* Blur effect for modern browsers */
-    -webkit-backdrop-filter: blur(5px); /* For Safari */
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-    position: sticky;
-    bottom: 0;
-    z-index: 10;
+    margin-bottom: 50px;
 }
 
 .team-scoring {
@@ -1011,13 +989,10 @@ body, html {
     .question-main-content {
         margin: 0 5px;
         gap: 8px;
-        flex-direction: column; /* Stack sidebar and content on mobile */
     }
     
     .question-content-center {
         flex: 1;
-        width: 100%;
-        max-height: 60vh; /* Limit height on mobile to ensure controls visibility */
     }
     
     .question-text-large {
@@ -1035,11 +1010,9 @@ body, html {
     }
     
     .question-sidebar {
-        width: 100%;
-        margin-right: 0;
+        width: 160px;
+        margin-right: 5px;
         gap: 8px;
-        position: relative; /* Remove stickiness on mobile */
-        max-height: none; /* Remove height limit on mobile */
     }
     
     .sidebar-title {
@@ -1106,39 +1079,8 @@ body, html {
     }
     
     .answer-text-large {
-        font-size: 0.9rem;
-        padding: 12px 15px;
-        border-width: 2px;
+        font-size: 0.8rem;
     }
-}
-
-/* Animation for answer reveal */
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(-10px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-/* Custom Scrollbar Styling */
-.question-main-content::-webkit-scrollbar,
-.question-content-center::-webkit-scrollbar {
-    width: 8px;
-}
-
-.question-main-content::-webkit-scrollbar-track,
-.question-content-center::-webkit-scrollbar-track {
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 10px;
-}
-
-.question-main-content::-webkit-scrollbar-thumb,
-.question-content-center::-webkit-scrollbar-thumb {
-    background: rgba(255, 255, 255, 0.3);
-    border-radius: 10px;
-}
-
-.question-main-content::-webkit-scrollbar-thumb:hover,
-.question-content-center::-webkit-scrollbar-thumb:hover {
-    background: rgba(255, 255, 255, 0.5);
 }
 
 /* Extra optimization for very short height in landscape mode */
