@@ -510,7 +510,7 @@ body, html {
     justify-content: left;
     gap: 15px;
     margin-top: auto;
-    margin-bottom: 25px;
+    margin-bottom: 50px;
 }
 
 .team-scoring {
@@ -692,6 +692,7 @@ body, html {
         padding: 6px 8px;
         font-size: 0.7rem;
         flex: 1;
+        margin-bottom: 10px;
     }
     
     .quiz-btn {
