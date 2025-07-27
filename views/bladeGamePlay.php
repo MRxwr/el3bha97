@@ -1,3 +1,23 @@
+<!-- Ensure Font Awesome is loaded -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+<script>
+// Check if Font Awesome is loaded correctly
+document.addEventListener('DOMContentLoaded', function() {
+    // Create a Font Awesome icon element
+    var testIcon = document.createElement('i');
+    testIcon.className = 'fas fa-check';
+    
+    // If Font Awesome is not loaded, the computed width will be 0
+    // In that case, load it again
+    if (getComputedStyle(testIcon).width === '0px') {
+        var fontAwesome = document.createElement('link');
+        fontAwesome.rel = 'stylesheet';
+        fontAwesome.href = 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css';
+        document.head.appendChild(fontAwesome);
+    }
+});
+</script>
+
 <style>
 /* Mobile responsive game design styles */
 body, html {
@@ -1004,10 +1024,15 @@ body, html {
         padding: 3px 5px;
         font-size: 0.5rem;
         border-radius: 6px;
+        display: flex;
+        align-items: center;
+        gap: 3px;
     }
     
     .question-modal .lifeline-btn i {
-        font-size: 0.5rem;
+        font-size: 0.6rem;
+        display: inline-block;
+        width: 12px;
     }
     
     .question-modal .question-content-center {
@@ -1084,6 +1109,12 @@ body, html {
     .question-modal .timer-icon {
         font-size: 0.8rem;
         margin-bottom: 2px;
+        display: block;
+    }
+    
+    .question-modal .timer-icon i {
+        display: inline-block;
+        font-size: 1rem;
     }
     
     .question-modal .timer-text {
