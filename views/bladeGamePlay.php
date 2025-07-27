@@ -888,17 +888,88 @@ body, html {
     }
 }
 
-/* Force portrait orientation */
+/* Landscape mode optimization for small screens */
 @media (orientation: landscape) and (max-width: 896px) {
-    body {
-        transform: rotate(90deg);
-        transform-origin: left top;
-        width: 100vh;
-        height: 100vw;
-        overflow-x: hidden;
-        position: absolute;
-        top: 100%;
-        left: 0;
+    .game-play-container {
+        padding: 2px;
+    }
+    
+    .game-play-header {
+        min-height: 30px;
+        padding: 2px 5px;
+        margin-bottom: 3px;
+    }
+    
+    .game-title {
+        font-size: 0.7rem;
+    }
+    
+    .turn-indicator-top {
+        font-size: 0.5rem;
+        padding: 1px 5px;
+    }
+    
+    .header-link {
+        font-size: 0.5rem;
+    }
+    
+    .logo-text {
+        font-size: 0.65rem;
+    }
+    
+    .question-grid {
+        gap: 2px;
+    }
+    
+    .category-header {
+        min-height: 20px;
+        font-size: 0.5rem;
+        padding: 2px 3px;
+    }
+    
+    .point-value {
+        min-height: 20px;
+        font-size: 0.5rem;
+        padding: 3px 2px;
+    }
+    
+    .team-info-footer {
+        padding: 2px 3px;
+    }
+    
+    .team-name {
+        font-size: 0.45rem;
+        min-width: 40px;
+    }
+    
+    .team-score-footer {
+        font-size: 0.6rem;
+    }
+    
+    .lifeline-icon {
+        width: 9px;
+        height: 9px;
+        font-size: 0.35rem;
+    }
+    
+    .question-text-large {
+        font-size: 0.7rem;
+        padding: 8px;
+    }
+    
+    .question-media-container img {
+        max-height: 100px;
+    }
+    
+    .lifeline-btn {
+        padding: 3px 4px;
+        font-size: 0.5rem;
+    }
+    
+    .quiz-btn {
+        padding: 4px 6px;
+        font-size: 0.55rem;
+        min-width: 70px;
     }
 }
 </style>
