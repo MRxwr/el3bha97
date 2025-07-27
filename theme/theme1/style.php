@@ -925,7 +925,9 @@
         text-align: center;
     }
 
-    /* Quiz Show Style Question Modal */
+    /* Quiz Show Style Question Modal - DEPRECATED, USE bladeGamePlay.php STYLES INSTEAD */
+    /* The following styles are kept for reference but are overridden by the styles in bladeGamePlay.php */
+    /*
     .question-modal {
         position: fixed;
         top: 0;
@@ -954,7 +956,6 @@
         position: relative;
     }
 
-    /* Question Header */
     .question-header {
         background: linear-gradient(135deg, #ff6b6b 0%, #ff8e53 100%);
         color: white;
@@ -986,7 +987,6 @@
         border: 1px solid rgba(255,255,255,0.3);
     }
 
-    /* Question Content */
     .question-main-content {
         display: grid;
         grid-template-columns: 320px 1fr;
@@ -1068,7 +1068,6 @@
         border-radius: 15px;
     }
 
-    /* Answer Display */
     .answer-display {
         background: #e8f5e8;
         padding: 30px;
@@ -1092,7 +1091,6 @@
         line-height: 1.3;
     }
 
-    /* Quiz Controls */
     .question-controls {
         background: white;
         padding: 30px;
@@ -1125,7 +1123,6 @@
         flex-wrap: wrap;
     }
 
-    /* Quiz Show Buttons */
     .quiz-btn {
         background: linear-gradient(45deg, #667eea, #764ba2);
         color: white;
@@ -1185,6 +1182,7 @@
     .quiz-btn i {
         font-size: 1.2rem;
     }
+    */
 
     .team-selection {
         margin: 20px 0;
