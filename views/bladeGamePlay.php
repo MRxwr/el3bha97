@@ -317,66 +317,63 @@ body, html {
     align-items: stretch;
 }
 
-/* Left Sidebar - Lifelines */
+/* Right Sidebar - Lifelines */
 .question-sidebar {
-    width: 200px;
+    width: 220px;
     flex-shrink: 0;
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 15px;
+    margin-right: 15px;
+}
+
+.sidebar-title {
+    color: white;
+    font-size: 1rem;
+    font-weight: bold;
+    margin-bottom: 5px;
+    text-align: right;
 }
 
 .lifelines-container {
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 12px;
-    padding: 12px;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-.lifelines-title {
-    color: white;
-    font-size: 0.9rem;
-    font-weight: bold;
-    margin-bottom: 8px;
-    text-align: center;
-}
-
-.lifelines-buttons {
     display: flex;
     flex-direction: column;
-    gap: 6px;
+    gap: 10px;
+    width: 100%;
 }
 
 .lifeline-btn {
-    background: rgba(255, 255, 255, 0.9);
-    color: #667eea;
+    background: rgba(255, 255, 255, 0.15);
+    color: white;
     border: none;
-    border-radius: 8px;
-    padding: 8px 10px;
-    font-size: 0.75rem;
+    border-radius: 12px;
+    padding: 10px 15px;
+    font-size: 0.8rem;
     font-weight: 600;
     cursor: pointer;
     transition: all 0.3s ease;
     display: flex;
     align-items: center;
-    gap: 6px;
+    gap: 10px;
     justify-content: flex-start;
+    text-align: right;
+    width: 100%;
 }
 
 .lifeline-btn:hover:not(:disabled) {
-    background: white;
-    transform: translateY(-1px);
+    background: rgba(255, 255, 255, 0.25);
 }
 
 .lifeline-btn:disabled {
-    background: rgba(128, 128, 128, 0.5);
-    color: rgba(255, 255, 255, 0.6);
+    background: rgba(128, 128, 128, 0.25);
+    color: rgba(255, 255, 255, 0.4);
     cursor: not-allowed;
     opacity: 0.6;
 }
 
 .lifeline-btn i {
-    font-size: 0.9rem;
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.9);
 }
 
 /* Call Friend Timer */
