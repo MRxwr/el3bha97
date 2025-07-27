@@ -1417,7 +1417,9 @@
         }
     }
 
-    /* Lifelines Styles */
+    /* Lifelines Styles - DEPRECATED, USE bladeGamePlay.php STYLES INSTEAD */
+    /* The following styles are kept for reference but are overridden by the styles in bladeGamePlay.php */
+    /*
     .team-lifelines {
         display: flex;
         justify-content: center;
@@ -1522,7 +1524,6 @@
         font-size: 1.1rem;
     }
 
-    /* Call Friend Timer Styles */
     .call-friend-timer {
         background: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 100%);
         border-radius: 20px;
@@ -1606,6 +1607,7 @@
     .double-points-indicator i {
         font-size: 1.1rem;
     }
+    */
 
     /* Mobile Responsive for Board and Question Views */
     @media (max-width: 768px) {
