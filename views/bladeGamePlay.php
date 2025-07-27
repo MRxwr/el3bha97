@@ -888,8 +888,8 @@ body, html {
     }
 }
 
-/* Force portrait orientation - improved for all devices */
-@media (orientation: landscape) and (max-width: 1024px) {
+/* Force portrait orientation */
+@media (orientation: landscape) and (max-width: 896px) {
     body {
         transform: rotate(90deg);
         transform-origin: left top;
@@ -899,29 +899,6 @@ body, html {
         position: absolute;
         top: 100%;
         left: 0;
-    }
-    
-    .game-play-container {
-        width: 100%;
-        height: 100%;
-        max-height: 100vw;
-        overflow: auto;
-    }
-    
-    .question-grid {
-        grid-template-columns: repeat(3, 1fr);
-        gap: 5px;
-    }
-    
-    .category-header {
-        min-height: 40px;
-        font-size: 0.7rem;
-        padding: 5px;
-    }
-    
-    .point-value {
-        min-height: 35px;
-        font-size: 0.7rem;
     }
 }
 </style>
@@ -1098,9 +1075,6 @@ body, html {
             لعبة جديدة
         </button>
     </div>
-    
-    <!-- Game Board Initialization Script -->
-    <script src="../js/gameBoard.js"></script>
 </div>
 
 <!-- Confetti Container -->
