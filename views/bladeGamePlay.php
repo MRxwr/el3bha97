@@ -1098,6 +1098,9 @@ body, html {
             لعبة جديدة
         </button>
     </div>
+    
+    <!-- Game Board Initialization Script -->
+    <script src="../js/gameBoard.js"></script>
 </div>
 
 <!-- Confetti Container -->
