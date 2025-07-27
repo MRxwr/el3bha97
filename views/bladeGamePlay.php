@@ -952,24 +952,153 @@ body, html {
         font-size: 0.35rem;
     }
     
-    .question-text-large {
-        font-size: 0.7rem;
-        padding: 8px;
+    /* Question Modal Landscape Optimization */
+    .question-modal .question-display-container {
+        padding: 5px;
+        overflow: hidden;
     }
     
-    .question-media-container img {
-        max-height: 100px;
+    .question-modal .question-header {
+        padding: 3px 8px;
+        min-height: 30px;
+        margin-bottom: 5px;
     }
     
-    .lifeline-btn {
-        padding: 3px 4px;
+    .question-modal .question-category-badge,
+    .question-modal .question-points,
+    .question-modal .double-points-indicator {
+        padding: 2px 8px;
+        font-size: 0.55rem;
+        border-radius: 10px;
+    }
+    
+    .question-modal .question-main-content {
+        flex-direction: row;
+        gap: 5px;
+        align-items: flex-start;
+        flex: 1;
+    }
+    
+    .question-modal .question-sidebar {
+        width: 30%;
+        max-width: 120px;
+        gap: 5px;
+    }
+    
+    .question-modal .lifelines-container {
+        padding: 5px;
+        border-radius: 8px;
+    }
+    
+    .question-modal .lifelines-title {
+        font-size: 0.55rem;
+        margin-bottom: 3px;
+    }
+    
+    .question-modal .lifelines-buttons {
+        flex-direction: column;
+        gap: 3px;
+    }
+    
+    .question-modal .lifeline-btn {
+        padding: 3px 5px;
+        font-size: 0.5rem;
+        border-radius: 6px;
+    }
+    
+    .question-modal .lifeline-btn i {
         font-size: 0.5rem;
     }
     
-    .quiz-btn {
-        padding: 4px 6px;
+    .question-modal .question-content-center {
+        padding: 0 5px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        overflow-y: hidden;
+    }
+    
+    .question-modal .question-text-large {
+        font-size: 0.65rem;
+        padding: 6px 10px;
+        margin-bottom: 5px;
+        line-height: 1.3;
+        border-radius: 8px;
+    }
+    
+    .question-modal .question-media-container {
+        margin-bottom: 5px;
+    }
+    
+    .question-modal .question-media-container img {
+        max-height: 70px;
+        padding: 2px;
+        border-radius: 8px;
+    }
+    
+    .question-modal .answer-display {
+        padding: 5px;
+        margin-top: 5px;
+        border-radius: 8px;
+    }
+    
+    .question-modal .answer-label {
         font-size: 0.55rem;
-        min-width: 70px;
+        margin-bottom: 2px;
+    }
+    
+    .question-modal .answer-text-large {
+        font-size: 0.65rem;
+        line-height: 1.2;
+    }
+    
+    .question-modal .question-controls {
+        padding: 3px 0;
+        gap: 3px;
+    }
+    
+    .question-modal .primary-controls,
+    .question-modal .secondary-controls,
+    .question-modal .team-scoring {
+        gap: 5px;
+    }
+    
+    .question-modal .quiz-btn {
+        padding: 3px 6px;
+        font-size: 0.5rem;
+        min-width: 60px;
+        border-radius: 6px;
+        gap: 3px;
+    }
+    
+    .question-modal .scoring-title {
+        font-size: 0.55rem;
+        margin-bottom: 3px;
+    }
+    
+    .question-modal .call-friend-timer {
+        padding: 4px;
+        border-radius: 8px;
+    }
+    
+    .question-modal .timer-icon {
+        font-size: 0.8rem;
+        margin-bottom: 2px;
+    }
+    
+    .question-modal .timer-text {
+        font-size: 0.5rem;
+        margin-bottom: 2px;
+    }
+    
+    .question-modal .timer-countdown {
+        font-size: 1rem;
+        font-weight: 800;
+        margin: 2px 0;
+    }
+    
+    .question-modal .timer-bar {
+        height: 3px;
     }
 }
 </style>
@@ -1064,7 +1193,7 @@ body, html {
                         <div class="timer-icon">
                             <i class="fas fa-phone-alt fa-beat"></i>
                         </div>
-                        <div class="timer-text">جاري الاتصال بصديق...</div>
+                        <div class="timer-text">جاري الاتصال</div>
                         <div class="timer-countdown" id="timerCountdown">60</div>
                         <div class="timer-bar">
                             <div class="timer-progress" id="timerProgress"></div>
@@ -1115,7 +1244,7 @@ body, html {
                     
                     <button class="quiz-btn quiz-btn-wrong" id="noCorrectBtn" onclick="markNoCorrect()">
                         <i class="fas fa-times"></i>
-                        <span>لا أحد أجاب صحيح</span>
+                        <span>لا أحد أجاب</span>
                     </button>
                 </div>
             </div>
