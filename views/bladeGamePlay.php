@@ -462,28 +462,43 @@ body, html {
     padding: 0;
 }
 
-.answer-display {
-    background: rgba(76, 175, 80, 0.1);
-    border: 2px solid rgba(76, 175, 80, 0.3);
-    border-radius: 12px;
-    padding: 15px;
-    margin-top: 10px;
+.content-container {
     width: 100%;
-    max-width: 600px;
-}
-
-.answer-label {
-    font-size: 0.9rem;
-    font-weight: bold;
-    color: #4CAF50;
-    margin-bottom: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 .answer-text-large {
-    font-size: 1rem;
+    font-size: 1.6rem;
     font-weight: bold;
     text-align: center;
-    line-height: 1.4;
+    line-height: 1.5;
+    padding: 20px 25px 30px;
+    color: #4CAF50;
+    background: linear-gradient(135deg, rgba(76, 175, 80, 0.1) 0%, rgba(76, 175, 80, 0.2) 100%);
+    border: 3px solid rgba(76, 175, 80, 0.4);
+    border-radius: 15px;
+    width: 100%;
+    box-shadow: 0 0 20px rgba(76, 175, 80, 0.2);
+    animation: fadeIn 0.5s ease-in-out;
+    position: relative;
+    overflow: hidden;
+}
+
+.answer-text-large::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 24 24" fill="none" stroke="%234CAF50" stroke-width="0.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>');
+    background-repeat: no-repeat;
+    background-position: 95% 90%;
+    background-size: 40px;
+    opacity: 0.2;
 }
 
 /* Control Buttons */
@@ -492,7 +507,7 @@ body, html {
     padding: 15px;
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: left;
     gap: 15px;
     margin-top: auto;
 }
@@ -860,7 +875,7 @@ body, html {
     }
     
     .quiz-btn {
-        padding: 5px 8px;
+        padding: 10px 10px;
         font-size: 0.65rem;
         min-width: 80px;
     }
@@ -1064,23 +1079,22 @@ body, html {
         margin-bottom: 5px;
     }
     
-    .answer-display {
-        padding: 8px;
-    }
-    
-    .answer-label {
-        font-size: 0.7rem;
-        margin-bottom: 3px;
-    }
-    
     .answer-text-large {
-        font-size: 0.8rem;
+        font-size: 0.9rem;
+        padding: 12px 15px;
+        border-width: 2px;
     }
+}
+
+/* Animation for answer reveal */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
 /* Extra optimization for very short height in landscape mode */
 @media (orientation: landscape) and (max-height: 450px) {
-    .question-text-large {
+    .question-text-large, .answer-text-large {
         font-size: 0.8rem;
         padding: 5px 8px 8px;
         margin-bottom: 2px;
@@ -1223,19 +1237,21 @@ body, html {
                 </div>
             </div>
             
-            <!-- Center - Question Content -->
+            <!-- Center - Question/Answer Content -->
             <div class="question-content-center">
-                <div class="question-text-large" id="questionText">
-                    جاري تحميل السؤال...
+                <!-- Question Content (shown initially) -->
+                <div class="content-container" id="questionContainer">
+                    <div class="question-text-large" id="questionText">
+                        جاري تحميل السؤال...
+                    </div>
+                    
+                    <div class="question-media-container" id="questionMedia">
+                        <!-- Media content will be inserted here -->
+                    </div>
                 </div>
                 
-                <div class="question-media-container" id="questionMedia">
-                    <!-- Media content will be inserted here -->
-                </div>
-                
-                <!-- Answer Section -->
-                <div class="answer-display" id="answerSection" style="display: none;">
-                    <div class="answer-label">الإجابة الصحيحة:</div>
+                <!-- Answer Content (replaces question when revealed) -->
+                <div class="content-container" id="answerContainer" style="display: none;">
                     <div class="answer-text-large" id="answerText"></div>
                 </div>
             </div>

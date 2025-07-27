@@ -653,7 +653,8 @@
         }
         
         // Reset modal state
-        $("#answerSection").hide();
+        $("#answerContainer").hide();
+        $("#questionContainer").show();
         $("#showAnswerBtn").show();
         $("#teamSelection, #nextBtn").hide();
         
@@ -678,7 +679,8 @@
     }
 
     function showAnswer() {
-        $("#answerSection").fadeIn();
+        $("#questionContainer").hide(); // Hide question container
+        $("#answerContainer").fadeIn(400); // Show answer container with fade effect
         $("#showAnswerBtn").hide();
         $("#teamSelection").show();
     }
@@ -766,6 +768,11 @@
 
     function closeQuestion() {
         $("#questionModal").fadeOut();
+        // Reset state for next question
+        setTimeout(() => {
+            $("#questionContainer").show();
+            $("#answerContainer").hide();
+        }, 500);
         window.currentSelectedQuestion = null;
     }
 
