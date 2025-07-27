@@ -1,5 +1,5 @@
 <style>
-/* Mobile responsive game design styles with Bootstrap */
+/* Mobile responsive game design styles */
 body, html {
     height: 100vh;
     margin: 0;
@@ -888,86 +888,61 @@ body, html {
     }
 }
 
-/* Bootstrap-based responsive layout for landscape mode */
-@media (orientation: landscape) and (max-width: 992px) {
-    .game-play-container {
-        max-width: 100%;
-        padding: 5px;
-    }
-    
-    .question-grid {
-        grid-template-columns: repeat(3, 1fr);
-        gap: 5px;
-    }
-    
-    .game-play-header {
-        min-height: auto;
-        padding: 5px;
-    }
-    
-    .category-header {
-        min-height: 40px;
-        font-size: 0.7rem;
-        padding: 5px;
-    }
-    
-    .point-value {
-        min-height: 35px;
-        font-size: 0.7rem;
-    }
-    
-    .team-info-footer {
-        padding: 3px;
+/* Force portrait orientation */
+@media (orientation: landscape) and (max-width: 896px) {
+    body {
+        transform: rotate(90deg);
+        transform-origin: left top;
+        width: 100vh;
+        height: 100vw;
+        overflow-x: hidden;
+        position: absolute;
+        top: 100%;
+        left: 0;
     }
 }
 </style>
 
-<div class="game-play-container container-fluid">
+<div class="game-play-container">
             <!-- Header -->
-            <div class="game-play-header row align-items-center">
-                <div class="header-left col-3">
+            <div class="game-play-header">
+                <div class="header-left">
                     <a href="#" class="header-link"><i class="fas fa-sign-out-alt"></i> الخروج</a>
                 </div>
-                <div class="header-center col-6 text-center">
+                <div class="header-center">
                     <div class="game-title">شباب الدوانية</div>
                     <div class="turn-indicator-top">دور <span id="currentTeamName">الفريق الأول</span></div>
                 </div>
-                <div class="header-right col-3 text-end">
+                <div class="header-right">
                     <div class="logo-text">صح<br>إلعبها</div>
                 </div>
             </div>
 
             <!-- Game Board -->
-            <div class="game-board-container row justify-content-center my-2">
-                <div class="col-12">
-                    <div class="question-grid" id="questionBoard">
-                        <!-- Board will be populated dynamically -->
-                    </div>
+            <div class="game-board-container">
+                <div class="question-grid" id="questionBoard">
+                    <!-- Board will be populated dynamically -->
                 </div>
             </div>
 
             <!-- Footer with Team Info -->
-            <div class="game-play-footer row mt-auto">
-                <div class="col-6 pe-1">
-                    <div class="team-info-footer team-1 d-flex align-items-center">
-                        <div class="team-name" id="team1Name">الفريق الأول</div>
-                        <div class="team-score-footer flex-grow-1" id="team1Points">1000</div>
-                        <div class="lifeline-icons d-flex" id="team1Lifelines">
-                            <div class="lifeline-icon" id="team1CallFriend" title="اتصل بصديق"><i class="fas fa-phone"></i></div>
-                            <div class="lifeline-icon" id="team1TwoAnswers" title="إجابتان فقط"><i class="fas fa-users"></i></div>
-                            <div class="lifeline-icon" id="team1DoublePoints" title="ضعف النقاط">x2</div>
-                        </div>
+            <div class="game-play-footer">
+                <div class="team-info-footer team-1">
+                    <div class="team-name" id="team1Name">الفريق الأول</div>
+                    <div class="team-score-footer" id="team1Points">1000</div>
+                    <div class="lifeline-icons" id="team1Lifelines">
+                        <div class="lifeline-icon" id="team1CallFriend" title="اتصل بصديق"><i class="fas fa-phone"></i></div>
+                        <div class="lifeline-icon" id="team1TwoAnswers" title="إجابتان فقط"><i class="fas fa-users"></i></div>
+                        <div class="lifeline-icon" id="team1DoublePoints" title="ضعف النقاط">x2</div>
                     </div>
                 </div>
-                <div class="col-6 ps-1">
-                    <div class="team-info-footer team-2 d-flex align-items-center">
-                        <div class="team-name" id="team2Name">الفريق الثاني</div>
-                        <div class="team-score-footer flex-grow-1" id="team2Points">1000</div>
-                        <div class="lifeline-icons d-flex" id="team2Lifelines">
-                            <div class="lifeline-icon" id="team2CallFriend" title="اتصل بصديق"><i class="fas fa-phone"></i></div>
-                            <div class="lifeline-icon" id="team2TwoAnswers" title="إجابتان فقط"><i class="fas fa-users"></i></div>
-                            <div class="lifeline-icon" id="team2DoublePoints" title="ضعف النقاط">x2</div>
-                        </div>
+                <div class="team-info-footer team-2">
+                    <div class="team-name" id="team2Name">الفريق الثاني</div>
+                    <div class="team-score-footer" id="team2Points">1000</div>
+                    <div class="lifeline-icons" id="team2Lifelines">
+                        <div class="lifeline-icon" id="team2CallFriend" title="اتصل بصديق"><i class="fas fa-phone"></i></div>
+                        <div class="lifeline-icon" id="team2TwoAnswers" title="إجابتان فقط"><i class="fas fa-users"></i></div>
+                        <div class="lifeline-icon" id="team2DoublePoints" title="ضعف النقاط">x2</div>
                     </div>
                 </div>
             </div>
@@ -977,44 +952,36 @@ body, html {
 
 <!-- Question Display Modal (kept for functionality, might need style adjustments) -->
 <div class="question-modal" id="questionModal" style="display: none;">
-    <div class="question-display-container container-fluid">
+    <div class="question-display-container">
         <!-- Question Header -->
-        <div class="question-header row align-items-center mb-3">
-            <div class="col-4">
-                <div class="question-category-badge" id="questionCategory">فئة السؤال</div>
-            </div>
-            <div class="col-4 text-center">
-                <div class="question-points" id="questionPoints">200 نقطة</div>
-            </div>
-            <div class="col-4 text-end">
-                <div class="double-points-indicator" id="doublePointsIndicator" style="display: none;">
-                    <i class="fas fa-times-circle"></i> ضعف النقاط!
-                </div>
+        <div class="question-header">
+            <div class="question-category-badge" id="questionCategory">فئة السؤال</div>
+            <div class="question-points" id="questionPoints">200 نقطة</div>
+            <div class="double-points-indicator" id="doublePointsIndicator" style="display: none;">
+                <i class="fas fa-times-circle"></i> ضعف النقاط!
             </div>
         </div>
         
         <!-- Main Content Area -->
-        <div class="question-main-content row">
-            <!-- Mobile will stack these columns -->
-            
+        <div class="question-main-content">
             <!-- Left Side - Lifelines -->
-            <div class="question-sidebar col-lg-3 col-md-4 mb-3 mb-md-0">
+            <div class="question-sidebar">
                 <!-- Lifelines Section -->
-                <div class="lifelines-container mb-3" id="lifelinesContainer">
-                    <div class="lifelines-title mb-2">وسائل المساعدة</div>
-                    <div class="lifelines-buttons d-grid gap-2">
-                        <button class="lifeline-btn btn btn-sm" id="callFriendBtn" onclick="useCallFriend()">
-                            <i class="fas fa-phone me-1"></i>
+                <div class="lifelines-container" id="lifelinesContainer">
+                    <div class="lifelines-title">وسائل المساعدة</div>
+                    <div class="lifelines-buttons">
+                        <button class="lifeline-btn" id="callFriendBtn" onclick="useCallFriend()">
+                            <i class="fas fa-phone"></i>
                             <span>اتصل بصديق</span>
                         </button>
                         
-                        <button class="lifeline-btn btn btn-sm" id="twoAnswersBtn" onclick="useTwoAnswers()">
-                            <i class="fas fa-hand-point-right me-1"></i>
+                        <button class="lifeline-btn" id="twoAnswersBtn" onclick="useTwoAnswers()">
+                            <i class="fas fa-hand-point-right"></i>
                             <span>إجابتان فقط</span>
                         </button>
                         
-                        <button class="lifeline-btn btn btn-sm" id="doublePointsBtn" onclick="useDoublePoints()">
-                            <i class="fas fa-times-circle me-1"></i>
+                        <button class="lifeline-btn" id="doublePointsBtn" onclick="useDoublePoints()">
+                            <i class="fas fa-times-circle"></i>
                             <span>ضعف النقاط</span>
                         </button>
                     </div>
@@ -1022,7 +989,7 @@ body, html {
                 
                 <!-- Call Friend Timer -->
                 <div class="call-friend-timer" id="callFriendTimer" style="display: none;">
-                    <div class="timer-content text-center">
+                    <div class="timer-content">
                         <div class="timer-icon">
                             <i class="fas fa-phone-alt fa-beat"></i>
                         </div>
@@ -1036,12 +1003,12 @@ body, html {
             </div>
             
             <!-- Center - Question Content -->
-            <div class="question-content-center col-lg-9 col-md-8">
-                <div class="question-text-large mb-3" id="questionText">
+            <div class="question-content-center">
+                <div class="question-text-large" id="questionText">
                     جاري تحميل السؤال...
                 </div>
                 
-                <div class="question-media-container text-center mb-3" id="questionMedia">
+                <div class="question-media-container" id="questionMedia">
                     <!-- Media content will be inserted here -->
                 </div>
                 
@@ -1054,37 +1021,37 @@ body, html {
         </div>
         
         <!-- Control Buttons -->
-        <div class="question-controls mt-auto">
-            <div class="primary-controls d-flex justify-content-center mb-2">
-                <button class="quiz-btn quiz-btn-show btn btn-success" id="showAnswerBtn" onclick="showAnswer()">
-                    <i class="fas fa-eye me-1"></i>
+        <div class="question-controls">
+            <div class="primary-controls">
+                <button class="quiz-btn quiz-btn-show" id="showAnswerBtn" onclick="showAnswer()">
+                    <i class="fas fa-eye"></i>
                     <span>إظهار الإجابة</span>
                 </button>
             </div>
             
             <div class="team-scoring" id="teamSelection" style="display: none;">
-                <div class="scoring-title text-center mb-2">أي فريق أجاب بشكل صحيح؟</div>
-                <div class="team-buttons d-flex flex-wrap justify-content-center gap-2">
-                    <button class="quiz-btn quiz-btn-team1 btn btn-primary" id="team1CorrectBtn" onclick="markTeamCorrect(1)">
-                        <i class="fas fa-check me-1"></i>
+                <div class="scoring-title">أي فريق أجاب بشكل صحيح؟</div>
+                <div class="team-buttons">
+                    <button class="quiz-btn quiz-btn-team1" id="team1CorrectBtn" onclick="markTeamCorrect(1)">
+                        <i class="fas fa-check"></i>
                         <span id="team1CorrectName">الفريق الأول</span>
                     </button>
                     
-                    <button class="quiz-btn quiz-btn-team2 btn btn-warning" id="team2CorrectBtn" onclick="markTeamCorrect(2)">
-                        <i class="fas fa-check me-1"></i>
+                    <button class="quiz-btn quiz-btn-team2" id="team2CorrectBtn" onclick="markTeamCorrect(2)">
+                        <i class="fas fa-check"></i>
                         <span id="team2CorrectName">الفريق الثاني</span>
                     </button>
                     
-                    <button class="quiz-btn quiz-btn-wrong btn btn-danger" id="noCorrectBtn" onclick="markNoCorrect()">
-                        <i class="fas fa-times me-1"></i>
+                    <button class="quiz-btn quiz-btn-wrong" id="noCorrectBtn" onclick="markNoCorrect()">
+                        <i class="fas fa-times"></i>
                         <span>لا أحد أجاب صحيح</span>
                     </button>
                 </div>
             </div>
             
-            <div class="secondary-controls d-flex justify-content-center mt-3">
-                <button class="quiz-btn quiz-btn-back btn btn-secondary" id="nextBtn" onclick="closeQuestion()" style="display: none;">
-                    <i class="fas fa-arrow-right me-1"></i>
+            <div class="secondary-controls">
+                <button class="quiz-btn quiz-btn-back" id="nextBtn" onclick="closeQuestion()" style="display: none;">
+                    <i class="fas fa-arrow-right"></i>
                     <span>العودة للوحة</span>
                 </button>
             </div>
@@ -1112,9 +1079,3 @@ body, html {
 
 <!-- Confetti Container -->
 <div class="confetti" id="confetti"></div>
-
-<!-- Bootstrap JavaScript -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-
-<!-- Game Board Script -->
-<script src="../js/gameBoard.js"></script>
