@@ -272,28 +272,26 @@ body, html {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 15px;
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 15px;
-    margin-bottom: 15px;
+    padding: 15px;
+    background: transparent;
+    margin-bottom: 10px;
     flex-shrink: 0;
-    min-height: 50px;
 }
 
 .question-category-badge {
     background: linear-gradient(45deg, #4ECDC4, #44A08D);
     color: white;
-    padding: 8px 16px;
-    border-radius: 20px;
-    font-size: 0.9rem;
+    padding: 8px 20px;
+    border-radius: 30px;
+    font-size: 1rem;
     font-weight: bold;
 }
 
 .question-points {
     background: linear-gradient(45deg, #FF6B6B, #ee5a52);
     color: white;
-    padding: 8px 16px;
-    border-radius: 20px;
+    padding: 8px 20px;
+    border-radius: 30px;
     font-size: 1rem;
     font-weight: bold;
 }
@@ -311,10 +309,11 @@ body, html {
 /* Main Content Area */
 .question-main-content {
     display: flex;
-    gap: 15px;
+    gap: 20px;
     flex: 1;
     min-height: 0;
-    align-items: stretch;
+    align-items: flex-start;
+    margin: 0 15px;
 }
 
 /* Right Sidebar - Lifelines */
@@ -378,43 +377,44 @@ body, html {
 
 /* Call Friend Timer */
 .call-friend-timer {
-    background: rgba(255, 107, 107, 0.9);
+    background: rgba(255, 107, 107, 0.7);
     border-radius: 12px;
     padding: 15px;
     text-align: center;
     color: white;
-    animation: pulse 2s infinite;
+    width: 100%;
 }
 
 .timer-icon {
     font-size: 1.5rem;
-    margin-bottom: 8px;
+    margin-bottom: 5px;
+    color: white;
 }
 
 .timer-text {
     font-size: 0.8rem;
     font-weight: 600;
-    margin-bottom: 8px;
+    margin-bottom: 5px;
 }
 
 .timer-countdown {
-    font-size: 2rem;
+    font-size: 2.5rem;
     font-weight: 800;
-    margin: 10px 0;
+    margin: 5px 0 10px;
 }
 
 .timer-bar {
     width: 100%;
-    height: 4px;
+    height: 5px;
     background: rgba(255, 255, 255, 0.3);
-    border-radius: 2px;
+    border-radius: 3px;
     overflow: hidden;
 }
 
 .timer-progress {
     height: 100%;
     background: linear-gradient(90deg, #00f2fe 0%, #4facfe 100%);
-    border-radius: 2px;
+    border-radius: 3px;
     transition: width 1s linear;
 }
 
@@ -425,29 +425,26 @@ body, html {
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    padding: 0 15px;
+    padding: 0;
     min-height: 0;
-    overflow-y: auto;
+    overflow: hidden;
 }
 
 .question-text-large {
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 12px;
-    padding: 20px;
-    font-size: 1.1rem;
+    background: transparent;
+    padding: 20px 25px 30px;
+    font-size: 1.6rem;
     font-weight: bold;
     text-align: center;
     line-height: 1.5;
-    margin-bottom: 15px;
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    margin-bottom: 10px;
     width: 100%;
-    max-width: 600px;
 }
 
 .question-media-container {
     width: 100%;
     max-width: 500px;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
     border-radius: 12px;
     overflow: hidden;
     display: flex;
@@ -456,13 +453,13 @@ body, html {
 }
 
 .question-media-container img {
-    width: 100%;
+    width: auto;
     max-width: 100%;
-    max-height: 250px;
+    max-height: 350px;
     object-fit: contain;
     border-radius: 12px;
     background: white;
-    padding: 5px;
+    padding: 0;
 }
 
 .answer-display {
