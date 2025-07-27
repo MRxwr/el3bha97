@@ -489,33 +489,42 @@ body, html {
 /* Control Buttons */
 .question-controls {
     flex-shrink: 0;
-    padding: 10px 0;
+    padding: 15px;
     display: flex;
-    flex-direction: column;
-    gap: 10px;
+    flex-direction: row;
+    justify-content: center;
+    gap: 15px;
+    margin-top: auto;
 }
 
-.primary-controls,
-.team-scoring,
-.secondary-controls {
+.team-scoring {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+}
+
+.team-buttons {
     display: flex;
     justify-content: center;
-    gap: 10px;
+    gap: 15px;
+    flex-wrap: wrap;
 }
 
 .quiz-btn {
-    background: linear-gradient(45deg, #667eea, #764ba2);
+    background: linear-gradient(45deg, #4CAF50, #45a049);
     color: white;
     border: none;
-    border-radius: 10px;
-    padding: 10px 16px;
-    font-size: 0.8rem;
+    border-radius: 30px;
+    padding: 12px 20px;
+    font-size: 0.9rem;
     font-weight: bold;
     cursor: pointer;
     transition: all 0.3s ease;
     display: flex;
     align-items: center;
-    gap: 6px;
+    gap: 8px;
     min-width: 120px;
     justify-content: center;
 }
@@ -946,24 +955,171 @@ body, html {
         font-size: 0.35rem;
     }
     
-    .question-text-large {
+    /* Question Modal in Landscape */
+    .question-display-container {
+        padding: 5px;
+    }
+    
+    .question-header {
+        padding: 5px 8px;
+        margin-bottom: 5px;
+    }
+    
+    .question-category-badge,
+    .question-points {
+        padding: 4px 10px;
         font-size: 0.7rem;
-        padding: 8px;
+        border-radius: 15px;
+    }
+    
+    .question-main-content {
+        margin: 0 5px;
+        gap: 8px;
+    }
+    
+    .question-content-center {
+        flex: 1;
+    }
+    
+    .question-text-large {
+        font-size: 0.9rem;
+        padding: 8px 10px 10px;
+        margin-bottom: 3px;
+    }
+    
+    .question-media-container {
+        margin-bottom: 5px;
     }
     
     .question-media-container img {
-        max-height: 100px;
+        max-height: 150px;
+    }
+    
+    .question-sidebar {
+        width: 160px;
+        margin-right: 5px;
+        gap: 8px;
+    }
+    
+    .sidebar-title {
+        font-size: 0.7rem;
+        margin-bottom: 2px;
+    }
+    
+    .lifelines-container {
+        gap: 6px;
     }
     
     .lifeline-btn {
-        padding: 3px 4px;
-        font-size: 0.5rem;
+        padding: 6px 8px;
+        font-size: 0.65rem;
+        gap: 5px;
+        border-radius: 8px;
+    }
+    
+    .lifeline-btn i {
+        font-size: 0.7rem;
+    }
+    
+    .call-friend-timer {
+        padding: 8px;
+    }
+    
+    .timer-icon {
+        font-size: 1rem;
+        margin-bottom: 2px;
+    }
+    
+    .timer-text {
+        font-size: 0.65rem;
+        margin-bottom: 2px;
+    }
+    
+    .timer-countdown {
+        font-size: 1.5rem;
+        margin: 2px 0 3px;
+    }
+    
+    .timer-bar {
+        height: 3px;
+    }
+    
+    .question-controls {
+        padding: 5px;
     }
     
     .quiz-btn {
+        padding: 6px 10px;
+        font-size: 0.65rem;
+        min-width: 90px;
+        border-radius: 15px;
+    }
+    
+    .team-buttons {
+        gap: 8px;
+    }
+    
+    .scoring-title {
+        font-size: 0.7rem;
+        margin-bottom: 5px;
+    }
+    
+    .answer-display {
+        padding: 8px;
+    }
+    
+    .answer-label {
+        font-size: 0.7rem;
+        margin-bottom: 3px;
+    }
+    
+    .answer-text-large {
+        font-size: 0.8rem;
+    }
+}
+
+/* Extra optimization for very short height in landscape mode */
+@media (orientation: landscape) and (max-height: 450px) {
+    .question-text-large {
+        font-size: 0.8rem;
+        padding: 5px 8px 8px;
+        margin-bottom: 2px;
+    }
+    
+    .question-media-container img {
+        max-height: 120px;
+    }
+    
+    .question-sidebar {
+        width: 140px;
+    }
+    
+    .lifeline-btn {
         padding: 4px 6px;
-        font-size: 0.55rem;
-        min-width: 70px;
+        font-size: 0.6rem;
+    }
+    
+    .call-friend-timer {
+        padding: 5px;
+    }
+    
+    .timer-countdown {
+        font-size: 1.2rem;
+        margin: 1px 0 2px;
+    }
+    
+    .question-controls {
+        padding: 3px;
+    }
+    
+    .quiz-btn {
+        padding: 4px 8px;
+        font-size: 0.6rem;
+        min-width: 80px;
+    }
+    
+    .team-buttons {
+        gap: 5px;
     }
 }
 </style>
