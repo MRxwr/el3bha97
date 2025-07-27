@@ -1,23 +1,3 @@
-<!-- Ensure Font Awesome is loaded -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-<script>
-// Check if Font Awesome is loaded correctly
-document.addEventListener('DOMContentLoaded', function() {
-    // Create a Font Awesome icon element
-    var testIcon = document.createElement('i');
-    testIcon.className = 'fas fa-check';
-    
-    // If Font Awesome is not loaded, the computed width will be 0
-    // In that case, load it again
-    if (getComputedStyle(testIcon).width === '0px') {
-        var fontAwesome = document.createElement('link');
-        fontAwesome.rel = 'stylesheet';
-        fontAwesome.href = 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css';
-        document.head.appendChild(fontAwesome);
-    }
-});
-</script>
-
 <style>
 /* Mobile responsive game design styles */
 body, html {
@@ -972,164 +952,24 @@ body, html {
         font-size: 0.35rem;
     }
     
-    /* Question Modal Landscape Optimization */
-    .question-modal .question-display-container {
-        padding: 5px;
-        overflow: hidden;
+    .question-text-large {
+        font-size: 0.7rem;
+        padding: 8px;
     }
     
-    .question-modal .question-header {
-        padding: 3px 8px;
-        min-height: 30px;
-        margin-bottom: 5px;
+    .question-media-container img {
+        max-height: 100px;
     }
     
-    .question-modal .question-category-badge,
-    .question-modal .question-points,
-    .question-modal .double-points-indicator {
-        padding: 2px 8px;
-        font-size: 0.55rem;
-        border-radius: 10px;
-    }
-    
-    .question-modal .question-main-content {
-        flex-direction: row;
-        gap: 5px;
-        align-items: flex-start;
-        flex: 1;
-    }
-    
-    .question-modal .question-sidebar {
-        width: 30%;
-        max-width: 120px;
-        gap: 5px;
-    }
-    
-    .question-modal .lifelines-container {
-        padding: 5px;
-        border-radius: 8px;
-    }
-    
-    .question-modal .lifelines-title {
-        font-size: 0.55rem;
-        margin-bottom: 3px;
-    }
-    
-    .question-modal .lifelines-buttons {
-        flex-direction: column;
-        gap: 3px;
-    }
-    
-    .question-modal .lifeline-btn {
-        padding: 3px 5px;
+    .lifeline-btn {
+        padding: 3px 4px;
         font-size: 0.5rem;
-        border-radius: 6px;
-        display: flex;
-        align-items: center;
-        gap: 3px;
     }
     
-    .question-modal .lifeline-btn i {
-        font-size: 0.6rem;
-        display: inline-block;
-        width: 12px;
-    }
-    
-    .question-modal .question-content-center {
-        padding: 0 5px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        overflow-y: hidden;
-    }
-    
-    .question-modal .question-text-large {
-        font-size: 0.65rem;
-        padding: 6px 10px;
-        margin-bottom: 5px;
-        line-height: 1.3;
-        border-radius: 8px;
-    }
-    
-    .question-modal .question-media-container {
-        margin-bottom: 5px;
-    }
-    
-    .question-modal .question-media-container img {
-        max-height: 70px;
-        padding: 2px;
-        border-radius: 8px;
-    }
-    
-    .question-modal .answer-display {
-        padding: 5px;
-        margin-top: 5px;
-        border-radius: 8px;
-    }
-    
-    .question-modal .answer-label {
+    .quiz-btn {
+        padding: 4px 6px;
         font-size: 0.55rem;
-        margin-bottom: 2px;
-    }
-    
-    .question-modal .answer-text-large {
-        font-size: 0.65rem;
-        line-height: 1.2;
-    }
-    
-    .question-modal .question-controls {
-        padding: 3px 0;
-        gap: 3px;
-    }
-    
-    .question-modal .primary-controls,
-    .question-modal .secondary-controls,
-    .question-modal .team-scoring {
-        gap: 5px;
-    }
-    
-    .question-modal .quiz-btn {
-        padding: 3px 6px;
-        font-size: 0.5rem;
-        min-width: 60px;
-        border-radius: 6px;
-        gap: 3px;
-    }
-    
-    .question-modal .scoring-title {
-        font-size: 0.55rem;
-        margin-bottom: 3px;
-    }
-    
-    .question-modal .call-friend-timer {
-        padding: 4px;
-        border-radius: 8px;
-    }
-    
-    .question-modal .timer-icon {
-        font-size: 0.8rem;
-        margin-bottom: 2px;
-        display: block;
-    }
-    
-    .question-modal .timer-icon i {
-        display: inline-block;
-        font-size: 1rem;
-    }
-    
-    .question-modal .timer-text {
-        font-size: 0.5rem;
-        margin-bottom: 2px;
-    }
-    
-    .question-modal .timer-countdown {
-        font-size: 1rem;
-        font-weight: 800;
-        margin: 2px 0;
-    }
-    
-    .question-modal .timer-bar {
-        height: 3px;
+        min-width: 70px;
     }
 }
 </style>
@@ -1224,7 +1064,7 @@ body, html {
                         <div class="timer-icon">
                             <i class="fas fa-phone-alt fa-beat"></i>
                         </div>
-                        <div class="timer-text">جاري الاتصال</div>
+                        <div class="timer-text">جاري الاتصال بصديق...</div>
                         <div class="timer-countdown" id="timerCountdown">60</div>
                         <div class="timer-bar">
                             <div class="timer-progress" id="timerProgress"></div>
@@ -1275,7 +1115,7 @@ body, html {
                     
                     <button class="quiz-btn quiz-btn-wrong" id="noCorrectBtn" onclick="markNoCorrect()">
                         <i class="fas fa-times"></i>
-                        <span>لا أحد أجاب</span>
+                        <span>لا أحد أجاب صحيح</span>
                     </button>
                 </div>
             </div>
