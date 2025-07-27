@@ -264,7 +264,7 @@ body, html {
     padding: 15px;
     box-sizing: border-box;
     color: white;
-    overflow: hidden;
+    overflow: hidden; /* Keep this to prevent outer container from scrolling */
 }
 
 /* Question Header */
@@ -314,6 +314,10 @@ body, html {
     min-height: 0;
     align-items: flex-start;
     margin: 0 15px;
+    overflow-y: auto; /* Enable vertical scrolling when needed */
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+    -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+    max-height: 100%; /* Ensure it doesn't exceed the container */
 }
 
 /* Right Sidebar - Lifelines */
@@ -324,6 +328,10 @@ body, html {
     flex-direction: column;
     gap: 15px;
     margin-right: 15px;
+    position: sticky;
+    top: 0; /* Stick to the top when scrolling */
+    max-height: 100%; /* Limit height to container */
+    overflow-y: auto; /* Allow sidebar to scroll if needed */
 }
 
 .sidebar-title {
@@ -357,6 +365,7 @@ body, html {
     justify-content: flex-start;
     text-align: right;
     width: 100%;
+    margin-bottom: 10px;
 }
 
 .lifeline-btn:hover:not(:disabled) {
@@ -427,7 +436,8 @@ body, html {
     align-items: center;
     padding: 0;
     min-height: 0;
-    overflow: hidden;
+    width: 100%; /* Ensure it takes full width */
+    overflow-y: auto; /* Enable vertical scrolling when content overflows */
 }
 
 .question-text-large {
@@ -468,6 +478,9 @@ body, html {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    padding-right: 5px; /* Add padding for scrollbar space */
+    padding-bottom: 20px; /* Add bottom padding for scrolling room */
+    flex-shrink: 0; /* Prevent shrinking in flex container */
 }
 
 .answer-text-large {
@@ -692,7 +705,6 @@ body, html {
         padding: 6px 8px;
         font-size: 0.7rem;
         flex: 1;
-        margin-bottom: 10px;
     }
     
     .quiz-btn {
@@ -1092,6 +1104,29 @@ body, html {
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(-10px); }
     to { opacity: 1; transform: translateY(0); }
+}
+
+/* Custom Scrollbar Styling */
+.question-main-content::-webkit-scrollbar,
+.question-content-center::-webkit-scrollbar {
+    width: 8px;
+}
+
+.question-main-content::-webkit-scrollbar-track,
+.question-content-center::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+}
+
+.question-main-content::-webkit-scrollbar-thumb,
+.question-content-center::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 10px;
+}
+
+.question-main-content::-webkit-scrollbar-thumb:hover,
+.question-content-center::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.5);
 }
 
 /* Extra optimization for very short height in landscape mode */
