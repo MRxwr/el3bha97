@@ -59,13 +59,13 @@
 }
 
 .category-image {
-    width: 50px !important;
+    width: 100px !important;
     height: 50px !important;
     object-fit: cover !important;
     border-radius: 10px !important;
-    margin-bottom: 5px !important;
-    background: rgba(255, 255, 255, 0.1) !important;
-    padding: 5px !important;
+    margin-bottom: 3px !important;
+    /*background: rgba(255, 255, 255, 0.1) !important;*/
+    padding: 1px !important;
 }
 
 .category-title {
