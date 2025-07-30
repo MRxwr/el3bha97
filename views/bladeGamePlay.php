@@ -6,7 +6,6 @@ body, html {
     padding: 0;
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     font-family: 'Cairo', sans-serif;
-    /*overflow: hidden;*/
     direction: rtl;
 }
 
@@ -1199,7 +1198,7 @@ body, html {
 </div>
 
 <!-- Question Modal -->
-<?php require_once "{$theme}/questionModal.php"; ?>
+<?php require_once "theme/{$theme}/questionModal.php"; ?>
 
 <!-- Game End Screen -->
 <div class="game-end" id="gameEndScreen" style="display: none;">
