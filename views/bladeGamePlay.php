@@ -68,7 +68,7 @@
 </div>
 
 <!-- Question Modal -->
-<?php require_once "{$theme}/questionModal.php"; ?>
+<?php require_once "theme/{$theme}/questionModal.php"; ?>
 
 <!-- Game End Screen -->
 <div class="game-end" id="gameEndScreen" style="display: none;">
