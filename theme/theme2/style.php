@@ -615,8 +615,8 @@ body, html {
 }
 
 .quiz-btn-show {
-    background: linear-gradient(45deg, #4CAF50, #45a049);
-    box-shadow: 0 5px 15px rgba(76, 175, 80, 0.4);
+    background: linear-gradient(360deg, #421d4b, #703e7f);
+    box-shadow: 0 5px 15px rgb(126 81 138);
 }
 
 .quiz-btn-team1 {
@@ -1958,7 +1958,7 @@ body, html {
 }
 
 .quiz-btn-show {
-    background: linear-gradient(45deg, #3498db, #2980b9);
+    background: linear-gradient(360deg, #421d4b, #703e7f);
 }
 
 .quiz-btn-team1 {
