@@ -235,7 +235,7 @@ body, html {
     background: linear-gradient(45deg, #3498db, #2980b9);
     color: white;
     border-radius: 8px;
-    padding: 15px 5px;
+    padding: 5px 5px;
     text-align: center;
     font-weight: bold;
     font-size: 0.9rem;
@@ -732,7 +732,7 @@ body, html {
     }
     
     .question-cell {
-        padding: 10px 2px;
+        padding: 5px 2px;
         font-size: 0.85rem;
     }
     
@@ -763,7 +763,7 @@ body, html {
     }
     
     .question-cell {
-        padding: 6px 1px;
+        padding: 5px 1px;
         font-size: 0.8rem;
         box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
         font-size: 0.8rem;
@@ -793,7 +793,7 @@ body, html {
     }
     
     .question-cell {
-        padding: 4px 1px;
+        padding: 5px 1px;
         font-size: 0.7rem;
         border-radius: 4px;
         box-shadow: none;
@@ -820,7 +820,7 @@ body, html {
     }
     
     .question-cell {
-        padding: 3px 0px;
+        padding: 5px 0px;
         font-size: 0.65rem;
         border-radius: 3px;
     }
