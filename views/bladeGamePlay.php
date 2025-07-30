@@ -1130,53 +1130,34 @@ body, html {
 </style>
 
 <div class="game-play-container">
-            <!-- Header -->
-            <div class="game-play-header">
-                <div class="header-left">
-                    <a href="#" class="header-link"><i class="fas fa-sign-out-alt"></i> الخروج</a>
-                </div>
-                <div class="header-center">
-                    <div class="game-title">شباب الدوانية</div>
-                    <div class="turn-indicator-top">دور <span id="currentTeamName">الفريق الأول</span></div>
-                </div>
-                <div class="header-right">
-                    <div class="logo-text">صح<br>إلعبها</div>
-                </div>
-            </div>
-
-            <!-- Game Board -->
-            <div class="game-board-container">
-                <div class="question-grid" id="questionBoard">
-                    <!-- Board will be populated dynamically -->
-                </div>
-            </div>
-
-            <!-- Footer with Team Info -->
-            <div class="game-play-footer">
-                <div class="team-info-footer team-1">
-                    <div class="team-name" id="team1Name">الفريق الأول</div>
-                    <div class="team-score-footer" id="team1Points">1000</div>
-                    <div class="lifeline-icons" id="team1Lifelines">
-                        <div class="lifeline-icon" id="team1CallFriend" title="اتصل بصديق"><i class="fas fa-phone"></i></div>
-                        <div class="lifeline-icon" id="team1TwoAnswers" title="إجابتان فقط"><i class="fas fa-users"></i></div>
-                        <div class="lifeline-icon" id="team1DoublePoints" title="ضعف النقاط">x2</div>
-                    </div>
-                </div>
-                <div class="team-info-footer team-2">
-                    <div class="team-name" id="team2Name">الفريق الثاني</div>
-                    <div class="team-score-footer" id="team2Points">1000</div>
-                    <div class="lifeline-icons" id="team2Lifelines">
-                        <div class="lifeline-icon" id="team2CallFriend" title="اتصل بصديق"><i class="fas fa-phone"></i></div>
-                        <div class="lifeline-icon" id="team2TwoAnswers" title="إجابتان فقط"><i class="fas fa-users"></i></div>
-                        <div class="lifeline-icon" id="team2DoublePoints" title="ضعف النقاط">x2</div>
-                    </div>
-                </div>
-            </div>
-        </div>
+    <!-- Header with game info -->
+    <div class="game-header">
+        <h1 class="game-title">شباب الدوانية <span class="turn-indicator">دور <span id="currentTeamName">الفريق الأول</span></span></h1>
+        <a href="?v=Home" class="exit-button"><i class="fas fa-sign-out-alt"></i> خروج</a>
+    </div>
+    
+    <!-- Categories showcase at top -->
+    <div class="categories-showcase">
+        <!-- Categories will be displayed here -->
+    </div>
+    
+    <!-- Numbered columns -->
+    <div class="numbered-columns">
+        <!-- Column numbers will be displayed here -->
+    </div>
+    
+    <!-- Question board with 12 columns, each with 3 questions -->
+    <div class="question-board">
+        <!-- Questions will be displayed here -->
+    </div>
+    
+    <!-- Footer with teams and ads placeholder -->
+    <div class="game-footer">
+        <!-- Team panels and ads will be displayed here -->
     </div>
 </div>
 
-<!-- Question Display Modal (kept for functionality, might need style adjustments) -->
+<!-- Question Modal -->
 <div class="question-modal" id="questionModal" style="display: none;">
     <div class="question-display-container">
         <!-- Question Header -->
@@ -1190,7 +1171,7 @@ body, html {
         
         <!-- Main Content Area -->
         <div class="question-main-content">
-            <!-- Left Side - Lifelines -->
+            <!-- Sidebar - Lifelines -->
             <div class="question-sidebar">
                 <!-- Lifelines Section -->
                 <div class="lifelines-container" id="lifelinesContainer">
@@ -1215,15 +1196,13 @@ body, html {
                 
                 <!-- Call Friend Timer -->
                 <div class="call-friend-timer" id="callFriendTimer" style="display: none;">
-                    <div class="timer-content">
-                        <div class="timer-icon">
-                            <i class="fas fa-phone-alt fa-beat"></i>
-                        </div>
-                        <div class="timer-text">جاري الاتصال بصديق...</div>
-                        <div class="timer-countdown" id="timerCountdown">60</div>
-                        <div class="timer-bar">
-                            <div class="timer-progress" id="timerProgress"></div>
-                        </div>
+                    <div class="timer-icon">
+                        <i class="fas fa-phone-alt fa-beat"></i>
+                    </div>
+                    <div class="timer-text">جاري الاتصال بصديق...</div>
+                    <div class="timer-countdown" id="timerCountdown">60</div>
+                    <div class="timer-bar">
+                        <div class="timer-progress" id="timerProgress"></div>
                     </div>
                 </div>
             </div>
@@ -1245,50 +1224,50 @@ body, html {
                 <div class="content-container" id="answerContainer" style="display: none;">
                     <div class="answer-text-large" id="answerText"></div>
                 </div>
-            </div>
-        </div>
-        
-        <!-- Control Buttons -->
-        <div class="question-controls">
-            <div class="primary-controls">
-                <button class="quiz-btn quiz-btn-show" id="showAnswerBtn" onclick="showAnswer()">
-                    <i class="fas fa-eye"></i>
-                    <span>إظهار الإجابة</span>
-                </button>
-            </div>
-            
-            <div class="team-scoring" id="teamSelection" style="display: none;">
-                <div class="scoring-title">أي فريق أجاب بشكل صحيح؟</div>
-                <div class="team-buttons">
-                    <button class="quiz-btn quiz-btn-team1" id="team1CorrectBtn" onclick="markTeamCorrect(1)">
-                        <i class="fas fa-check"></i>
-                        <span id="team1CorrectName">الفريق الأول</span>
-                    </button>
+                
+                <!-- Control Buttons -->
+                <div class="question-controls">
+                    <div class="controls-row">
+                        <button class="quiz-btn quiz-btn-show" id="showAnswerBtn" onclick="showAnswer()">
+                            <i class="fas fa-eye"></i>
+                            <span>إظهار الإجابة</span>
+                        </button>
+                    </div>
                     
-                    <button class="quiz-btn quiz-btn-team2" id="team2CorrectBtn" onclick="markTeamCorrect(2)">
-                        <i class="fas fa-check"></i>
-                        <span id="team2CorrectName">الفريق الثاني</span>
-                    </button>
+                    <div class="controls-row" id="teamSelection" style="display: none;">
+                        <div class="team-scoring-title">أي فريق أجاب بشكل صحيح؟</div>
+                        <div class="team-buttons">
+                            <button class="quiz-btn quiz-btn-team1" id="team1CorrectBtn" onclick="markTeamCorrect(1)">
+                                <i class="fas fa-check"></i>
+                                <span id="team1CorrectName">الفريق الأول</span>
+                            </button>
+                            
+                            <button class="quiz-btn quiz-btn-team2" id="team2CorrectBtn" onclick="markTeamCorrect(2)">
+                                <i class="fas fa-check"></i>
+                                <span id="team2CorrectName">الفريق الثاني</span>
+                            </button>
+                            
+                            <button class="quiz-btn quiz-btn-wrong" id="noCorrectBtn" onclick="markNoCorrect()">
+                                <i class="fas fa-times"></i>
+                                <span>لا أحد أجاب صحيح</span>
+                            </button>
+                        </div>
+                    </div>
                     
-                    <button class="quiz-btn quiz-btn-wrong" id="noCorrectBtn" onclick="markNoCorrect()">
-                        <i class="fas fa-times"></i>
-                        <span>لا أحد أجاب صحيح</span>
-                    </button>
+                    <div class="controls-row">
+                        <button class="quiz-btn quiz-btn-back" id="nextBtn" onclick="closeQuestion()" style="display: none;">
+                            <i class="fas fa-arrow-right"></i>
+                            <span>العودة للوحة</span>
+                        </button>
+                    </div>
                 </div>
-            </div>
-            
-            <div class="secondary-controls">
-                <button class="quiz-btn quiz-btn-back" id="nextBtn" onclick="closeQuestion()" style="display: none;">
-                    <i class="fas fa-arrow-right"></i>
-                    <span>العودة للوحة</span>
-                </button>
             </div>
         </div>
     </div>
 </div>
 
 <!-- Game End Screen -->
-<div class="game-end" id="gameEndScreen">
+<div class="game-end" id="gameEndScreen" style="display: none;">
     <div class="winner-announcement" id="winnerText">
         🎉 انتهت اللعبة! 🎉
     </div>
@@ -1298,7 +1277,7 @@ body, html {
     </div>
     
     <div class="mt-4">
-        <button class="control-btn btn-next" onclick="newGame()">
+        <button class="quiz-btn" onclick="newGame()">
             <i class="fas fa-play me-2"></i>
             لعبة جديدة
         </button>

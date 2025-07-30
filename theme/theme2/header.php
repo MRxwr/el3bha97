@@ -15,6 +15,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
     
     <!-- Theme Styles -->
-    <?php include 'theme/theme1/style.php'; ?>
+    <?php include "theme/{$theme}/style.php"; ?>
 </head>
 <body>
