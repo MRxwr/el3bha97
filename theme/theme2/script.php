@@ -1074,7 +1074,18 @@
         } else if ($(".game-play-container").length > 0) {
             // We're on the game play page
             console.log('Initializing Game Play page');
-            initializeGamePlay();
+            
+            // Load categories first, then initialize game play
+            loadCategories(function(success) {
+                if (success) {
+                    console.log('Categories loaded for game play page');
+                    initializeGamePlay();
+                } else {
+                    console.error('Failed to load categories for game play page');
+                    // Still try to initialize game play with fallback data
+                    initializeGamePlay();
+                }
+            });
         }
     });
 </script>
