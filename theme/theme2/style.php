@@ -251,7 +251,7 @@ body, html {
     left: 0;
     width: 100vw;
     height: 100vh;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
     display: flex;
     z-index: 1000;
     direction: rtl;
@@ -262,7 +262,7 @@ body, html {
     height: 100%;
     display: flex;
     flex-direction: column;
-    padding: 15px;
+    padding: 20px;
     box-sizing: border-box;
     color: white;
     overflow: hidden;
@@ -273,217 +273,266 @@ body, html {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px;
-    background: transparent;
-    margin-bottom: 10px;
+    padding: 20px 25px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    margin-bottom: 20px;
     flex-shrink: 0;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .question-category-badge {
-    background: linear-gradient(45deg, #4ECDC4, #44A08D);
-    color: white;
-    padding: 8px 20px;
-    border-radius: 30px;
-    font-size: 1rem;
+    background: linear-gradient(45deg, #00c9ff, #92fe9d);
+    color: #1a1a1a;
+    padding: 12px 24px;
+    border-radius: 25px;
+    font-size: 1.1rem;
     font-weight: bold;
+    box-shadow: 0 4px 15px rgba(0, 201, 255, 0.3);
 }
 
 .question-points {
-    background: linear-gradient(45deg, #FF6B6B, #ee5a52);
+    background: linear-gradient(45deg, #ff6b6b, #ee5a52);
     color: white;
-    padding: 8px 20px;
-    border-radius: 30px;
-    font-size: 1rem;
+    padding: 12px 24px;
+    border-radius: 25px;
+    font-size: 1.1rem;
     font-weight: bold;
+    box-shadow: 0 4px 15px rgba(255, 107, 107, 0.3);
 }
 
 .double-points-indicator {
-    background: linear-gradient(45deg, #FFD700, #FFA500);
-    color: #333;
-    padding: 8px 16px;
+    background: linear-gradient(45deg, #ffd700, #ffb347);
+    color: #1a1a1a;
+    padding: 10px 20px;
     border-radius: 20px;
-    font-size: 0.9rem;
+    font-size: 1rem;
     font-weight: bold;
     animation: pulse 2s infinite;
+    box-shadow: 0 4px 15px rgba(255, 215, 0, 0.4);
 }
 
-/* Main Content Area */
+/* Main Content Area - Bootstrap Grid Style */
 .question-main-content {
     display: flex;
-    gap: 20px;
+    gap: 25px;
     flex: 1 1 auto;
     min-height: 0;
     align-items: flex-start;
-    margin: 0 15px;
+    margin: 0;
 }
 
-/* Right Sidebar - Lifelines */
+/* Right Sidebar - Lifelines (25% width like col-3) */
 .question-sidebar {
-    width: 220px;
+    width: 25%;
+    min-width: 280px;
+    max-width: 320px;
     flex-shrink: 0;
     display: flex;
     flex-direction: column;
-    gap: 15px;
-    margin-right: 15px;
+    gap: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    padding: 20px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    height: fit-content;
 }
 
 .sidebar-title {
     color: white;
-    font-size: 1rem;
+    font-size: 1.2rem;
     font-weight: bold;
-    margin-bottom: 5px;
-    text-align: right;
+    margin-bottom: 15px;
+    text-align: center;
+    padding-bottom: 10px;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.3);
 }
 
 .lifelines-container {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 15px;
     width: 100%;
 }
 
-.lifeline-btn {
-    background: rgba(255, 255, 255, 0.15);
+.lifelines-title {
     color: white;
-    border: none;
-    border-radius: 12px;
-    padding: 10px 15px;
-    font-size: 0.8rem;
+    font-size: 1.1rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.lifelines-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.lifeline-btn {
+    background: linear-gradient(45deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0.25));
+    color: white;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 15px;
+    padding: 15px 20px;
+    font-size: 0.95rem;
     font-weight: 600;
     cursor: pointer;
     transition: all 0.3s ease;
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 12px;
     justify-content: flex-start;
     text-align: right;
     width: 100%;
-    margin-bottom: 10px;
+    backdrop-filter: blur(5px);
 }
 
 .lifeline-btn:hover:not(:disabled) {
-    background: rgba(255, 255, 255, 0.25);
+    background: linear-gradient(45deg, rgba(255, 255, 255, 0.25), rgba(255, 255, 255, 0.35));
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    border-color: rgba(255, 255, 255, 0.5);
 }
 
 .lifeline-btn:disabled {
-    background: rgba(128, 128, 128, 0.25);
+    background: linear-gradient(45deg, rgba(128, 128, 128, 0.15), rgba(128, 128, 128, 0.25));
     color: rgba(255, 255, 255, 0.4);
     cursor: not-allowed;
-    opacity: 0.6;
+    opacity: 0.5;
+    border-color: rgba(128, 128, 128, 0.3);
 }
 
 .lifeline-btn i {
-    font-size: 1rem;
-    color: rgba(255, 255, 255, 0.9);
+    font-size: 1.2rem;
+    color: #00c9ff;
+    min-width: 20px;
 }
 
 /* Call Friend Timer */
 .call-friend-timer {
-    background: rgba(255, 107, 107, 0.7);
-    border-radius: 12px;
-    padding: 15px;
+    background: linear-gradient(45deg, #ff6b6b, #ee5a52);
+    border-radius: 15px;
+    padding: 20px;
     text-align: center;
     color: white;
     width: 100%;
+    box-shadow: 0 5px 20px rgba(255, 107, 107, 0.3);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(10px);
 }
 
 .timer-icon {
-    font-size: 1.5rem;
-    margin-bottom: 5px;
+    font-size: 2rem;
+    margin-bottom: 10px;
     color: white;
 }
 
 .timer-text {
-    font-size: 0.8rem;
+    font-size: 0.9rem;
     font-weight: 600;
-    margin-bottom: 5px;
+    margin-bottom: 10px;
 }
 
 .timer-countdown {
-    font-size: 2.5rem;
+    font-size: 3rem;
     font-weight: 800;
-    margin: 5px 0 10px;
+    margin: 10px 0 15px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 .timer-bar {
     width: 100%;
-    height: 5px;
+    height: 8px;
     background: rgba(255, 255, 255, 0.3);
-    border-radius: 3px;
+    border-radius: 4px;
     overflow: hidden;
 }
 
 .timer-progress {
     height: 100%;
     background: linear-gradient(90deg, #00f2fe 0%, #4facfe 100%);
-    border-radius: 3px;
+    border-radius: 4px;
     transition: width 1s linear;
 }
 
-/* Center Content Area */
+/* Center Content Area (75% width like col-9) */
 .question-content-center {
     flex: 1;
+    width: 75%;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    padding: 0;
+    padding: 0 20px;
     min-height: 0;
-    overflow: hidden;
+    overflow-y: auto;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .question-text-large {
     background: transparent;
-    padding: 20px 25px 30px;
-    font-size: 1.6rem;
+    padding: 30px 25px;
+    font-size: 2rem;
     font-weight: bold;
     text-align: center;
-    line-height: 1.5;
-    margin-bottom: 10px;
+    line-height: 1.6;
+    margin-bottom: 20px;
     width: 100%;
+    color: white;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
 }
 
 .question-media-container {
     width: 100%;
-    max-width: 500px;
-    margin-bottom: 20px;
-    border-radius: 12px;
+    max-width: 600px;
+    margin-bottom: 30px;
+    border-radius: 15px;
     overflow: hidden;
     display: flex;
     justify-content: center;
     align-items: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 }
 
 .question-media-container img {
     width: auto;
     max-width: 100%;
-    max-height: 350px;
+    max-height: 400px;
     object-fit: contain;
-    border-radius: 12px;
+    border-radius: 15px;
     background: white;
-    padding: 0;
+    padding: 10px;
 }
 
 .content-container {
     width: 100%;
-    max-width: 600px;
+    max-width: 800px;
+    padding: 20px;
 }
 
 .answer-text-large {
-    font-size: 1.6rem;
+    font-size: 2rem;
     font-weight: bold;
     text-align: center;
-    line-height: 1.5;
-    padding: 20px 25px 30px;
+    line-height: 1.6;
+    padding: 30px 25px;
     color: #4CAF50;
-    background: linear-gradient(135deg, rgba(76, 175, 80, 0.1) 0%, rgba(76, 175, 80, 0.2) 100%);
-    border: 3px solid rgba(76, 175, 80, 0.4);
-    border-radius: 15px;
+    background: linear-gradient(135deg, rgba(76, 175, 80, 0.15) 0%, rgba(76, 175, 80, 0.25) 100%);
+    border: 3px solid rgba(76, 175, 80, 0.5);
+    border-radius: 20px;
     width: 100%;
-    box-shadow: 0 0 20px rgba(76, 175, 80, 0.2);
+    box-shadow: 0 10px 30px rgba(76, 175, 80, 0.3);
     animation: fadeIn 0.5s ease-in-out;
     position: relative;
     overflow: hidden;
+    backdrop-filter: blur(10px);
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
 }
 
 .answer-text-large::before {
@@ -496,29 +545,37 @@ body, html {
     background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 24 24" fill="none" stroke="%234CAF50" stroke-width="0.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>');
     background-repeat: no-repeat;
     background-position: 95% 90%;
-    background-size: 40px;
-    opacity: 0.2;
+    background-size: 50px;
+    opacity: 0.3;
 }
 
 /* Control Buttons */
 .question-controls {
     flex-shrink: 0;
-    padding: 15px;
-    display: flex;
-    flex-direction: row;
-    justify-content: left;
-    gap: 15px;
-    margin-top: auto;
-    margin-bottom: 50px;
-}
-
-.team-scoring {
+    padding: 25px;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    gap: 10px;
+    justify-content: center;
+    gap: 20px;
+    margin-top: auto;
     width: 100%;
+}
+
+.controls-row {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
     flex-wrap: wrap;
+}
+
+.team-scoring-title {
+    width: 100%;
+    text-align: center;
+    font-size: 1.1rem;
+    font-weight: bold;
+    margin-bottom: 15px;
+    color: white;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
 }
 
 .team-buttons {
@@ -532,42 +589,49 @@ body, html {
     background: linear-gradient(45deg, #4CAF50, #45a049);
     color: white;
     border: none;
-    border-radius: 30px;
-    padding: 12px 20px;
-    font-size: 0.9rem;
+    border-radius: 25px;
+    padding: 15px 25px;
+    font-size: 1rem;
     font-weight: bold;
     cursor: pointer;
     transition: all 0.3s ease;
     display: flex;
     align-items: center;
-    gap: 8px;
-    min-width: 120px;
+    gap: 10px;
+    min-width: 140px;
     justify-content: center;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
 }
 
 .quiz-btn:hover {
-    transform: translateY(-1px);
-    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
 }
 
 .quiz-btn-show {
     background: linear-gradient(45deg, #4CAF50, #45a049);
+    box-shadow: 0 5px 15px rgba(76, 175, 80, 0.4);
 }
 
 .quiz-btn-team1 {
     background: linear-gradient(45deg, #2196F3, #1976D2);
+    box-shadow: 0 5px 15px rgba(33, 150, 243, 0.4);
 }
 
 .quiz-btn-team2 {
     background: linear-gradient(45deg, #FF9800, #F57C00);
+    box-shadow: 0 5px 15px rgba(255, 152, 0, 0.4);
 }
 
 .quiz-btn-wrong {
     background: linear-gradient(45deg, #f44336, #d32f2f);
+    box-shadow: 0 5px 15px rgba(244, 67, 54, 0.4);
 }
 
 .quiz-btn-back {
     background: linear-gradient(45deg, #9E9E9E, #757575);
+    box-shadow: 0 5px 15px rgba(158, 158, 158, 0.4);
 }
 
 .scoring-title {
@@ -652,65 +716,72 @@ body, html {
     
     /* Question Modal Mobile */
     .question-display-container {
-        padding: 8px;
+        padding: 15px;
     }
     
     .question-main-content {
         flex-direction: column;
-        gap: 10px;
+        gap: 20px;
     }
     
     .question-sidebar {
         width: 100%;
+        min-width: auto;
+        max-width: none;
         order: 2;
-    }
-    
-    .question-content-center {
-        order: 1;
-        padding: 0 5px;
-    }
-    
-    .question-text-large {
-        font-size: 0.95rem;
         padding: 15px;
     }
     
-    .lifelines-container {
-        padding: 10px;
+    .question-content-center {
+        width: 100%;
+        order: 1;
+        padding: 15px;
+    }
+    
+    .question-text-large {
+        font-size: 1.4rem;
+        padding: 20px 15px;
+    }
+    
+    .lifelines-title {
+        font-size: 1rem;
     }
     
     .lifelines-buttons {
         flex-direction: row;
-        gap: 5px;
+        gap: 10px;
     }
     
     .lifeline-btn {
-        padding: 6px 8px;
-        font-size: 0.7rem;
+        padding: 12px 15px;
+        font-size: 0.8rem;
         flex: 1;
     }
     
     .quiz-btn {
-        padding: 8px 12px;
-        font-size: 0.75rem;
-        min-width: 100px;
+        padding: 12px 18px;
+        font-size: 0.85rem;
+        min-width: 120px;
     }
     
     .question-header {
-        padding: 6px 10px;
-        min-height: 35px;
-        flex-direction: row;
-        gap: 10px;
+        padding: 15px 20px;
+        margin-bottom: 15px;
     }
     
     .question-category-badge,
     .question-points {
-        padding: 5px 10px;
-        font-size: 0.75rem;
+        padding: 8px 16px;
+        font-size: 0.9rem;
     }
     
     .question-media-container img {
-        max-height: 200px;
+        max-height: 250px;
+    }
+    
+    .answer-text-large {
+        font-size: 1.4rem;
+        padding: 20px 15px;
     }
 }
 
@@ -776,46 +847,55 @@ body, html {
     
     /* Question Modal Small Mobile */
     .question-display-container {
-        padding: 6px;
+        padding: 10px;
     }
     
     .question-text-large {
-        font-size: 0.85rem;
-        padding: 12px;
+        font-size: 1.1rem;
+        padding: 15px 10px;
     }
     
     .lifeline-btn {
-        padding: 5px 6px;
-        font-size: 0.65rem;
+        padding: 8px 10px;
+        font-size: 0.75rem;
     }
     
     .quiz-btn {
-        padding: 6px 10px;
-        font-size: 0.7rem;
-        min-width: 90px;
+        padding: 10px 15px;
+        font-size: 0.8rem;
+        min-width: 100px;
     }
     
     .question-header {
-        padding: 5px 8px;
-        min-height: 30px;
+        padding: 10px 15px;
+        margin-bottom: 10px;
     }
     
     .question-category-badge,
     .question-points {
-        padding: 4px 8px;
-        font-size: 0.7rem;
+        padding: 6px 12px;
+        font-size: 0.8rem;
     }
     
     .timer-countdown {
-        font-size: 1.5rem;
+        font-size: 2rem;
     }
     
     .timer-icon {
-        font-size: 1.2rem;
+        font-size: 1.5rem;
     }
     
     .question-media-container img {
-        max-height: 150px;
+        max-height: 180px;
+    }
+    
+    .answer-text-large {
+        font-size: 1.1rem;
+        padding: 15px 10px;
+    }
+    
+    .question-sidebar {
+        padding: 12px;
     }
 }
 
@@ -849,6 +929,47 @@ body, html {
     .team-info-footer {
         padding: 3px 4px;
     }
+    
+    /* Question Modal iPhone */
+    .question-display-container {
+        padding: 8px;
+    }
+    
+    .question-text-large {
+        font-size: 1rem;
+        padding: 12px 8px;
+    }
+    
+    .answer-text-large {
+        font-size: 1rem;
+        padding: 12px 8px;
+    }
+    
+    .lifeline-btn {
+        padding: 6px 8px;
+        font-size: 0.7rem;
+    }
+    
+    .quiz-btn {
+        padding: 8px 12px;
+        font-size: 0.75rem;
+        min-width: 85px;
+    }
+    
+    .question-category-badge,
+    .question-points {
+        padding: 5px 10px;
+        font-size: 0.75rem;
+    }
+    
+    .question-sidebar {
+        padding: 10px;
+    }
+    
+    .question-content-center {
+        padding: 10px;
+    }
+}
     
     .lifeline-icon {
         width: 10px;
