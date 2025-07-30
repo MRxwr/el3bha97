@@ -16,11 +16,5 @@
     
     <!-- Theme Styles -->
     <?php include "theme/{$theme}/style.php"; ?>
-    
-    <!-- Category Selection Styles (only for Home page) -->
-    <?php if(isset($_GET['v']) && $_GET['v'] == 'Home'): ?>
-    <link href="theme/<?php echo $theme; ?>/category-selection.css" rel="stylesheet">
-    <link href="theme/<?php echo $theme; ?>/home-responsive.css" rel="stylesheet">
-    <?php endif; ?>
 </head>
 <body>

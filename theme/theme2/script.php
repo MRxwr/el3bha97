@@ -302,10 +302,10 @@
             const imagePath = category.image ? `logos/qas/categories/${category.image}` : 'img/logo.png';
             
             const card = $(`
-                <div class="col">
+                <div class="col-md-4 col-sm-6 col-6 mb-4">
                     <div class="category-card" data-category-id="${category.id}">
                         <div class="category-icon">
-                            <img src="${imagePath}" alt="${category.title}" class="img-fluid category-image" onerror="this.onerror=null; this.src='img/logo.png'; $(this).parent().html('<i class="${iconClass}"></i>');">
+                            <img src="${imagePath}" alt="${category.title}" onerror="this.onerror=null; this.src='img/logo.png'; $(this).parent().html('<i class="${iconClass}"></i>');">
                         </div>
                         <div class="category-info">
                             <h3 class="category-title">${category.title}</h3>
@@ -388,23 +388,8 @@
         const team1Name = $("#team1Name").val().trim() || "الفريق الأول";
         const team2Name = $("#team2Name").val().trim() || "الفريق الثاني";
 
-        // Collect detailed category information for later display
-        const categoriesData = [];
-        selectedCategories.forEach(categoryId => {
-            const categoryInfo = categories.find(c => c.id == categoryId);
-            if (categoryInfo) {
-                categoriesData.push({
-                    id: categoryId,
-                    title: categoryInfo.title,
-                    image: categoryInfo.image,
-                    questionCount: categoryInfo.questionCount || 0
-                });
-            }
-        });
-
         const gameData = {
             categories: selectedCategories,
-            categoriesData: categoriesData, // Store detailed category info
             team1: {
                 name: team1Name,
                 players: team1Players
@@ -523,6 +508,8 @@
         
         // Clear any existing board elements
         $('.categories-showcase').empty();
+        // Don't clear the numbered columns as we've already set them in the HTML
+        // $('.numbered-columns').empty();
         $('.question-board').empty();
         
         if (!questions || questions.length === 0) {
@@ -552,67 +539,26 @@
         
         // 1. Create Categories Showcase
         const showcaseContainer = $('.categories-showcase');
-        showcaseContainer.empty(); // Make sure it's empty before adding new items
-        
-        console.log('Creating category showcase with categories:', selectedCatIds);
-        
-        // First, check for the more detailed category data in gameData
-        if (gameData.categoriesData && gameData.categoriesData.length > 0) {
-            console.log('Using pre-saved category data:', gameData.categoriesData);
+        selectedCatIds.forEach(categoryId => {
+            // Find category info
+            const categoryInfo = categories.find(c => c.id == categoryId);
+            const categoryQuestions = categorizedQuestions[categoryId] || [];
             
-            gameData.categoriesData.forEach(categoryInfo => {
-                // Handle image path
-                let imagePath = categoryInfo.image ? `logos/qas/categories/${categoryInfo.image}` : 'img/logo.png';
+            if (categoryInfo) {
+                const imagePath = categoryInfo.image ? `logos/qas/categories/${categoryInfo.image}` : 'img/logo.png';
                 const iconClass = categoryIcons[categoryInfo.title] || 'fas fa-question';
                 
                 const categoryShowcase = $(`
                     <div class="category-showcase-item">
                         <img src="${imagePath}" alt="${categoryInfo.title}" class="category-image" 
                              onerror="this.onerror=null; this.src='img/logo.png'; $(this).replaceWith('<div class=\'category-icon\'><i class=\'${iconClass}\'></i></div>');">
-                        <div class="category-title">${categoryInfo.title || 'فئة غير معروفة'}</div>
+                        <div class="category-title">${categoryInfo.title}</div>
                     </div>
                 `);
                 
                 showcaseContainer.append(categoryShowcase);
-            });
-        }
-        // Fallback to just the category IDs if detailed data isn't available
-        else if (selectedCatIds && selectedCatIds.length > 0) {
-            console.log('Falling back to category IDs only');
-            
-            // Display each category
-            selectedCatIds.forEach(categoryId => {
-                // Find category info
-                const categoryInfo = categories.find(c => c.id == categoryId);
-                
-                if (categoryInfo) {
-                    console.log('Adding category to showcase:', categoryInfo);
-                    
-                    // Handle image path
-                    let imagePath = categoryInfo.image ? `logos/qas/categories/${categoryInfo.image}` : 'img/logo.png';
-                    const iconClass = categoryIcons[categoryInfo.title] || 'fas fa-question';
-                    
-                    const categoryShowcase = $(`
-                        <div class="category-showcase-item">
-                            <img src="${imagePath}" alt="${categoryInfo.title}" class="category-image" 
-                                 onerror="this.onerror=null; this.src='img/logo.png'; $(this).replaceWith('<div class=\'category-icon\'><i class=\'${iconClass}\'></i></div>');">
-                            <div class="category-title">${categoryInfo.title || 'فئة غير معروفة'}</div>
-                        </div>
-                    `);
-                    
-                    showcaseContainer.append(categoryShowcase);
-                }
-            });
-        } else {
-            console.error('No categories found');
-            showcaseContainer.html('<div class="alert alert-warning text-center">لم يتم العثور على فئات مختارة</div>');
-        }
-        
-        // If we still don't have any categories displayed (maybe because of data issues)
-        if (showcaseContainer.children().length === 0) {
-            console.error('No valid categories found to display');
-            showcaseContainer.html('<div class="alert alert-warning text-center">لم يتم العثور على فئات صالحة</div>');
-        }
+            }
+        });
         
         // 3. Create Question Board with 12 columns, each having 3 questions
         const boardContainer = $('.question-board');

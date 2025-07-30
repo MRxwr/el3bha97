@@ -25,7 +25,7 @@
             <!-- Categories Selection -->
             <div class="mb-5">
                 <h2 class="section-title text-center">اختر الفئات</h2>
-                <div class="row row-cols-1 row-cols-md-3 g-3" id="categoriesContainer">
+                <div class="row" id="categoriesContainer">
                     <!-- Categories will be loaded here -->
                 </div>
             </div>
