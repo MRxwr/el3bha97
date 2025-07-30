@@ -1178,8 +1178,10 @@ body, html {
             </div>
         </div>
         
-        <div class="ads-placeholder">
-            مساحة إعلانية
+        <div class="team-panel ads-placeholder">
+            <div class="team-header-row">
+                <div class="adsPlaceholders" id="adsPlaceholder">الإعلانات</div>
+            </div>
         </div>
         
         <div class="team-panel team2">
