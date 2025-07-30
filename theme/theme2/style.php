@@ -1324,8 +1324,8 @@ body, html {
 }
 
 .column-number {
-    background: rgba(0, 0, 0, 0.3);
-    color: white;
+    background: rgba(255, 255, 255, 1);
+    color: black;
     text-align: center;
     font-weight: bold;
     font-size: 13px;
@@ -1336,6 +1336,7 @@ body, html {
     display: flex;
     align-items: center;
     justify-content: center;
+    border: 2px solid black;
 }
 
 /* Question board */
@@ -1354,7 +1355,7 @@ body, html {
 }
 
 .question-cell {
-    background: linear-gradient(45deg, #3498db, #2980b9);
+    background: linear-gradient(360deg, #71257c, #8e2f9c);
     color: white;
     border-radius: 8px;
     padding: 5px 5px;
@@ -1364,7 +1365,7 @@ body, html {
     cursor: pointer;
     transition: all 0.3s ease;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 2px solid rgba(0, 0, 0, 1);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1392,19 +1393,20 @@ body, html {
 }
 
 .team-panel {
-    background: rgba(0, 0, 0, 0.2);
+    background: linear-gradient(360deg, #71257c, #8e2f9c);
     border-radius: 10px;
     padding: 10px 15px;
     display: flex;
     flex-direction: column;
+    border: 2px solid rgba(0, 0, 0, 1);
 }
 
 .team-panel.team1 {
-    background: linear-gradient(45deg, rgba(52, 152, 219, 0.3), rgba(41, 128, 185, 0.3));
+    background: linear-gradient(360deg, #71257c, #8e2f9c);
 }
 
 .team-panel.team2 {
-    background: linear-gradient(45deg, rgba(230, 126, 34, 0.3), rgba(211, 84, 0, 0.3));
+    background: linear-gradient(360deg, #71257c, #8e2f9c);
 }
 
 .team-header-row {
