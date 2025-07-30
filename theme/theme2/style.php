@@ -316,11 +316,13 @@ body, html {
 /* Main Content Area - Bootstrap Grid Style */
 .question-main-content {
     display: flex;
+    flex-direction: row;
     gap: 25px;
     flex: 1 1 auto;
     min-height: 0;
-    align-items: flex-start;
+    align-items: stretch;
     margin: 0;
+    height: 100%;
 }
 
 /* Right Sidebar - Lifelines (25% width like col-3) */
@@ -338,6 +340,7 @@ body, html {
     backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.2);
     height: fit-content;
+    order: 2;
 }
 
 .sidebar-title {
@@ -473,6 +476,7 @@ body, html {
     border-radius: 15px;
     backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.1);
+    order: 1;
 }
 
 .question-text-large {
@@ -650,6 +654,30 @@ body, html {
     flex-wrap: wrap;
 }
 
+/* Desktop specific rules for question modal */
+@media (min-width: 769px) {
+    .question-main-content {
+        flex-direction: row !important;
+        align-items: stretch !important;
+        justify-content: space-between;
+    }
+    
+    .question-sidebar {
+        width: 25% !important;
+        order: 2 !important;
+        min-width: 280px;
+        max-width: 320px;
+        flex-shrink: 0;
+    }
+    
+    .question-content-center {
+        width: 75% !important;
+        order: 1 !important;
+        flex: 1;
+        margin-right: 0;
+    }
+}
+
 /* Mobile Responsive for bladeGamePlay */
 @media (max-width: 768px) {
     .game-play-container {
@@ -720,21 +748,22 @@ body, html {
     }
     
     .question-main-content {
-        flex-direction: column;
+        flex-direction: column !important;
         gap: 20px;
+        align-items: stretch;
     }
     
     .question-sidebar {
-        width: 100%;
+        width: 100% !important;
         min-width: auto;
         max-width: none;
-        order: 2;
+        order: 2 !important;
         padding: 15px;
     }
     
     .question-content-center {
-        width: 100%;
-        order: 1;
+        width: 100% !important;
+        order: 1 !important;
         padding: 15px;
     }
     
