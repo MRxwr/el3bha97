@@ -7,18 +7,18 @@
     background-color: rgba(0, 0, 0, 0.2);
     border-radius: 10px;
     padding: 10px 15px;
-    margin-bottom: 15px;
+    margin-bottom: 3px;
 }
 
 .game-title {
-    font-size: 1.3rem;
+    font-size: 0.9rem;
     font-weight: bold;
     color: white;
     margin: 0;
 }
 
 .turn-indicator {
-    font-size: 0.9rem;
+    font-size: 0.5rem;
     color: #92fe9d;
     display: block;
     margin-top: 5px;
@@ -28,7 +28,7 @@
     background: rgba(255, 255, 255, 0.1);
     color: white;
     border-radius: 50px;
-    padding: 8px 15px;
+    padding: 5px 15px;
     text-decoration: none;
     font-size: 0.9rem;
     transition: all 0.3s ease;
@@ -44,11 +44,11 @@
     display: grid !important;
     grid-template-columns: repeat(6, 1fr) !important;
     gap: 10px !important;
-    margin-bottom: 15px !important;
+    margin-bottom: 10px !important;
     background: rgba(0, 0, 0, 0.2) !important;
-    padding: 15px !important;
+    padding: 6px !important;
     border-radius: 10px !important;
-    min-height: 100px !important; 
+    min-height: 94px !important; 
     border: 1px solid rgba(255, 255, 255, 0.1) !important;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2) !important;
 }

@@ -75,7 +75,7 @@ body, html {
 }
 
 .game-title {
-    font-size: 1.3rem;
+    font-size: 0.9rem;
     font-weight: bold;
     text-align: center;
     margin: 0;
@@ -601,7 +601,7 @@ body, html {
     }
     
     .game-title {
-        font-size: 1rem;
+        font-size: 0.9rem;
     }
     
     .turn-indicator-top {
@@ -918,7 +918,7 @@ body, html {
     }
     
     .game-title {
-        font-size: 0.7rem;
+        font-size: 0.9rem;
     }
     
     .turn-indicator-top {
