@@ -212,8 +212,13 @@ body, html {
     text-align: center;
     font-weight: bold;
     font-size: 13px;
-    border-radius: 100%;
-    width: 35%;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 /* Question board */

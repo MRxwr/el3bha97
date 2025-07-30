@@ -508,7 +508,8 @@
         
         // Clear any existing board elements
         $('.categories-showcase').empty();
-        $('.numbered-columns').empty();
+        // Don't clear the numbered columns as we've already set them in the HTML
+        // $('.numbered-columns').empty();
         $('.question-board').empty();
         
         if (!questions || questions.length === 0) {
@@ -558,13 +559,6 @@
                 showcaseContainer.append(categoryShowcase);
             }
         });
-        
-        // 2. Create Numbered Columns (1-12)
-        const numberedColumnsContainer = $('.numbered-columns');
-        for (let i = 1; i <= 12; i++) {
-            const columnNumber = $(`<div class="column-number">${i}</div>`);
-            numberedColumnsContainer.append(columnNumber);
-        }
         
         // 3. Create Question Board with 12 columns, each having 3 questions
         const boardContainer = $('.question-board');

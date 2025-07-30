@@ -1142,8 +1142,20 @@ body, html {
     </div>
     
     <!-- Numbered columns -->
-    <div class="numbered-columns" style="place-items: anchor-center;">
+    <div class="numbered-columns">
         <!-- Column numbers will be displayed here -->
+        <div class="column-number">1</div>
+        <div class="column-number">2</div>
+        <div class="column-number">3</div>
+        <div class="column-number">4</div>
+        <div class="column-number">5</div>
+        <div class="column-number">6</div>
+        <div class="column-number">7</div>
+        <div class="column-number">8</div>
+        <div class="column-number">9</div>
+        <div class="column-number">10</div>
+        <div class="column-number">11</div>
+        <div class="column-number">12</div>
     </div>
     
     <!-- Question board with 12 columns, each with 3 questions -->
@@ -1154,6 +1166,33 @@ body, html {
     <!-- Footer with teams and ads placeholder -->
     <div class="game-footer">
         <!-- Team panels and ads will be displayed here -->
+        <div class="team-panel team1">
+            <div class="team-header-row">
+                <div class="team-name-display" id="team1Name">الفريق الأول</div>
+                <div class="team-score" id="team1Score">0</div>
+            </div>
+            <div class="team-lifelines" id="team1Lifelines">
+                <div class="lifeline-icon" id="team1CallFriend" title="اتصل بصديق"><i class="fas fa-phone"></i></div>
+                <div class="lifeline-icon" id="team1TwoAnswers" title="إجابتان فقط"><i class="fas fa-users"></i></div>
+                <div class="lifeline-icon" id="team1DoublePoints" title="ضعف النقاط">x2</div>
+            </div>
+        </div>
+        
+        <div class="ads-placeholder">
+            مساحة إعلانية
+        </div>
+        
+        <div class="team-panel team2">
+            <div class="team-header-row">
+                <div class="team-name-display" id="team2Name">الفريق الثاني</div>
+                <div class="team-score" id="team2Score">0</div>
+            </div>
+            <div class="team-lifelines" id="team2Lifelines">
+                <div class="lifeline-icon" id="team2CallFriend" title="اتصل بصديق"><i class="fas fa-phone"></i></div>
+                <div class="lifeline-icon" id="team2TwoAnswers" title="إجابتان فقط"><i class="fas fa-users"></i></div>
+                <div class="lifeline-icon" id="team2DoublePoints" title="ضعف النقاط">x2</div>
+            </div>
+        </div>
     </div>
 </div>
 
