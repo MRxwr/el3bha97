@@ -661,7 +661,7 @@ body, html {
         flex-direction: row !important;
         align-items: stretch !important;
         justify-content: space-between;
-        gap: 20px;
+        gap: 20px; 
     }
     
     .question-sidebar {
