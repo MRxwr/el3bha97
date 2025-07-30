@@ -111,9 +111,9 @@
     display: grid !important;
     grid-template-columns: repeat(6, 1fr) !important;
     gap: 10px !important;
-    margin-bottom: 15px !important;
+    margin-bottom: 10px !important;
     background: rgba(0, 0, 0, 0.2) !important;
-    padding: 15px !important;
+    padding: 6px !important;
     border-radius: 10px !important;
     overflow: visible !important;
 }

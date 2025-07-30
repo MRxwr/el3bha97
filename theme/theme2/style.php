@@ -173,7 +173,7 @@ body, html {
     background: rgba(0, 0, 0, 0.2);
     padding: 6px;
     border-radius: 10px;
-    min-height: 100px; /* Ensure minimum height */
+    min-height: 94px; /* Ensure minimum height */
     border: 1px solid rgba(255, 255, 255, 0.1);
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
