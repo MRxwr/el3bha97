@@ -289,7 +289,7 @@ body, html {
     border-radius: 25px;
     font-size: 1.1rem;
     font-weight: bold;
-    box-shadow: 0 4px 15px rgba(0, 201, 255, 0.3);
+    box-shadow: 0 4px 15px rgba(128, 83, 141, 1);
 }
 
 .question-points {
@@ -616,7 +616,7 @@ body, html {
 
 .quiz-btn-show {
     background: linear-gradient(360deg, #421d4b, #703e7f);
-    box-shadow: 0 5px 15px rgb(126 81 138);
+    box-shadow: 0 5px 15px rgba(126, 81, 138, 1);
 }
 
 .quiz-btn-team1 {
