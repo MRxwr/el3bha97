@@ -635,9 +635,11 @@
         
         // Ads Placeholder
         const adsPlaceholder = $(`
-            <div class="ads-placeholder">
-                مساحة إعلانية
+            <div class="team-panel ads-placeholder">
+            <div class="team-header-row">
+                <div class="adsPlaceholders" id="adsPlaceholder">الإعلانات</div>
             </div>
+        </div>
         `);
         gameFooter.append(adsPlaceholder);
         
