@@ -410,7 +410,7 @@ body, html {
 
 .lifeline-btn i {
     font-size: 1rem;
-    color: #00c9ff;
+    color: #eaa3ff;
     min-width: 16px;
 }
 
