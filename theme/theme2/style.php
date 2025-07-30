@@ -173,9 +173,6 @@ body, html {
     background: rgba(0, 0, 0, 0.2);
     padding: 6px;
     border-radius: 10px;
-    min-height: 94px; /* Ensure minimum height */
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
 
 .category-showcase-item {
@@ -183,16 +180,6 @@ body, html {
     flex-direction: column;
     align-items: center;
     text-align: center;
-    background: rgba(255, 255, 255, 0.05);
-    border-radius: 8px;
-    padding: 10px 5px;
-    transition: transform 0.3s ease;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.category-showcase-item:hover {
-    transform: translateY(-3px);
-    background: rgba(255, 255, 255, 0.1);
 }
 
 .category-image {
@@ -200,26 +187,15 @@ body, html {
     height: 50px;
     object-fit: cover;
     border-radius: 10px;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
     background: rgba(255, 255, 255, 0.1);
     padding: 5px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    border: 2px solid rgba(255, 255, 255, 0.3);
 }
 
 .category-title {
     font-size: 0.9rem;
     font-weight: bold;
     color: white;
-    background: rgba(0, 0, 0, 0.2);
-    border-radius: 5px;
-    padding: 5px 8px;
-    width: 100%;
-    margin: 0 auto;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    box-sizing: border-box;
 }
 
 /* Numbered columns */
@@ -723,16 +699,6 @@ body, html {
     .categories-showcase {
         grid-template-columns: repeat(3, 1fr);
         gap: 8px;
-        padding: 6px;
-    }
-    
-    .category-image {
-        width: 45px;
-        height: 45px;
-    }
-    
-    .category-title {
-        font-size: 0.8rem;
     }
     
     .numbered-columns,
@@ -791,25 +757,7 @@ body, html {
 
 @media (max-width: 576px) {
     .categories-showcase {
-        grid-template-columns: repeat(3, 1fr);
-        padding: 6px;
-        gap: 5px;
-    }
-    
-    .category-showcase-item {
-        padding: 5px 2px;
-    }
-    
-    .category-image {
-        width: 40px;
-        height: 40px;
-        margin-bottom: 5px;
-        padding: 3px;
-    }
-    
-    .category-title {
-        font-size: 0.7rem;
-        padding: 3px 5px;
+        grid-template-columns: repeat(2, 1fr);
     }
     
     .numbered-columns,
