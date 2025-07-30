@@ -169,9 +169,9 @@ body, html {
     display: grid;
     grid-template-columns: repeat(6, 1fr);
     gap: 10px;
-    margin-bottom: 15px;
+    margin-bottom: 10px;
     background: rgba(0, 0, 0, 0.2);
-    padding: 15px;
+    padding: 6px;
     border-radius: 10px;
     min-height: 100px; /* Ensure minimum height */
     border: 1px solid rgba(255, 255, 255, 0.1);
@@ -723,7 +723,7 @@ body, html {
     .categories-showcase {
         grid-template-columns: repeat(3, 1fr);
         gap: 8px;
-        padding: 10px;
+        padding: 6px;
     }
     
     .category-image {
@@ -792,7 +792,7 @@ body, html {
 @media (max-width: 576px) {
     .categories-showcase {
         grid-template-columns: repeat(3, 1fr);
-        padding: 8px;
+        padding: 6px;
         gap: 5px;
     }
     
