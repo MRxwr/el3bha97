@@ -1,0 +1,147 @@
+/* Category selection page styles */
+.category-card {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    padding: 15px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    height: 100%;
+    border: 2px solid transparent;
+}
+
+.category-card:hover {
+    background: rgba(255, 255, 255, 0.15);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.category-card.selected {
+    background: rgba(46, 204, 113, 0.15);
+    border: 2px solid rgba(46, 204, 113, 0.5);
+}
+
+.category-icon {
+    width: 80px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 15px;
+}
+
+.category-icon i {
+    font-size: 2.5rem;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.category-image {
+    width: 80px;
+    height: 80px;
+    border-radius: 8px;
+    object-fit: contain; /* Changed to contain to prevent distortion */
+    background: rgba(255, 255, 255, 0.1);
+    padding: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+.category-info {
+    width: 100%;
+}
+
+.category-title {
+    font-size: 1rem;
+    font-weight: bold;
+    margin: 0 0 5px;
+    color: white;
+    word-wrap: break-word;
+}
+
+.category-count {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.7);
+    margin: 0;
+}
+
+.category-select {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: rgba(46, 204, 113, 0.8);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+.category-card.selected .category-select {
+    display: flex;
+}
+
+@media (max-width: 768px) {
+    .category-icon {
+        width: 60px;
+        height: 60px;
+        margin-bottom: 10px;
+    }
+
+    .category-image {
+        width: 60px;
+        height: 60px;
+        object-fit: contain;
+        padding: 4px;
+    }
+
+    .category-icon i {
+        font-size: 2rem;
+    }
+
+    .category-title {
+        font-size: 0.9rem;
+    }
+    
+    .category-count {
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .category-icon {
+        width: 50px;
+        height: 50px;
+        margin-bottom: 8px;
+    }
+
+    .category-image {
+        width: 50px;
+        height: 50px;
+        object-fit: contain;
+        padding: 3px;
+    }
+
+    .category-icon i {
+        font-size: 1.5rem;
+    }
+
+    .category-title {
+        font-size: 0.8rem;
+        margin-bottom: 3px;
+    }
+    
+    .category-count {
+        font-size: 0.7rem;
+    }
+    
+    .category-card {
+        padding: 10px;
+    }
+}
