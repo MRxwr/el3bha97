@@ -9,5 +9,8 @@
     
     <!-- Theme Scripts -->
     <?php include "theme/{$theme}/script.php"; ?>
+    
+    <!-- Category fix script -->
+    <script src="theme/<?php echo $theme; ?>/category-fix.js"></script>
 </body>
 </html>

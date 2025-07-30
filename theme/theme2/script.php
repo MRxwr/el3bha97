@@ -539,26 +539,45 @@
         
         // 1. Create Categories Showcase
         const showcaseContainer = $('.categories-showcase');
-        selectedCatIds.forEach(categoryId => {
-            // Find category info
-            const categoryInfo = categories.find(c => c.id == categoryId);
-            const categoryQuestions = categorizedQuestions[categoryId] || [];
+        showcaseContainer.empty(); // Make sure it's empty before adding new items
+        
+        console.log('Creating category showcase with categories:', selectedCatIds);
+        
+        // Make sure we have categories before attempting to display them
+        if (!selectedCatIds || selectedCatIds.length === 0) {
+            console.error('No selected categories found');
+            showcaseContainer.html('<div class="alert alert-warning text-center">لم يتم العثور على فئات مختارة</div>');
+        } else {
+            // Display each category
+            selectedCatIds.forEach(categoryId => {
+                // Find category info
+                const categoryInfo = categories.find(c => c.id == categoryId);
+                
+                if (categoryInfo) {
+                    console.log('Adding category to showcase:', categoryInfo);
+                    
+                    // Handle image path
+                    let imagePath = categoryInfo.image ? `logos/qas/categories/${categoryInfo.image}` : 'img/logo.png';
+                    const iconClass = categoryIcons[categoryInfo.title] || 'fas fa-question';
+                    
+                    const categoryShowcase = $(`
+                        <div class="category-showcase-item">
+                            <img src="${imagePath}" alt="${categoryInfo.title}" class="category-image" 
+                                 onerror="this.onerror=null; this.src='img/logo.png'; $(this).replaceWith('<div class=\'category-icon\'><i class=\'${iconClass}\'></i></div>');">
+                            <div class="category-title">${categoryInfo.title || 'فئة غير معروفة'}</div>
+                        </div>
+                    `);
+                    
+                    showcaseContainer.append(categoryShowcase);
+                }
+            });
             
-            if (categoryInfo) {
-                const imagePath = categoryInfo.image ? `logos/qas/categories/${categoryInfo.image}` : 'img/logo.png';
-                const iconClass = categoryIcons[categoryInfo.title] || 'fas fa-question';
-                
-                const categoryShowcase = $(`
-                    <div class="category-showcase-item">
-                        <img src="${imagePath}" alt="${categoryInfo.title}" class="category-image" 
-                             onerror="this.onerror=null; this.src='img/logo.png'; $(this).replaceWith('<div class=\'category-icon\'><i class=\'${iconClass}\'></i></div>');">
-                        <div class="category-title">${categoryInfo.title}</div>
-                    </div>
-                `);
-                
-                showcaseContainer.append(categoryShowcase);
+            // If we still don't have any categories displayed (maybe because of data issues)
+            if (showcaseContainer.children().length === 0) {
+                console.error('No valid categories found to display');
+                showcaseContainer.html('<div class="alert alert-warning text-center">لم يتم العثور على فئات صالحة</div>');
             }
-        });
+        }
         
         // 3. Create Question Board with 12 columns, each having 3 questions
         const boardContainer = $('.question-board');
