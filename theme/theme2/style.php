@@ -1556,38 +1556,55 @@ body, html {
     box-sizing: border-box;
 }
 
-/* Categories display at the top */
+/* Categories display at the top - Bootstrap Row/Col-2 Layout */
 .categories-showcase {
-    display: grid;
-    grid-template-columns: repeat(6, 1fr);
+    display: flex;
+    flex-wrap: wrap;
     gap: 10px;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
     background: rgba(0, 0, 0, 0.2);
-    padding: 6px;
-    border-radius: 10px;
+    padding: 15px;
+    border-radius: 12px;
+    justify-content: space-between;
 }
 
 .category-showcase-item {
+    flex: 0 0 calc(16.666% - 8px); /* Equivalent to col-2 (1/6 of width) */
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    padding: 10px;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(5px);
+}
+
+.category-showcase-item:hover {
+    background: rgba(255, 255, 255, 0.15);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
 
 .category-image {
-    width: 50px;
-    height: 50px;
+    width: 40px;
+    height: 40px;
     object-fit: cover;
-    border-radius: 10px;
-    margin-bottom: 5px;
-    background: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    margin-bottom: 8px;
+    background: rgba(255, 255, 255, 0.2);
     padding: 5px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
 .category-title {
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     font-weight: bold;
     color: white;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    line-height: 1.2;
 }
 
 /* Numbered columns */
@@ -2119,8 +2136,8 @@ body, html {
 }
 
 @media (max-width: 768px) {
-    .categories-showcase {
-        grid-template-columns: repeat(3, 1fr);
+    .category-showcase-item {
+        flex: 0 0 calc(33.333% - 8px);
     }
     
     .numbered-columns,
@@ -2150,8 +2167,8 @@ body, html {
 }
 
 @media (max-width: 576px) {
-    .categories-showcase {
-        grid-template-columns: repeat(2, 1fr);
+    .category-showcase-item {
+        flex: 0 0 calc(50% - 8px);
     }
     
     .numbered-columns,
