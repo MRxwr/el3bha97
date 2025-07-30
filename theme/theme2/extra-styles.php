@@ -19,7 +19,7 @@
 
 .turn-indicator {
     font-size: 0.5rem;
-    color: #92fe9d;
+    color: #eed6ff;
     display: block;
     margin-top: 5px;
 }

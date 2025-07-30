@@ -5,7 +5,7 @@ body, html {
     height: 100vh;
     margin: 0;
     padding: 0;
-    background: linear-gradient(135deg, #2C3E50 0%, #4CA1AF 100%);
+    background: linear-gradient(135deg, #8d569d 0%, #471b53 100%);
     font-family: 'Cairo', sans-serif;
     direction: rtl;
 }
