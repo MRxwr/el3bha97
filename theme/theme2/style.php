@@ -251,7 +251,7 @@ body, html {
     left: 0;
     width: 100vw;
     height: 100vh;
-    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+    background: linear-gradient(135deg, #8d569d 0%, #471b53 100%);
     display: flex;
     z-index: 1000;
     direction: rtl;
@@ -1745,7 +1745,7 @@ body, html {
     left: 0;
     width: 100vw;
     height: 100vh;
-    background: linear-gradient(135deg, #2C3E50 0%, #4CA1AF 100%);
+    background: linear-gradient(135deg, #8d569d 0%, #471b53 100%);
     display: flex;
     z-index: 1000;
     direction: rtl;
