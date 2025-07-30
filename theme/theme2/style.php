@@ -313,11 +313,11 @@ body, html {
     box-shadow: 0 4px 15px rgba(255, 215, 0, 0.4);
 }
 
-/* Main Content Area - Bootstrap Grid Style */
+/* Main Content Area - Bootstrap Grid Style - ALWAYS ROW */
 .question-main-content {
     display: flex;
-    flex-direction: row;
-    gap: 25px;
+    flex-direction: row !important;
+    gap: 15px;
     flex: 1 1 auto;
     min-height: 0;
     align-items: stretch;
@@ -328,15 +328,15 @@ body, html {
 /* Right Sidebar - Lifelines (25% width like col-3) */
 .question-sidebar {
     width: 25%;
-    min-width: 280px;
-    max-width: 320px;
+    min-width: 200px;
+    max-width: 280px;
     flex-shrink: 0;
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 15px;
     background: rgba(255, 255, 255, 0.1);
-    border-radius: 15px;
-    padding: 20px;
+    border-radius: 12px;
+    padding: 15px;
     backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.2);
     height: fit-content;
@@ -362,31 +362,31 @@ body, html {
 
 .lifelines-title {
     color: white;
-    font-size: 1.1rem;
+    font-size: 0.9rem;
     font-weight: bold;
-    margin-bottom: 10px;
+    margin-bottom: 8px;
     text-align: center;
 }
 
 .lifelines-buttons {
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 8px;
 }
 
 .lifeline-btn {
     background: linear-gradient(45deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0.25));
     color: white;
     border: 2px solid rgba(255, 255, 255, 0.3);
-    border-radius: 15px;
-    padding: 15px 20px;
-    font-size: 0.95rem;
+    border-radius: 12px;
+    padding: 10px 12px;
+    font-size: 0.8rem;
     font-weight: 600;
     cursor: pointer;
     transition: all 0.3s ease;
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 8px;
     justify-content: flex-start;
     text-align: right;
     width: 100%;
@@ -409,16 +409,16 @@ body, html {
 }
 
 .lifeline-btn i {
-    font-size: 1.2rem;
+    font-size: 1rem;
     color: #00c9ff;
-    min-width: 20px;
+    min-width: 16px;
 }
 
 /* Call Friend Timer */
 .call-friend-timer {
     background: linear-gradient(45deg, #ff6b6b, #ee5a52);
-    border-radius: 15px;
-    padding: 20px;
+    border-radius: 12px;
+    padding: 12px;
     text-align: center;
     color: white;
     width: 100%;
@@ -428,21 +428,21 @@ body, html {
 }
 
 .timer-icon {
-    font-size: 2rem;
-    margin-bottom: 10px;
+    font-size: 1.5rem;
+    margin-bottom: 8px;
     color: white;
 }
 
 .timer-text {
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     font-weight: 600;
-    margin-bottom: 10px;
+    margin-bottom: 8px;
 }
 
 .timer-countdown {
-    font-size: 3rem;
+    font-size: 2rem;
     font-weight: 800;
-    margin: 10px 0 15px;
+    margin: 8px 0 10px;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
 
@@ -469,11 +469,11 @@ body, html {
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    padding: 0 20px;
+    padding: 0 15px;
     min-height: 0;
     overflow-y: auto;
     background: rgba(255, 255, 255, 0.05);
-    border-radius: 15px;
+    border-radius: 12px;
     backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.1);
     order: 1;
@@ -481,12 +481,12 @@ body, html {
 
 .question-text-large {
     background: transparent;
-    padding: 30px 25px;
-    font-size: 2rem;
+    padding: 20px 15px;
+    font-size: 1.5rem;
     font-weight: bold;
     text-align: center;
-    line-height: 1.6;
-    margin-bottom: 20px;
+    line-height: 1.5;
+    margin-bottom: 15px;
     width: 100%;
     color: white;
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
@@ -494,44 +494,44 @@ body, html {
 
 .question-media-container {
     width: 100%;
-    max-width: 600px;
-    margin-bottom: 30px;
-    border-radius: 15px;
+    max-width: 500px;
+    margin-bottom: 20px;
+    border-radius: 12px;
     overflow: hidden;
     display: flex;
     justify-content: center;
     align-items: center;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
 }
 
 .question-media-container img {
     width: auto;
     max-width: 100%;
-    max-height: 400px;
+    max-height: 300px;
     object-fit: contain;
-    border-radius: 15px;
+    border-radius: 12px;
     background: white;
-    padding: 10px;
+    padding: 8px;
 }
 
 .content-container {
     width: 100%;
-    max-width: 800px;
-    padding: 20px;
+    max-width: 700px;
+    padding: 15px;
 }
 
 .answer-text-large {
-    font-size: 2rem;
+    font-size: 1.5rem;
     font-weight: bold;
     text-align: center;
-    line-height: 1.6;
-    padding: 30px 25px;
+    line-height: 1.5;
+    padding: 20px 15px;
     color: #4CAF50;
     background: linear-gradient(135deg, rgba(76, 175, 80, 0.15) 0%, rgba(76, 175, 80, 0.25) 100%);
     border: 3px solid rgba(76, 175, 80, 0.5);
-    border-radius: 20px;
+    border-radius: 15px;
     width: 100%;
-    box-shadow: 0 10px 30px rgba(76, 175, 80, 0.3);
+    box-shadow: 0 8px 25px rgba(76, 175, 80, 0.3);
     animation: fadeIn 0.5s ease-in-out;
     position: relative;
     overflow: hidden;
@@ -549,18 +549,18 @@ body, html {
     background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 24 24" fill="none" stroke="%234CAF50" stroke-width="0.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>');
     background-repeat: no-repeat;
     background-position: 95% 90%;
-    background-size: 50px;
+    background-size: 40px;
     opacity: 0.3;
 }
 
 /* Control Buttons */
 .question-controls {
     flex-shrink: 0;
-    padding: 25px;
+    padding: 15px;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    gap: 20px;
+    gap: 15px;
     margin-top: auto;
     width: 100%;
 }
@@ -575,9 +575,9 @@ body, html {
 .team-scoring-title {
     width: 100%;
     text-align: center;
-    font-size: 1.1rem;
+    font-size: 1rem;
     font-weight: bold;
-    margin-bottom: 15px;
+    margin-bottom: 12px;
     color: white;
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
 }
@@ -585,7 +585,7 @@ body, html {
 .team-buttons {
     display: flex;
     justify-content: center;
-    gap: 15px;
+    gap: 12px;
     flex-wrap: wrap;
 }
 
@@ -593,18 +593,18 @@ body, html {
     background: linear-gradient(45deg, #4CAF50, #45a049);
     color: white;
     border: none;
-    border-radius: 25px;
-    padding: 15px 25px;
-    font-size: 1rem;
+    border-radius: 20px;
+    padding: 12px 20px;
+    font-size: 0.9rem;
     font-weight: bold;
     cursor: pointer;
     transition: all 0.3s ease;
     display: flex;
     align-items: center;
-    gap: 10px;
-    min-width: 140px;
+    gap: 8px;
+    min-width: 120px;
     justify-content: center;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
 }
 
@@ -660,14 +660,17 @@ body, html {
         flex-direction: row !important;
         align-items: stretch !important;
         justify-content: space-between;
+        gap: 20px;
     }
     
     .question-sidebar {
         width: 25% !important;
         order: 2 !important;
-        min-width: 280px;
-        max-width: 320px;
+        min-width: 200px;
+        max-width: 280px;
         flex-shrink: 0;
+        padding: 15px;
+        gap: 15px;
     }
     
     .question-content-center {
@@ -675,6 +678,32 @@ body, html {
         order: 1 !important;
         flex: 1;
         margin-right: 0;
+        padding: 15px;
+    }
+    
+    .question-text-large {
+        font-size: 1.5rem;
+        padding: 20px 15px;
+    }
+    
+    .answer-text-large {
+        font-size: 1.5rem;
+        padding: 20px 15px;
+    }
+    
+    .lifelines-title {
+        font-size: 0.9rem;
+    }
+    
+    .lifeline-btn {
+        padding: 10px 12px;
+        font-size: 0.8rem;
+    }
+    
+    .quiz-btn {
+        padding: 12px 20px;
+        font-size: 0.9rem;
+        min-width: 120px;
     }
 }
 
@@ -742,75 +771,91 @@ body, html {
         font-size: 0.9rem;
     }
     
-    /* Question Modal Mobile */
+    /* Question Modal Mobile - ALWAYS ROW LAYOUT */
     .question-display-container {
-        padding: 15px;
+        padding: 10px;
     }
     
     .question-main-content {
-        flex-direction: column !important;
-        gap: 20px;
+        flex-direction: row !important;
+        gap: 10px;
         align-items: stretch;
     }
     
     .question-sidebar {
-        width: 100% !important;
-        min-width: auto;
-        max-width: none;
+        width: 30% !important;
+        min-width: 150px !important;
+        max-width: 200px !important;
         order: 2 !important;
-        padding: 15px;
+        padding: 10px;
+        gap: 8px;
     }
     
     .question-content-center {
-        width: 100% !important;
+        width: 70% !important;
         order: 1 !important;
-        padding: 15px;
+        padding: 10px;
     }
     
     .question-text-large {
-        font-size: 1.4rem;
-        padding: 20px 15px;
+        font-size: 1.2rem;
+        padding: 15px 10px;
     }
     
     .lifelines-title {
-        font-size: 1rem;
-    }
-    
-    .lifelines-buttons {
-        flex-direction: row;
-        gap: 10px;
+        font-size: 0.8rem;
+        margin-bottom: 6px;
     }
     
     .lifeline-btn {
-        padding: 12px 15px;
+        padding: 8px 10px;
+        font-size: 0.7rem;
+        gap: 6px;
+    }
+    
+    .lifeline-btn i {
         font-size: 0.8rem;
-        flex: 1;
+        min-width: 12px;
     }
     
     .quiz-btn {
-        padding: 12px 18px;
-        font-size: 0.85rem;
-        min-width: 120px;
+        padding: 10px 15px;
+        font-size: 0.8rem;
+        min-width: 100px;
     }
     
     .question-header {
-        padding: 15px 20px;
-        margin-bottom: 15px;
+        padding: 10px 15px;
+        margin-bottom: 10px;
     }
     
     .question-category-badge,
     .question-points {
-        padding: 8px 16px;
-        font-size: 0.9rem;
+        padding: 6px 12px;
+        font-size: 0.8rem;
     }
     
     .question-media-container img {
-        max-height: 250px;
+        max-height: 200px;
     }
     
     .answer-text-large {
-        font-size: 1.4rem;
-        padding: 20px 15px;
+        font-size: 1.2rem;
+        padding: 15px 10px;
+    }
+    
+    .call-friend-timer {
+        padding: 8px;
+    }
+    
+    .timer-countdown {
+        font-size: 1.5rem;
+        margin: 6px 0 8px;
+    }
+    
+    .timer-icon {
+        font-size: 1.2rem;
+        margin-bottom: 6px;
     }
 }
 
@@ -874,57 +919,93 @@ body, html {
         gap: 1px;
     }
     
-    /* Question Modal Small Mobile */
+    /* Question Modal Small Mobile - ALWAYS ROW LAYOUT */
     .question-display-container {
-        padding: 10px;
+        padding: 8px;
+    }
+    
+    .question-main-content {
+        gap: 8px;
+    }
+    
+    .question-sidebar {
+        width: 35% !important;
+        min-width: 120px !important;
+        max-width: 160px !important;
+        padding: 8px;
+        gap: 6px;
+    }
+    
+    .question-content-center {
+        width: 65% !important;
+        padding: 8px;
     }
     
     .question-text-large {
-        font-size: 1.1rem;
-        padding: 15px 10px;
+        font-size: 1rem;
+        padding: 12px 8px;
+    }
+    
+    .lifelines-title {
+        font-size: 0.7rem;
+        margin-bottom: 4px;
     }
     
     .lifeline-btn {
-        padding: 8px 10px;
-        font-size: 0.75rem;
+        padding: 6px 8px;
+        font-size: 0.65rem;
+        gap: 4px;
+    }
+    
+    .lifeline-btn i {
+        font-size: 0.7rem;
+        min-width: 10px;
     }
     
     .quiz-btn {
-        padding: 10px 15px;
-        font-size: 0.8rem;
-        min-width: 100px;
+        padding: 8px 12px;
+        font-size: 0.75rem;
+        min-width: 90px;
+        gap: 6px;
     }
     
     .question-header {
-        padding: 10px 15px;
-        margin-bottom: 10px;
+        padding: 8px 12px;
+        margin-bottom: 8px;
     }
     
     .question-category-badge,
     .question-points {
-        padding: 6px 12px;
-        font-size: 0.8rem;
+        padding: 5px 10px;
+        font-size: 0.75rem;
     }
     
     .timer-countdown {
-        font-size: 2rem;
+        font-size: 1.3rem;
+        margin: 4px 0 6px;
     }
     
     .timer-icon {
-        font-size: 1.5rem;
+        font-size: 1rem;
+        margin-bottom: 4px;
     }
     
     .question-media-container img {
-        max-height: 180px;
+        max-height: 150px;
     }
     
     .answer-text-large {
-        font-size: 1.1rem;
-        padding: 15px 10px;
+        font-size: 1rem;
+        padding: 12px 8px;
     }
     
-    .question-sidebar {
-        padding: 12px;
+    .call-friend-timer {
+        padding: 6px;
+    }
+    
+    .question-controls {
+        padding: 10px;
+        gap: 10px;
     }
 }
 
@@ -959,44 +1040,88 @@ body, html {
         padding: 3px 4px;
     }
     
-    /* Question Modal iPhone */
+    /* Question Modal iPhone - ALWAYS ROW LAYOUT */
     .question-display-container {
-        padding: 8px;
+        padding: 6px;
+    }
+    
+    .question-main-content {
+        gap: 6px;
+    }
+    
+    .question-sidebar {
+        width: 40% !important;
+        min-width: 100px !important;
+        max-width: 140px !important;
+        padding: 6px;
+        gap: 4px;
+    }
+    
+    .question-content-center {
+        width: 60% !important;
+        padding: 6px;
     }
     
     .question-text-large {
-        font-size: 1rem;
-        padding: 12px 8px;
+        font-size: 0.9rem;
+        padding: 10px 6px;
     }
     
     .answer-text-large {
-        font-size: 1rem;
-        padding: 12px 8px;
+        font-size: 0.9rem;
+        padding: 10px 6px;
+    }
+    
+    .lifelines-title {
+        font-size: 0.65rem;
+        margin-bottom: 3px;
     }
     
     .lifeline-btn {
-        padding: 6px 8px;
-        font-size: 0.7rem;
+        padding: 5px 6px;
+        font-size: 0.6rem;
+        gap: 3px;
+    }
+    
+    .lifeline-btn i {
+        font-size: 0.65rem;
+        min-width: 8px;
     }
     
     .quiz-btn {
-        padding: 8px 12px;
-        font-size: 0.75rem;
-        min-width: 85px;
+        padding: 6px 10px;
+        font-size: 0.7rem;
+        min-width: 75px;
+        gap: 4px;
     }
     
     .question-category-badge,
     .question-points {
-        padding: 5px 10px;
-        font-size: 0.75rem;
+        padding: 4px 8px;
+        font-size: 0.7rem;
     }
     
-    .question-sidebar {
-        padding: 10px;
+    .call-friend-timer {
+        padding: 5px;
     }
     
-    .question-content-center {
-        padding: 10px;
+    .timer-countdown {
+        font-size: 1.1rem;
+        margin: 3px 0 4px;
+    }
+    
+    .timer-icon {
+        font-size: 0.9rem;
+        margin-bottom: 3px;
+    }
+    
+    .question-controls {
+        padding: 8px;
+        gap: 8px;
+    }
+    
+    .question-media-container img {
+        max-height: 120px;
     }
 }
     
