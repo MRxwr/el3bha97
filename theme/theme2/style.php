@@ -685,7 +685,8 @@ body, html {
     
     .numbered-columns,
     .question-board {
-        grid-template-columns: repeat(6, 1fr);
+        grid-template-columns: repeat(12, 1fr);
+        font-size: 0.9em;
     }
 }
 
@@ -697,7 +698,8 @@ body, html {
     
     .numbered-columns,
     .question-board {
-        grid-template-columns: repeat(4, 1fr);
+        grid-template-columns: repeat(12, 1fr);
+        font-size: 0.8em;
     }
     
     .question-main-content {
@@ -724,7 +726,14 @@ body, html {
     
     .numbered-columns,
     .question-board {
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(12, 1fr);
+        font-size: 0.7em;
+        gap: 3px;
+    }
+    
+    .question-cell {
+        padding: 10px 2px;
+        font-size: 0.85rem;
     }
     
     .game-footer {
@@ -748,11 +757,15 @@ body, html {
     
     .numbered-columns,
     .question-board {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(12, 1fr);
+        font-size: 0.6em;
+        gap: 2px;
     }
     
     .question-cell {
-        padding: 10px 5px;
+        padding: 6px 1px;
+        font-size: 0.8rem;
+        box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
         font-size: 0.8rem;
     }
     
@@ -766,15 +779,54 @@ body, html {
     }
 }
 
-/* Make sure very small devices still see everything important */
-@media (max-width: 400px) {
+/* Media query for screen sizes between 576px and 450px */
+@media (max-width: 450px) {
     .categories-showcase {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(1, 1fr);
     }
     
     .numbered-columns,
     .question-board {
+        grid-template-columns: repeat(12, 1fr);
+        font-size: 0.5em;
+        gap: 1px;
+    }
+    
+    .question-cell {
+        padding: 4px 1px;
+        font-size: 0.7rem;
+        border-radius: 4px;
+        box-shadow: none;
+        border-width: 0.5px;
+    }
+    
+    .numbered-column {
+        font-size: 0.6rem;
+        padding: 2px;
+    }
+}
+
+/* Make sure very small devices still see everything important */
+@media (max-width: 400px) {
+    .categories-showcase {
         grid-template-columns: repeat(1, 1fr);
+    }
+    
+    .numbered-columns,
+    .question-board {
+        grid-template-columns: repeat(12, 1fr);
+        font-size: 0.45em;
+        gap: 0.5px;
+    }
+    
+    .question-cell {
+        padding: 3px 0px;
+        font-size: 0.65rem;
+        border-radius: 3px;
+    }
+    
+    .game-header h1 {
+        font-size: 0.9rem;
     }
 }
 </style>
