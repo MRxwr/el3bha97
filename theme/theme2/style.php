@@ -469,7 +469,7 @@ body, html {
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    padding: 0 15px;
+    padding: 5px;
     min-height: 0;
     overflow-y: auto;
     background: rgba(255, 255, 255, 0.05);
@@ -482,11 +482,11 @@ body, html {
 .question-text-large {
     background: transparent;
     padding: 20px 15px;
-    font-size: 1.5rem;
+    font-size: 1rem;
     font-weight: bold;
     text-align: center;
     line-height: 1.5;
-    margin-bottom: 15px;
+    margin-bottom: 10px;
     width: 100%;
     color: white;
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
@@ -494,8 +494,8 @@ body, html {
 
 .question-media-container {
     width: 100%;
-    max-width: 500px;
-    margin-bottom: 20px;
+    max-width: 150px;
+    margin-bottom: 10px;
     border-radius: 12px;
     overflow: hidden;
     display: flex;
@@ -517,7 +517,8 @@ body, html {
 .content-container {
     width: 100%;
     max-width: 700px;
-    padding: 15px;
+    padding: 5px;
+    justify-items: center;
 }
 
 .answer-text-large {
@@ -678,11 +679,11 @@ body, html {
         order: 1 !important;
         flex: 1;
         margin-right: 0;
-        padding: 15px;
+        padding: 5px;
     }
     
     .question-text-large {
-        font-size: 1.5rem;
+        font-size: 1rem;
         padding: 20px 15px;
     }
     
@@ -794,11 +795,11 @@ body, html {
     .question-content-center {
         width: 70% !important;
         order: 1 !important;
-        padding: 10px;
+        padding: 5px;
     }
     
     .question-text-large {
-        font-size: 1.2rem;
+        font-size: 1rem;
         padding: 15px 10px;
     }
     
@@ -938,7 +939,7 @@ body, html {
     
     .question-content-center {
         width: 65% !important;
-        padding: 8px;
+        padding: 5px;
     }
     
     .question-text-large {
@@ -1059,7 +1060,7 @@ body, html {
     
     .question-content-center {
         width: 60% !important;
-        padding: 6px;
+        padding: 5px;
     }
     
     .question-text-large {
@@ -1878,22 +1879,22 @@ body, html {
     align-items: center;
     background: rgba(0, 0, 0, 0.2);
     border-radius: 10px;
-    padding: 20px;
+    padding: 5px;
     overflow: auto;
 }
 
 .question-text-large {
-    font-size: 1.5rem;
+    font-size: 1rem;
     font-weight: bold;
     text-align: center;
     line-height: 1.6;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 
 .question-media-container {
     width: 100%;
-    max-width: 500px;
-    margin-bottom: 20px;
+    max-width: 150px;
+    margin-bottom: 10px;
     border-radius: 10px;
     overflow: hidden;
     display: flex;
@@ -2144,7 +2145,7 @@ body, html {
     
     .question-text-large,
     .answer-text-large {
-        font-size: 1.2rem;
+        font-size: 1rem;
     }
 }
 
