@@ -209,11 +209,11 @@ body, html {
 .column-number {
     background: rgba(0, 0, 0, 0.3);
     color: white;
-    padding: 5px;
     text-align: center;
     font-weight: bold;
-    border-radius: 5px 5px 0 0;
-    font-size: 0.9rem;
+    font-size: 13px;
+    border-radius: 100%;
+    width: 35%;
 }
 
 /* Question board */

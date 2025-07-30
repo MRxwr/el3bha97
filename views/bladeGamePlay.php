@@ -1142,7 +1142,7 @@ body, html {
     </div>
     
     <!-- Numbered columns -->
-    <div class="numbered-columns">
+    <div class="numbered-columns" style="place-items: anchor-center;">
         <!-- Column numbers will be displayed here -->
     </div>
     
