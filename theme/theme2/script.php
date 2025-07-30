@@ -302,7 +302,7 @@
             const imagePath = category.image ? `logos/qas/categories/${category.image}` : 'img/logo.png';
             
             const card = $(`
-                <div class="col-md-4 col-sm-6 col-6 mb-4">
+                <div class="col-md-2 col-sm-6 col-6 mb-4">
                     <div class="category-card" data-category-id="${category.id}">
                         <div class="category-icon">
                             <img src="${imagePath}" alt="${category.title}" onerror="this.onerror=null; this.src='img/logo.png'; $(this).parent().html('<i class='${iconClass}'></i>');"style="width: 100%; height: auto;">
