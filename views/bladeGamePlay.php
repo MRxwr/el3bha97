@@ -1178,9 +1178,9 @@ body, html {
             </div>
         </div>
         
-        <div class="team-panel ads-placeholder">
-            <div class="team-header-row">
-                <div class="adsPlaceholders" id="adsPlaceholder">الإعلانات</div>
+        <div class="team-panel team3" style="justify-content: center;">
+            <div class="team-header-row" style="justify-content: center;">
+                <div class="team-name-display" id="team1Name" style="">الإعلانات</div>
             </div>
         </div>
         
