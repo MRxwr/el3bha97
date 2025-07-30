@@ -1574,11 +1574,11 @@ body, html {
     flex-direction: column;
     align-items: center;
     text-align: center;
-    background: rgba(255, 255, 255, 0.1);
+    /*background: rgba(255, 255, 255, 0.1);*/
     border-radius: 10px;
-    padding: 10px;
+    /*padding: 10px;*/
     transition: all 0.3s ease;
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    /*border: 1px solid rgba(255, 255, 255, 0.2);*/
     backdrop-filter: blur(5px);
 }
 
@@ -1589,14 +1589,14 @@ body, html {
 }
 
 .category-image {
-    width: 40px;
-    height: 40px;
+    width: 100px;
+    height: 50px;
     object-fit: cover;
     border-radius: 8px;
     margin-bottom: 8px;
-    background: rgba(255, 255, 255, 0.2);
-    padding: 5px;
-    border: 1px solid rgba(255, 255, 255, 0.3);
+    /*background: rgba(255, 255, 255, 0.2);*/
+    padding: 1px;
+    border: 2px solid rgba(0, 0, 0, 0);
 }
 
 .category-title {
