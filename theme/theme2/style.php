@@ -283,7 +283,7 @@ body, html {
 }
 
 .question-category-badge {
-    background: linear-gradient(45deg, #00c9ff, #92fe9d);
+    background: linear-gradient(360deg, #431e4e, #6f3d7d);
     color: #1a1a1a;
     padding: 12px 24px;
     border-radius: 25px;
@@ -299,7 +299,7 @@ body, html {
     border-radius: 25px;
     font-size: 1.1rem;
     font-weight: bold;
-    box-shadow: 0 4px 15px rgba(255, 107, 107, 0.3);
+    box-shadow: 0 4px 15px rgb(127 81 139);
 }
 
 .double-points-indicator {
@@ -1772,7 +1772,7 @@ body, html {
 }
 
 .question-category-badge {
-    background: linear-gradient(45deg, #3498db, #2980b9);
+    background: linear-gradient(360deg, #431e4e, #6f3d7d);
     color: white;
     padding: 8px 15px;
     border-radius: 20px;
