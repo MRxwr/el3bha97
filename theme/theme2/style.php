@@ -1176,7 +1176,6 @@ body, html {
     .question-media-container img {
         max-height: 120px;
     }
-}
 
 /* Landscape mode optimization for small screens */
 @media (orientation: landscape) and (max-width: 896px) {
