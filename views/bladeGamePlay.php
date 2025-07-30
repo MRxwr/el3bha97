@@ -49,7 +49,7 @@
         
         <div class="team-panel team3" style="justify-content: center;">
             <div class="team-header-row" style="justify-content: center;">
-                <div class="team-name-display" id="team1Name" style="">الإعلانات</div>
+                <div class="team-name-display" id="team1Name">الإعلانات</div>
             </div>
         </div>
         

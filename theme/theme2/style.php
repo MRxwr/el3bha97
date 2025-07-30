@@ -1846,34 +1846,6 @@ body, html {
         flex-wrap: wrap;
     }
     
-    .lifelines-container,
-    .call-friend-timer {
-        flex: 1;
-        min-width: 200px;
-    }
-}
-
-@media (max-width: 768px) {
-    .categories-showcase {
-        grid-template-columns: repeat(3, 1fr);
-    }
-    
-    .numbered-columns,
-    .question-board {
-        grid-template-columns: repeat(12, 1fr);
-        font-size: 0.7em;
-        gap: 3px;
-    }
-    
-    .question-cell {
-        padding: 5px 2px;
-        font-size: 0.85rem;
-    }
-    
-    .game-footer {
-        grid-template-columns: 1fr;
-    }
-    
     .ads-placeholder {
         order: 3;
     }
@@ -1936,31 +1908,4 @@ body, html {
     
     .numbered-column {
         font-size: 0.6rem;
-        padding: 2px;
-    }
-}
-
-/* Make sure very small devices still see everything important */
-@media (max-width: 400px) {
-    .categories-showcase {
-        grid-template-columns: repeat(1, 1fr);
-    }
-    
-    .numbered-columns,
-    .question-board {
-        grid-template-columns: repeat(12, 1fr);
-        font-size: 0.45em;
-        gap: 0.5px;
-    }
-    
-    .question-cell {
-        padding: 5px 0px;
-        font-size: 0.65rem;
-        border-radius: 3px;
-    }
-    
-    .game-header h1 {
-        font-size: 0.9rem;
-    }
-}
-</style>
+    .answer-text-large {
