@@ -624,11 +624,6 @@
                     <div class="team-name-display" id="team1Name">${gameData.team1.name}</div>
                     <div class="team-score" id="team1Score">${team1Score}</div>
                 </div>
-                <div class="team-lifelines" id="team1Lifelines">
-                    <div class="lifeline-icon" id="team1CallFriend" title="اتصل بصديق"><i class="fas fa-phone"></i></div>
-                    <div class="lifeline-icon" id="team1TwoAnswers" title="إجابتان فقط"><i class="fas fa-users"></i></div>
-                    <div class="lifeline-icon" id="team1DoublePoints" title="ضعف النقاط">x2</div>
-                </div>
             </div>
         `);
         gameFooter.append(team1Panel);
@@ -649,11 +644,6 @@
                 <div class="team-header-row">
                     <div class="team-name-display" id="team2Name">${gameData.team2.name}</div>
                     <div class="team-score" id="team2Score">${team2Score}</div>
-                </div>
-                <div class="team-lifelines" id="team2Lifelines">
-                    <div class="lifeline-icon" id="team2CallFriend" title="اتصل بصديق"><i class="fas fa-phone"></i></div>
-                    <div class="lifeline-icon" id="team2TwoAnswers" title="إجابتان فقط"><i class="fas fa-users"></i></div>
-                    <div class="lifeline-icon" id="team2DoublePoints" title="ضعف النقاط">x2</div>
                 </div>
             </div>
         `);
