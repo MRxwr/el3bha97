@@ -191,7 +191,7 @@ body, html {
     font-size: 0.9rem;
     font-weight: bold;
     margin: 0;
-    color: #FFD700;
+    color: #feceb7;
     line-height: 1.2;
     flex: 1;
     text-align: center;
@@ -1720,7 +1720,7 @@ body, html {
 .team-score {
     font-size: 1.2rem;
     font-weight: bold;
-    color: #f1c40f;
+    color: #feceb7;
 }
 
 .team-lifelines {
