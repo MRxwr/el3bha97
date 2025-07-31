@@ -5,9 +5,10 @@
     justify-content: space-between;
     align-items: center;
     background-color: rgba(0, 0, 0, 0.2);
-    border-radius: 10px;
+    border-radius: 30px;
     padding: 10px 15px;
     margin-bottom: 3px;
+    border: 2px solid black;
 }
 
 .game-title {
