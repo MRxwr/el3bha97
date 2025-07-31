@@ -1568,6 +1568,14 @@ body, html {
     justify-content: space-between;
 }
 
+.question-board-showcase {
+    margin-bottom: 15px;
+    background: rgba(0, 0, 0, 0.2);
+    padding: 15px;
+    border-radius: 12px;
+    justify-content: space-between;
+}
+
 .category-showcase-item {
     flex: 0 0 calc(16.666% - 8px); /* Equivalent to col-2 (1/6 of width) */
     display: flex;

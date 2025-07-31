@@ -52,6 +52,14 @@
     overflow: visible !important;
 }
 
+.question-board-showcase {
+    margin-bottom: 10px !important;
+    background: rgba(0, 0, 0, 0.2) !important;
+    padding: 6px !important;
+    border-radius: 10px !important;
+    overflow: visible !important;
+}
+
 .category-showcase-item {
     display: flex !important;
     flex-direction: column !important;

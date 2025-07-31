@@ -10,7 +10,7 @@
         <!-- Categories will be displayed here -->
     </div>
     
-    <div class="categories-showcase">
+    <div class="question-board-showcase">
     <!-- Numbered columns -->
     <div class="numbered-columns">
         <!-- Column numbers will be displayed here -->
@@ -33,7 +33,7 @@
         <!-- Questions will be displayed here -->
     </div>
     </div>
-    
+
     <!-- Footer with teams and ads placeholder -->
     <div class="game-footer">
         <!-- Team panels and ads will be displayed here -->
