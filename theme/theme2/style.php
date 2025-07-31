@@ -1564,6 +1564,8 @@ body, html {
     padding: 15px;
     border-radius: 12px;
     justify-content: space-between;
+    width: 70%;
+    align-self: anchor-center;
 }
 
 .question-board-showcase {
@@ -1604,7 +1606,7 @@ body, html {
 }
 
 .category-title {
-    font-size: 0.8rem;
+    font-size: 9px;
     font-weight: bold;
     color: white;
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);

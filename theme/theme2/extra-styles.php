@@ -48,6 +48,8 @@
     padding: 6px !important;
     border-radius: 10px !important;
     overflow: visible !important;
+    width: 70%;
+    align-self: anchor-center;
 }
 
 .question-board-showcase {
@@ -76,7 +78,7 @@
 }
 
 .category-title {
-    font-size: 0.9rem !important;
+    font-size: 9px !important;
     font-weight: bold !important;
     color: white !important;
 }
