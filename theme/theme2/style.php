@@ -1571,9 +1571,8 @@ body, html {
 .question-board-showcase {
     margin-bottom: 15px;
     background: rgba(0, 0, 0, 0.2);
-    padding: 15px;
+    padding: 15px 15px 0px 15px;
     border-radius: 12px;
-    justify-content: space-between;
 }
 
 .category-showcase-item {

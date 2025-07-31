@@ -54,10 +54,10 @@
 
 .question-board-showcase {
     margin-bottom: 10px !important;
-    background: rgba(0, 0, 0, 0.2) !important;
-    padding: 6px !important;
-    border-radius: 10px !important;
+    background: rgb(255 255 255 / 35%) !important;
+    border-radius: 30px !important;
     overflow: visible !important;
+    border: 2px solid black;
 }
 
 .category-showcase-item {
