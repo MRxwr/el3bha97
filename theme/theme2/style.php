@@ -283,7 +283,7 @@ body, html {
 }
 
 .question-category-badge {
-    background: linear-gradient(360deg, #431e4e, #6f3d7d);
+    background: #6575e6
     color: #1a1a1a;
     padding: 12px 24px;
     border-radius: 25px;
@@ -1789,7 +1789,7 @@ body, html {
 }
 
 .question-category-badge {
-    background: linear-gradient(360deg, #431e4e, #6f3d7d);
+    background: #6575e6
     color: white;
     padding: 8px 15px;
     border-radius: 20px;
