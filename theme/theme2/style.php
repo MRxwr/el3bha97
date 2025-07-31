@@ -1562,7 +1562,6 @@ body, html {
     flex-wrap: wrap;
     gap: 10px;
     margin-bottom: 15px;
-    background: rgba(0, 0, 0, 0.2);
     padding: 15px;
     border-radius: 12px;
     justify-content: space-between;
