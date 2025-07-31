@@ -1621,7 +1621,7 @@ body, html {
 
 .column-number {
     background: rgba(255, 255, 255, 1);
-    color: black;
+    color: #6575e6;
     text-align: center;
     font-weight: bold;
     font-size: 13px;
