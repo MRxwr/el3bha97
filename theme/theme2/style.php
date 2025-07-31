@@ -1561,7 +1561,6 @@ body, html {
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
-    margin-bottom: 15px;
     padding: 15px;
     border-radius: 12px;
     justify-content: space-between;

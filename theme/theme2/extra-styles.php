@@ -45,7 +45,6 @@
     display: grid !important;
     grid-template-columns: repeat(6, 1fr) !important;
     gap: 10px !important;
-    margin-bottom: 10px !important;
     padding: 6px !important;
     border-radius: 10px !important;
     overflow: visible !important;
