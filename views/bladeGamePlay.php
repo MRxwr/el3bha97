@@ -10,6 +10,7 @@
         <!-- Categories will be displayed here -->
     </div>
     
+    <div class="categories-showcase">
     <!-- Numbered columns -->
     <div class="numbered-columns">
         <!-- Column numbers will be displayed here -->
@@ -30,6 +31,7 @@
     <!-- Question board with 12 columns, each with 3 questions -->
     <div class="question-board">
         <!-- Questions will be displayed here -->
+    </div>
     </div>
     
     <!-- Footer with teams and ads placeholder -->
