@@ -283,7 +283,7 @@ body, html {
 }
 
 .question-category-badge {
-    background: #6575e6
+    background: #6575e6;
     color: #1a1a1a;
     padding: 12px 24px;
     border-radius: 25px;
@@ -1647,7 +1647,7 @@ body, html {
 }
 
 .question-cell {
-    background: linear-gradient(360deg, #71257c, #8e2f9c);
+    background: #6575e6;
     color: white;
     border-radius: 8px;
     padding: 5px 5px;
@@ -1685,7 +1685,7 @@ body, html {
 }
 
 .team-panel {
-    background: linear-gradient(360deg, #71257c, #8e2f9c);
+    background: #6575e6;
     border-radius: 10px;
     padding: 10px 15px;
     display: flex;
@@ -1694,11 +1694,11 @@ body, html {
 }
 
 .team-panel.team1 {
-    background: linear-gradient(360deg, #71257c, #8e2f9c);
+    background: #6575e6;
 }
 
 .team-panel.team2 {
-    background: linear-gradient(360deg, #71257c, #8e2f9c);
+    background: #6575e6;
 }
 
 .team-header-row {
@@ -1789,7 +1789,7 @@ body, html {
 }
 
 .question-category-badge {
-    background: #6575e6
+    background: #6575e6;
     color: white;
     padding: 8px 15px;
     border-radius: 20px;
