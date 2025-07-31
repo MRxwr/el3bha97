@@ -5,7 +5,7 @@ body, html {
     height: 100vh;
     margin: 0;
     padding: 0;
-    background: linear-gradient(135deg, #8d569d 0%, #471b53 100%);
+    background: #6575e6;
     font-family: 'Cairo', sans-serif;
     direction: rtl;
 }
@@ -251,7 +251,7 @@ body, html {
     left: 0;
     width: 100vw;
     height: 100vh;
-    background: linear-gradient(135deg, #8d569d 0%, #471b53 100%);
+    background: #6575e6;
     display: flex;
     z-index: 1000;
     direction: rtl;
@@ -1762,7 +1762,7 @@ body, html {
     left: 0;
     width: 100vw;
     height: 100vh;
-    background: linear-gradient(135deg, #8d569d 0%, #471b53 100%);
+    background: #6575e6;
     display: flex;
     z-index: 1000;
     direction: rtl;
