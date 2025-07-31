@@ -60,10 +60,10 @@
 }
 
 .category-image {
-    width: 100px !important;
-    height: 50px !important;
+    width: 82px !important;
+    height: 38px !important;
     object-fit: cover !important;
-    border-radius: 10px !important;
+    border-radius: 14px !important;
     margin-bottom: 3px !important;
     /*background: rgba(255, 255, 255, 0.1) !important;*/
     padding: 1px !important;

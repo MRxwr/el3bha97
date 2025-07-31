@@ -1589,12 +1589,11 @@ body, html {
 }
 
 .category-image {
-    width: 100px;
-    height: 50px;
+    width: 82px;
+    height: 38px;
     object-fit: cover;
-    border-radius: 8px;
+    border-radius: 14px;
     margin-bottom: 8px;
-    /*background: rgba(255, 255, 255, 0.2);*/
     padding: 1px;
     border: 2px solid rgba(0, 0, 0, 1);
 }
