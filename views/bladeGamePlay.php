@@ -42,11 +42,6 @@
                 <div class="team-name-display" id="team1Name">الفريق الأول</div>
                 <div class="team-score" id="team1Score">0</div>
             </div>
-            <div class="team-lifelines" id="team1Lifelines">
-                <div class="lifeline-icon" id="team1CallFriend" title="اتصل بصديق"><i class="fas fa-phone"></i></div>
-                <div class="lifeline-icon" id="team1TwoAnswers" title="إجابتان فقط"><i class="fas fa-users"></i></div>
-                <div class="lifeline-icon" id="team1DoublePoints" title="ضعف النقاط">x2</div>
-            </div>
         </div>
         
         <div class="team-panel team3" style="justify-content: center;">
@@ -59,11 +54,6 @@
             <div class="team-header-row">
                 <div class="team-name-display" id="team2Name">الفريق الثاني</div>
                 <div class="team-score" id="team2Score">0</div>
-            </div>
-            <div class="team-lifelines" id="team2Lifelines">
-                <div class="lifeline-icon" id="team2CallFriend" title="اتصل بصديق"><i class="fas fa-phone"></i></div>
-                <div class="lifeline-icon" id="team2TwoAnswers" title="إجابتان فقط"><i class="fas fa-users"></i></div>
-                <div class="lifeline-icon" id="team2DoublePoints" title="ضعف النقاط">x2</div>
             </div>
         </div>
     </div>
