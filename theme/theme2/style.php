@@ -1685,7 +1685,7 @@ body, html {
 }
 
 .team-panel {
-    background: #6575e6;
+    background: #ffffff59;
     border-radius: 10px;
     padding: 10px 15px;
     display: flex;
@@ -1694,11 +1694,11 @@ body, html {
 }
 
 .team-panel.team1 {
-    background: #6575e6;
+    background: #ffffff59;
 }
 
 .team-panel.team2 {
-    background: #6575e6;
+    background: #ffffff59;
 }
 
 .team-header-row {
