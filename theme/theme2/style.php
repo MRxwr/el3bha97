@@ -1692,7 +1692,7 @@ body, html {
 
 .team-panel {
     background: #ffffff59;
-    border-radius: 10px;
+    border-radius: 30px;
     padding: 10px 15px;
     display: flex;
     flex-direction: column;
