@@ -4,7 +4,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: rgba(0, 0, 0, 0.2);
+    background: #ffffff59;
     border-radius: 30px;
     padding: 10px 15px;
     margin-bottom: 3px;
