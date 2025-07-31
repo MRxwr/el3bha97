@@ -6,7 +6,7 @@
     align-items: center;
     background: #ffffff59;
     border-radius: 30px;
-    padding: 10px 15px;
+    padding: 5px 5px;
     margin-bottom: 3px;
     border: 2px solid black;
 }
@@ -19,10 +19,15 @@
 }
 
 .turn-indicator {
-    font-size: 0.5rem;
-    color: #eed6ff;
-    display: block;
+    font-size: 12px;
+    color: #6575e6;
+    display: inline-flex;
     margin-top: 5px;
+    border: 2px solid black;
+    border-radius: 30px;
+    background: #ffffff59;
+    text-align: initial;
+    padding: 5px 10px 5px 10px;
 }
 
 .exit-button {
