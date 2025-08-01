@@ -346,11 +346,21 @@
 .quiz-btn-back {
     background: rgba(100, 117, 230, 0.8) !important;
     color: white !important;
-    width: auto !important;
+    width: 100% !important;
     justify-content: center !important;
     margin-top: 15px !important;
-    min-width: 200px !important;
-    align-self: center !important;
+    min-width: auto !important;
+    align-self: stretch !important;
+    border: 2px solid black !important;
+    border-radius: 20px !important;
+    padding: 12px 20px !important;
+    font-weight: bold !important;
+    cursor: pointer !important;
+    transition: all 0.3s ease !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+    font-size: 14px !important;
 }
 
 .quiz-btn-back:hover {

@@ -52,14 +52,6 @@
                         <span>لا أحد أجاب صحيح</span>
                     </button>
                 </div>
-                
-                <!-- Back to Board Button -->
-                <div style="display: flex; justify-content: center; margin-top: 15px;">
-                    <button class="quiz-btn quiz-btn-back" id="nextBtn" onclick="closeQuestion()" style="display: none;">
-                        <i class="fas fa-arrow-right"></i>
-                        <span>العودة للوحة</span>
-                    </button>
-                </div>
             </div>
             
             <!-- Show Answer Button (bottom-left) -->
@@ -87,6 +79,12 @@
                 <div class="team-name" id="team2Name">الفريق الثاني</div>
                 <div class="team-score" id="team2Score">1500</div>
             </div>
+            
+            <!-- Back to Board Button (shown only when answer is not revealed) -->
+            <button class="quiz-btn quiz-btn-back" id="nextBtn" onclick="closeQuestion()" style="display: none;">
+                <i class="fas fa-arrow-right"></i>
+                <span>العودة للوحة</span>
+            </button>
         </div>
     </div>
     
