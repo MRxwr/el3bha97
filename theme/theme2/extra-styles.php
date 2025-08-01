@@ -96,6 +96,164 @@
     margin-bottom: 10px !important;
 }
 
+/* New Question Layout */
+.question-main-container {
+    display: grid !important;
+    grid-template-columns: 2fr 1fr !important;
+    gap: 20px !important;
+    margin: 20px !important;
+    height: 60vh !important;
+}
+
+.question-section {
+    position: relative !important;
+    background: rgba(255, 255, 255, 0.35) !important;
+    border: 2px solid black !important;
+    border-radius: 30px !important;
+    padding: 40px 20px 20px 20px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
+}
+
+.question-points {
+    position: absolute !important;
+    top: -10px !important;
+    left: 20px !important;
+    background: rgba(100, 117, 230, 0.9) !important;
+    color: white !important;
+    padding: 8px 15px !important;
+    border-radius: 20px !important;
+    border: 2px solid black !important;
+    font-weight: bold !important;
+    font-size: 14px !important;
+}
+
+.question-timer {
+    position: absolute !important;
+    top: -15px !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    background: rgba(255, 255, 255, 0.9) !important;
+    border: 2px solid black !important;
+    border-radius: 25px !important;
+    padding: 8px 15px !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 10px !important;
+}
+
+.timer-display {
+    font-weight: bold !important;
+    color: #333 !important;
+    font-size: 16px !important;
+}
+
+.timer-controls {
+    display: flex !important;
+    gap: 5px !important;
+}
+
+.timer-btn {
+    background: rgba(100, 117, 230, 0.8) !important;
+    color: white !important;
+    border: 1px solid #333 !important;
+    border-radius: 15px !important;
+    padding: 4px 8px !important;
+    cursor: pointer !important;
+    font-size: 12px !important;
+    transition: all 0.3s ease !important;
+}
+
+.timer-btn:hover {
+    background: rgba(100, 117, 230, 1) !important;
+}
+
+.question-category {
+    position: absolute !important;
+    top: -10px !important;
+    right: 20px !important;
+    background: rgba(100, 117, 230, 0.9) !important;
+    color: white !important;
+    padding: 8px 15px !important;
+    border-radius: 20px !important;
+    border: 2px solid black !important;
+    font-weight: bold !important;
+    font-size: 14px !important;
+}
+
+.question-content {
+    text-align: center !important;
+    color: #333 !important;
+    font-size: 18px !important;
+    font-weight: bold !important;
+    line-height: 1.4 !important;
+    margin: 20px 0 !important;
+}
+
+.question-image {
+    max-width: 200px !important;
+    max-height: 200px !important;
+    border-radius: 50% !important;
+    border: 3px solid #ffd700 !important;
+    margin: 20px 0 !important;
+}
+
+.show-answer-btn {
+    position: absolute !important;
+    bottom: 15px !important;
+    left: 20px !important;
+    background: rgba(100, 117, 230, 0.9) !important;
+    color: white !important;
+    padding: 8px 15px !important;
+    border-radius: 20px !important;
+    border: 2px solid black !important;
+    font-weight: bold !important;
+    cursor: pointer !important;
+    transition: all 0.3s ease !important;
+}
+
+.show-answer-btn:hover {
+    background: rgba(100, 117, 230, 1) !important;
+}
+
+.teams-section {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 20px !important;
+}
+
+.team-score-card {
+    background: rgba(255, 255, 255, 0.35) !important;
+    border: 2px solid black !important;
+    border-radius: 20px !important;
+    padding: 15px !important;
+    text-align: center !important;
+}
+
+.team-name {
+    background: rgba(100, 117, 230, 0.9) !important;
+    color: white !important;
+    padding: 8px 15px !important;
+    border-radius: 15px !important;
+    font-weight: bold !important;
+    font-size: 14px !important;
+    margin-bottom: 10px !important;
+}
+
+.team-score {
+    font-size: 36px !important;
+    font-weight: bold !important;
+    color: #ffd700 !important;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5) !important;
+}
+
+/* Hide lifelines block */
+.lifelines-section {
+    display: none !important;
+}
+
 /* Fix for game footer */
 .game-footer {
     display: grid !important;
@@ -125,6 +283,24 @@
     .game-footer {
         grid-template-columns: 1fr 1fr 1fr !important;
     }
+    
+    .question-main-container {
+        grid-template-columns: 1fr !important;
+        gap: 15px !important;
+        height: auto !important;
+    }
+    
+    .question-section {
+        min-height: 300px !important;
+    }
+    
+    .question-content {
+        font-size: 16px !important;
+    }
+    
+    .team-score {
+        font-size: 28px !important;
+    }
 }
 
 @media (max-width: 576px) {
@@ -138,6 +314,37 @@
     
     .team-panel {
         margin-bottom: 10px !important;
+    }
+    
+    .question-main-container {
+        margin: 10px !important;
+        gap: 10px !important;
+    }
+    
+    .question-section {
+        padding: 30px 15px 15px 15px !important;
+    }
+    
+    .question-points,
+    .question-category {
+        font-size: 12px !important;
+        padding: 6px 12px !important;
+    }
+    
+    .question-timer {
+        padding: 6px 12px !important;
+    }
+    
+    .timer-display {
+        font-size: 14px !important;
+    }
+    
+    .teams-section {
+        gap: 10px !important;
+    }
+    
+    .team-score {
+        font-size: 24px !important;
     }
 }
 </style>
