@@ -99,10 +99,10 @@
 /* New Question Layout */
 .question-main-container {
     display: grid !important;
-    grid-template-columns: 2fr 1fr !important;
-    gap: 20px !important;
-    margin: 20px !important;
-    height: 60vh !important;
+    grid-template-columns: 3fr 1fr !important;
+    gap: 15px !important;
+    margin: 15px !important;
+    height: 65vh !important;
 }
 
 .question-section {
@@ -110,11 +110,12 @@
     background: rgba(255, 255, 255, 0.35) !important;
     border: 2px solid black !important;
     border-radius: 30px !important;
-    padding: 40px 20px 20px 20px !important;
+    padding: 45px 25px 20px 25px !important;
     display: flex !important;
     flex-direction: column !important;
     justify-content: center !important;
     align-items: center !important;
+    width: 100% !important;
 }
 
 .question-points {
@@ -186,18 +187,20 @@
 .question-content {
     text-align: center !important;
     color: #333 !important;
-    font-size: 18px !important;
+    font-size: 20px !important;
     font-weight: bold !important;
     line-height: 1.4 !important;
-    margin: 20px 0 !important;
+    margin: 25px 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
 }
 
 .question-image {
-    max-width: 200px !important;
-    max-height: 200px !important;
+    max-width: 250px !important;
+    max-height: 250px !important;
     border-radius: 50% !important;
     border: 3px solid #ffd700 !important;
-    margin: 20px 0 !important;
+    margin: 25px 0 !important;
 }
 
 .show-answer-btn {
@@ -221,29 +224,30 @@
 .teams-section {
     display: flex !important;
     flex-direction: column !important;
-    gap: 20px !important;
+    gap: 15px !important;
+    width: 100% !important;
 }
 
 .team-score-card {
     background: rgba(255, 255, 255, 0.35) !important;
     border: 2px solid black !important;
     border-radius: 20px !important;
-    padding: 15px !important;
+    padding: 12px !important;
     text-align: center !important;
 }
 
 .team-name {
     background: rgba(100, 117, 230, 0.9) !important;
     color: white !important;
-    padding: 8px 15px !important;
+    padding: 6px 12px !important;
     border-radius: 15px !important;
     font-weight: bold !important;
-    font-size: 14px !important;
-    margin-bottom: 10px !important;
+    font-size: 13px !important;
+    margin-bottom: 8px !important;
 }
 
 .team-score {
-    font-size: 36px !important;
+    font-size: 32px !important;
     font-weight: bold !important;
     color: #ffd700 !important;
     text-shadow: 2px 2px 4px rgba(0,0,0,0.5) !important;
