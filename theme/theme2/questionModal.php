@@ -33,6 +33,35 @@
                 <div class="answer-text-large" id="answerText"></div>
             </div>
             
+            <!-- Team Selection Controls (shown after answer is revealed) -->
+            <div class="team-selection-controls" id="teamSelection" style="display: none;">
+                <div class="team-scoring-title">أي فريق أجاب بشكل صحيح؟</div>
+                <div class="team-buttons">
+                    <button class="quiz-btn quiz-btn-team1" id="team1CorrectBtn" onclick="markTeamCorrect(1)">
+                        <i class="fas fa-check"></i>
+                        <span id="team1CorrectName">الفريق الأول</span>
+                    </button>
+                    
+                    <button class="quiz-btn quiz-btn-team2" id="team2CorrectBtn" onclick="markTeamCorrect(2)">
+                        <i class="fas fa-check"></i>
+                        <span id="team2CorrectName">الفريق الثاني</span>
+                    </button>
+                    
+                    <button class="quiz-btn quiz-btn-wrong" id="noCorrectBtn" onclick="markNoCorrect()">
+                        <i class="fas fa-times"></i>
+                        <span>لا أحد أجاب صحيح</span>
+                    </button>
+                </div>
+                
+                <!-- Back to Board Button -->
+                <div style="display: flex; justify-content: center; margin-top: 15px;">
+                    <button class="quiz-btn quiz-btn-back" id="nextBtn" onclick="closeQuestion()" style="display: none;">
+                        <i class="fas fa-arrow-right"></i>
+                        <span>العودة للوحة</span>
+                    </button>
+                </div>
+            </div>
+            
             <!-- Show Answer Button (bottom-left) -->
             <button class="show-answer-btn" id="showAnswerBtn" onclick="showAnswer()">
                 <i class="fas fa-eye"></i>
@@ -58,33 +87,6 @@
                 <div class="team-name" id="team2Name">الفريق الثاني</div>
                 <div class="team-score" id="team2Score">1500</div>
             </div>
-            
-            <!-- Team Selection Controls (shown after answer is revealed) -->
-            <div class="team-selection-controls" id="teamSelection" style="display: none;">
-                <div class="team-scoring-title">أي فريق أجاب بشكل صحيح؟</div>
-                <div class="team-buttons">
-                    <button class="quiz-btn quiz-btn-team1" id="team1CorrectBtn" onclick="markTeamCorrect(1)">
-                        <i class="fas fa-check"></i>
-                        <span id="team1CorrectName">الفريق الأول</span>
-                    </button>
-                    
-                    <button class="quiz-btn quiz-btn-team2" id="team2CorrectBtn" onclick="markTeamCorrect(2)">
-                        <i class="fas fa-check"></i>
-                        <span id="team2CorrectName">الفريق الثاني</span>
-                    </button>
-                    
-                    <button class="quiz-btn quiz-btn-wrong" id="noCorrectBtn" onclick="markNoCorrect()">
-                        <i class="fas fa-times"></i>
-                        <span>لا أحد أجاب صحيح</span>
-                    </button>
-                </div>
-            </div>
-            
-            <!-- Back to Board Button -->
-            <button class="quiz-btn quiz-btn-back" id="nextBtn" onclick="closeQuestion()" style="display: none;">
-                <i class="fas fa-arrow-right"></i>
-                <span>العودة للوحة</span>
-            </button>
         </div>
     </div>
     

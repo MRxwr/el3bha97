@@ -275,39 +275,45 @@
     display: none !important;
 }
 
-/* Team Selection Controls */
+/* Team Selection Controls - Inside Question Section */
 .team-selection-controls {
-    background: rgba(255, 255, 255, 0.2) !important;
-    border-radius: 15px !important;
-    padding: 15px !important;
-    margin-top: 20px !important;
+    background: rgba(255, 255, 255, 0.3) !important;
+    border-radius: 20px !important;
+    padding: 20px !important;
+    margin-top: 25px !important;
+    border: 2px solid rgba(0, 0, 0, 0.2) !important;
+    width: 100% !important;
 }
 
 .team-scoring-title {
-    color: white !important;
+    color: #333 !important;
     font-weight: bold !important;
     text-align: center !important;
-    margin-bottom: 10px !important;
-    font-size: 14px !important;
+    margin-bottom: 15px !important;
+    font-size: 16px !important;
 }
 
 .team-buttons {
     display: flex !important;
-    flex-direction: column !important;
-    gap: 8px !important;
+    flex-direction: row !important;
+    gap: 15px !important;
+    justify-content: center !important;
+    flex-wrap: wrap !important;
 }
 
 .quiz-btn {
     border: 2px solid black !important;
-    border-radius: 15px !important;
-    padding: 8px 12px !important;
+    border-radius: 20px !important;
+    padding: 12px 20px !important;
     font-weight: bold !important;
     cursor: pointer !important;
     transition: all 0.3s ease !important;
     display: flex !important;
     align-items: center !important;
     gap: 8px !important;
-    font-size: 12px !important;
+    font-size: 14px !important;
+    min-width: 150px !important;
+    justify-content: center !important;
 }
 
 .quiz-btn-team1 {
@@ -340,9 +346,11 @@
 .quiz-btn-back {
     background: rgba(100, 117, 230, 0.8) !important;
     color: white !important;
-    width: 100% !important;
+    width: auto !important;
     justify-content: center !important;
     margin-top: 15px !important;
+    min-width: 200px !important;
+    align-self: center !important;
 }
 
 .quiz-btn-back:hover {
