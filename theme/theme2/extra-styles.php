@@ -108,8 +108,8 @@
     max-width: 1400px !important;
 }
 
-/* Question Modal Full Screen */
-.question-modal {
+/* Question Modal Full Screen - Only when shown */
+#questionModal:not([style*="display: none"]) {
     position: fixed !important;
     top: 0 !important;
     left: 0 !important;
