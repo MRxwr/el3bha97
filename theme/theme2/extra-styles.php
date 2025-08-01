@@ -100,9 +100,26 @@
 .question-main-container {
     display: grid !important;
     grid-template-columns: 3fr 1fr !important;
-    gap: 15px !important;
-    margin: 15px !important;
-    height: 65vh !important;
+    gap: 20px !important;
+    margin: 0 !important;
+    padding: 20px !important;
+    height: 95vh !important;
+    width: 95vw !important;
+    max-width: 1400px !important;
+}
+
+/* Question Modal Full Screen */
+.question-modal {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100vw !important;
+    height: 100vh !important;
+    background: rgba(0, 0, 0, 0.8) !important;
+    z-index: 9999 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
 }
 
 .question-section {
