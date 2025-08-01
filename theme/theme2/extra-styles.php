@@ -281,7 +281,7 @@
     border-radius: 20px !important;
     padding: 20px !important;
     margin-top: 25px !important;
-    border: 2px solid rgba(0, 0, 0, 0.2) !important;
+    border: 2px solid rgba(0, 0, 0, 1) !important;
     width: 100% !important;
 }
 
