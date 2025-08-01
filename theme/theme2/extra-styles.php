@@ -115,7 +115,7 @@
     left: 0 !important;
     width: 100vw !important;
     height: 100vh !important;
-    background: rgba(0, 0, 0, 0.8) !important;
+    background: rgb(80 94 184) !important;
     z-index: 9999 !important;
     display: flex !important;
     align-items: center !important;
