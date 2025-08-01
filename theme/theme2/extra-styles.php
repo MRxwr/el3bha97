@@ -254,6 +254,111 @@
     display: none !important;
 }
 
+/* Team Selection Controls */
+.team-selection-controls {
+    background: rgba(255, 255, 255, 0.2) !important;
+    border-radius: 15px !important;
+    padding: 15px !important;
+    margin-top: 20px !important;
+}
+
+.team-scoring-title {
+    color: white !important;
+    font-weight: bold !important;
+    text-align: center !important;
+    margin-bottom: 10px !important;
+    font-size: 14px !important;
+}
+
+.team-buttons {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 8px !important;
+}
+
+.quiz-btn {
+    border: 2px solid black !important;
+    border-radius: 15px !important;
+    padding: 8px 12px !important;
+    font-weight: bold !important;
+    cursor: pointer !important;
+    transition: all 0.3s ease !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+    font-size: 12px !important;
+}
+
+.quiz-btn-team1 {
+    background: rgba(40, 167, 69, 0.8) !important;
+    color: white !important;
+}
+
+.quiz-btn-team1:hover {
+    background: rgba(40, 167, 69, 1) !important;
+}
+
+.quiz-btn-team2 {
+    background: rgba(0, 123, 255, 0.8) !important;
+    color: white !important;
+}
+
+.quiz-btn-team2:hover {
+    background: rgba(0, 123, 255, 1) !important;
+}
+
+.quiz-btn-wrong {
+    background: rgba(220, 53, 69, 0.8) !important;
+    color: white !important;
+}
+
+.quiz-btn-wrong:hover {
+    background: rgba(220, 53, 69, 1) !important;
+}
+
+.quiz-btn-back {
+    background: rgba(100, 117, 230, 0.8) !important;
+    color: white !important;
+    width: 100% !important;
+    justify-content: center !important;
+    margin-top: 15px !important;
+}
+
+.quiz-btn-back:hover {
+    background: rgba(100, 117, 230, 1) !important;
+}
+
+/* Double Points Indicator */
+.double-points-indicator {
+    position: absolute !important;
+    top: 50px !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    background: rgba(255, 193, 7, 0.9) !important;
+    color: #333 !important;
+    padding: 8px 15px !important;
+    border-radius: 20px !important;
+    border: 2px solid black !important;
+    font-weight: bold !important;
+    font-size: 14px !important;
+    z-index: 10 !important;
+}
+
+/* Call Friend Timer Repositioning */
+.call-friend-timer {
+    position: fixed !important;
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    background: rgba(0, 0, 0, 0.9) !important;
+    color: white !important;
+    padding: 20px !important;
+    border-radius: 20px !important;
+    border: 2px solid #ffd700 !important;
+    text-align: center !important;
+    z-index: 1000 !important;
+}
+
 /* Fix for game footer */
 .game-footer {
     display: grid !important;
