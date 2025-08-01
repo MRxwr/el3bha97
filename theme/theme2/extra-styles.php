@@ -101,7 +101,6 @@
     display: grid !important;
     grid-template-columns: 1fr 1fr 1fr !important;
     gap: 10px !important;
-    margin-top: auto !important;
 }
 
 .ads-placeholder {
